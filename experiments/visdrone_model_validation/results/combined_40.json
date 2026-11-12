@@ -1,0 +1,32 @@
+{
+  "variant": "combined_40",
+  "epochs": 5,
+  "seed": 42,
+  "image_size": 320,
+  "batch": 16,
+  "initialization": "C:\\DataReadiness\\experiments\\visdrone_model_validation\\resources\\downloads\\yolo11n.pt",
+  "initialization_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+  "best_checkpoint": "C:\\DataReadiness\\experiments\\visdrone_model_validation\\training_runs\\combined_40\\weights\\best.pt",
+  "best_checkpoint_sha256": "8f61e7bf7d72dd9cb35b929aa31f895df0f507e0ee9b9128d47a33c394fc2f73",
+  "training_seconds": 490.05346799991094,
+  "test_split": "official labeled VisDrone2019-DET-test-dev",
+  "test_images": 1610,
+  "metrics": {
+    "precision": 0.14471363047448096,
+    "recall": 0.09981951068930393,
+    "mAP50": 0.06163555432530633,
+    "mAP50_95": 0.028204942946029283,
+    "per_class_mAP50_95": {
+      "pedestrian": 0.010503530325007431,
+      "people": 0.0030654105060045744,
+      "bicycle": 0.0005900948441614466,
+      "car": 0.13186667689245707,
+      "van": 0.025734148492189364,
+      "truck": 0.023243868889569717,
+      "tricycle": 0.0014768945830967988,
+      "awning-tricycle": 2.8435539907284233e-05,
+      "bus": 0.0793421800841322,
+      "motor": 0.006198189303766992
+    }
+  }
+}

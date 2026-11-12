@@ -1,0 +1,9 @@
+flowchart TD
+  A["backend/main.py"] -.->|"register routers"| B["api / workflow_api / lab_api / quality_api"]
+  B -.->|"cached services"| C["Store + JobManager"]
+  C -->|"python -m backend.workbench.worker"| D["worker.run in child process"]
+  D -.->|"lazy task implementation"| E["detector / experiments"]
+  E -.->|"source validation"| F["datasets / splits"]
+  E -.->|"optional ML library"| G["Ultralytics / PyTorch"]
+  B -.->|"read/export"| H["analytics / reporting"]
+  H -.->|"record access"| C

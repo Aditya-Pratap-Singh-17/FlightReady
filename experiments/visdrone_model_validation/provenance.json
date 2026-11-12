@@ -1,0 +1,38 @@
+{
+  "sources": {
+    "train": {
+      "archive": "C:\\DataReadiness\\experiments\\visdrone_model_validation\\resources\\downloads\\VisDrone2019-DET-train.zip",
+      "sha256": "86a77eba93137bfc16e4993860de9245b0675c0dba0d3ab98fb458699e256f84",
+      "bytes": 1549875511,
+      "images": 6471,
+      "labels": 6471
+    },
+    "val": {
+      "archive": "C:\\DataReadiness\\experiments\\visdrone_model_validation\\resources\\downloads\\VisDrone2019-DET-val.zip",
+      "sha256": "abeea063037e5d20398837deb11084e652402a34ddf4f207bdf541a6f2a35ef9",
+      "bytes": 81638851,
+      "images": 548,
+      "labels": 548
+    },
+    "test": {
+      "archive": "C:\\DataReadiness\\experiments\\visdrone_model_validation\\resources\\downloads\\VisDrone2019-DET-test-dev.zip",
+      "sha256": "b28a94b06dfd9e36ce77ff8155fb82b9d2c030f198a76105933bd56c6ea6a68d",
+      "bytes": 311251787,
+      "images": 1610,
+      "labels": 1610
+    }
+  },
+  "model": {
+    "path": "C:\\DataReadiness\\experiments\\visdrone_model_validation\\resources\\downloads\\yolo11n.pt",
+    "sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+    "bytes": 5613764,
+    "source": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo11n.pt",
+    "license": "AGPL-3.0"
+  },
+  "conversion": "Ultralytics VisDrone.yaml algorithm; ignored score=0 regions excluded",
+  "dataset": {
+    "source": "https://github.com/VisDrone/VisDrone-Dataset",
+    "download_adapter": "https://docs.ultralytics.com/datasets/detect/visdrone",
+    "license": "No explicit license found in official repository/catalog; verify rights before redistribution."
+  }
+}

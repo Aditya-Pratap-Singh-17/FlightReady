@@ -1,0 +1,146 @@
+{
+  "seed": 20261111,
+  "original_images": 6471,
+  "variants": [
+    {
+      "name": "clean",
+      "family": "reference",
+      "prevalence": 0,
+      "severity": "none",
+      "root": "C:\\DataReadiness\\experiments\\visdrone_model_validation\\datasets\\prepared\\VisDrone",
+      "images": 6471,
+      "affected": 0
+    },
+    {
+      "name": "gaussian_noise_25",
+      "family": "image_noise",
+      "prevalence": 25,
+      "severity": "Gaussian RGB sigma=25/255",
+      "root": "C:\\DataReadiness\\experiments\\visdrone_model_validation\\datasets\\variants\\gaussian_noise_25",
+      "images": 6471,
+      "affected": 1618,
+      "affected_fraction_actual": 0.2500386339051151,
+      "selection_seed": 20262120
+    },
+    {
+      "name": "motion_blur_25",
+      "family": "motion_blur",
+      "prevalence": 25,
+      "severity": "horizontal 9-pixel kernel",
+      "root": "C:\\DataReadiness\\experiments\\visdrone_model_validation\\datasets\\variants\\motion_blur_25",
+      "images": 6471,
+      "affected": 1618,
+      "affected_fraction_actual": 0.2500386339051151,
+      "selection_seed": 20263129
+    },
+    {
+      "name": "contrast_25",
+      "family": "reduced_contrast",
+      "prevalence": 25,
+      "severity": "contrast factor 0.45",
+      "root": "C:\\DataReadiness\\experiments\\visdrone_model_validation\\datasets\\variants\\contrast_25",
+      "images": 6471,
+      "affected": 1618,
+      "affected_fraction_actual": 0.2500386339051151,
+      "selection_seed": 20264138
+    },
+    {
+      "name": "jpeg_25",
+      "family": "compression",
+      "prevalence": 25,
+      "severity": "JPEG quality=18",
+      "root": "C:\\DataReadiness\\experiments\\visdrone_model_validation\\datasets\\variants\\jpeg_25",
+      "images": 6471,
+      "affected": 1618,
+      "affected_fraction_actual": 0.2500386339051151,
+      "selection_seed": 20265147
+    },
+    {
+      "name": "missing_annotations_25",
+      "family": "missing_annotations",
+      "prevalence": 25,
+      "severity": "remove 50% of boxes in affected images",
+      "root": "C:\\DataReadiness\\experiments\\visdrone_model_validation\\datasets\\variants\\missing_annotations_25",
+      "images": 6471,
+      "affected": 1618,
+      "affected_fraction_actual": 0.2500386339051151,
+      "selection_seed": 20266156
+    },
+    {
+      "name": "wrong_class_25",
+      "family": "wrong_class",
+      "prevalence": 25,
+      "severity": "change every box class in affected images to a different valid class",
+      "root": "C:\\DataReadiness\\experiments\\visdrone_model_validation\\datasets\\variants\\wrong_class_25",
+      "images": 6471,
+      "affected": 1618,
+      "affected_fraction_actual": 0.2500386339051151,
+      "selection_seed": 20267165
+    },
+    {
+      "name": "bbox_displacement_25",
+      "family": "bbox_displacement",
+      "prevalence": 25,
+      "severity": "shift centers by +0.08 normalized x/y, clipped",
+      "root": "C:\\DataReadiness\\experiments\\visdrone_model_validation\\datasets\\variants\\bbox_displacement_25",
+      "images": 6471,
+      "affected": 1618,
+      "affected_fraction_actual": 0.2500386339051151,
+      "selection_seed": 20268174
+    },
+    {
+      "name": "incomplete_40",
+      "family": "dataset_completeness",
+      "prevalence": 40,
+      "severity": "exclude 40% of training images",
+      "root": "C:\\DataReadiness\\experiments\\visdrone_model_validation\\datasets\\variants\\incomplete_40",
+      "images": 3883,
+      "affected": 2588,
+      "affected_fraction_actual": 0.3999381857518158,
+      "selection_seed": 20269183
+    },
+    {
+      "name": "duplicates_25",
+      "family": "duplicates",
+      "prevalence": 25,
+      "severity": "add exact duplicate files equal to 25% of original image count",
+      "root": "C:\\DataReadiness\\experiments\\visdrone_model_validation\\datasets\\variants\\duplicates_25",
+      "images": 8089,
+      "affected": 1618,
+      "affected_fraction_actual": 0.2500386339051151,
+      "selection_seed": 20270192
+    },
+    {
+      "name": "class_imbalance_40",
+      "family": "class_imbalance",
+      "prevalence": 40,
+      "severity": "remove 40% of images containing rare classes 7 or 8",
+      "root": "C:\\DataReadiness\\experiments\\visdrone_model_validation\\datasets\\variants\\class_imbalance_40",
+      "images": 5311,
+      "affected": 1160,
+      "affected_fraction_actual": 0.17926131973419873,
+      "selection_seed": 20271201
+    },
+    {
+      "name": "combined_40",
+      "family": "combined",
+      "prevalence": 40,
+      "severity": "Gaussian sigma=25 plus 50% box omission and valid wrong classes in affected images",
+      "root": "C:\\DataReadiness\\experiments\\visdrone_model_validation\\datasets\\variants\\combined_40",
+      "images": 6471,
+      "affected": 2588,
+      "affected_fraction_actual": 0.3999381857518158,
+      "selection_seed": 20272210
+    },
+    {
+      "name": "combined_repaired",
+      "family": "oracle_repair",
+      "prevalence": 0,
+      "severity": "restore original bytes and annotations from preserved clean snapshot",
+      "root": "C:\\DataReadiness\\experiments\\visdrone_model_validation\\datasets\\prepared\\VisDrone",
+      "images": 6471,
+      "affected": 0,
+      "oracle_source": "clean"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "version": "experimental-engineering-1.0-restored",
+  "enabled": true,
+  "components": [
+    {"id":"annotation_validity","label":"Annotation syntax validity","weight":20.0,"source":"metric","metric_id":"bbox_invalid_rate","normalization":"one_minus_fraction","modalities":["image"]},
+    {"id":"label_availability","label":"Label availability","weight":15.0,"source":"metric","metric_id":"missing_label_rate","normalization":"one_minus_fraction"},
+    {"id":"required_classes","label":"Required class presence","weight":15.0,"source":"required_class_coverage"},
+    {"id":"image_clarity","label":"Illustrative image clarity criterion","weight":15.0,"source":"image_clarity","threshold":100,"modalities":["image"]},
+    {"id":"split_integrity","label":"Declared split overlap checks","weight":15.0,"source":"split_overlap_checks","metric_ids":["split_overlap","group_leakage","near_split_overlap"]},
+    {"id":"readability","label":"Image readability","weight":10.0,"source":"metric","metric_id":"unreadable_rate","normalization":"one_minus_fraction","modalities":["image"]},
+    {"id":"uniqueness","label":"Exact content uniqueness","weight":5.0,"source":"metric","metric_id":"duplicate_rate","normalization":"one_minus_fraction"},
+    {"id":"scenario_coverage","label":"Confirmed scenario coverage","weight":5.0,"source":"scenario_coverage"}
+  ]
+}

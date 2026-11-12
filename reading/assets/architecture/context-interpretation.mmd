@@ -1,0 +1,13 @@
+flowchart TD
+  U["GoalChat: user goal messages"] --> A["workflow_api.project_goal"]
+  A -->|"text + empty tags; allow_remote flag"| I["context_extractor.interpret"]
+  I --> L["deterministic fallback draft"]
+  I --> D{"Configured provider enabled?"}
+  D -->|"Gemini / compatible REST"| R["provider.extract: task text only"]
+  R --> V["DatasetContext validation + numeric grounding"]
+  V -->|"valid"| S["unconfirmed saved context"]
+  V -->|"unavailable / invalid"| L
+  L --> S
+  S -->|"human reviews fields/questions"| C["confirm_project"]
+  C -->|"new confirmed context record"| F["workflow.confirmed_context_id"]
+  F -->|"exact context snapshot"| Q["assess_project -> readiness"]

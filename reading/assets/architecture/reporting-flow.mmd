@@ -1,0 +1,15 @@
+flowchart TD
+  C[("saved Certificate: raw metrics + quality_measurements")]
+  C --> V["research_evidence: eight derived views"]
+  V --> UI["QualityAnalytics -> ResearchEvidence"]
+  U["export selected report ID + format"] --> A["workbench.api.report"]
+  A --> D{"Record / format?"}
+  D -->|"readiness JSON / CSV"| J["complete saved record / structured metric rows"]
+  D -->|"readiness HTML"| H["reports.html_report + research_evidence_html"]
+  D -->|"PDF / research HTML"| R["reporting.document: exact saved scope"]
+  C --> H
+  C --> R
+  R --> P["pdf_document / html_document:<br/>evidence tables, units, sampling and limitations"]
+  J --> O["download response"]
+  H --> O
+  P --> O

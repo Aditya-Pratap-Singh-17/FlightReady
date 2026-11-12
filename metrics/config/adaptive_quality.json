@@ -1,0 +1,615 @@
+{
+  "profile_version": "adaptive-1.0",
+  "normalization_version": "criterion-1.0",
+  "aggregation_version": "geometric-gates-1.0",
+  "provenance": "Engineering starting policy, motivated by measurement semantics and task dependencies; not empirically calibrated or independently expert validated. Editable ratios express priorities, not effect sizes.",
+  "dimensions": {
+    "annotation_quality": "Annotation quality",
+    "diversity": "Diversity and required coverage",
+    "signal_quality": "Signal and image quality",
+    "statistical_adequacy": "Distribution and sample adequacy",
+    "task_suitability": "Task and operational suitability",
+    "integrity": "Data integrity and reliability"
+  },
+  "components": [
+    {
+      "id": "annotation_validity",
+      "dimension": "annotation_quality",
+      "label": "Syntactically valid annotations",
+      "definition": "Syntactically valid annotations; see linked raw metric definition and evidence denominator.",
+      "direction": "lower",
+      "source": "metric",
+      "normalization": "one_minus_fraction",
+      "metric_id": "bbox_invalid_rate",
+      "tasks": [
+        "object_detection",
+        "tracking"
+      ],
+      "modalities": [
+        "image"
+      ],
+      "weight": 1,
+      "requirements": "Parsed annotation files",
+      "provenance": "Algebraic conversion of measured fractions/counts or confirmed requirements; criteria are explicit.",
+      "limitations": "Syntax validity does not establish correct boxes or complete visible-object labels.",
+      "gate": "block"
+    },
+    {
+      "id": "label_availability",
+      "dimension": "annotation_quality",
+      "label": "Label or annotation availability",
+      "definition": "Label or annotation availability; see linked raw metric definition and evidence denominator.",
+      "direction": "lower",
+      "source": "metric",
+      "normalization": "one_minus_fraction",
+      "metric_id": "missing_label_rate",
+      "tasks": [
+        "object_detection",
+        "tracking",
+        "classification",
+        "regression"
+      ],
+      "modalities": [
+        "image",
+        "tabular"
+      ],
+      "weight": 1,
+      "requirements": "Task-specific target or annotation-presence evidence",
+      "provenance": "Algebraic conversion of measured fractions/counts or confirmed requirements; criteria are explicit.",
+      "limitations": "Descriptive criterion compliance only; does not estimate model performance.",
+      "gate": "block"
+    },
+    {
+      "id": "annotation_audit",
+      "dimension": "annotation_quality",
+      "label": "Independently reviewed annotation correctness",
+      "definition": "Independently reviewed annotation correctness; see linked raw metric definition and evidence denominator.",
+      "direction": "lower",
+      "source": "annotation_audit",
+      "normalization": "one_minus_fraction",
+      "metric_id": "UAV-15",
+      "tasks": [
+        "object_detection",
+        "tracking"
+      ],
+      "modalities": [
+        "image"
+      ],
+      "weight": 1,
+      "requirements": "Declared independent audit with reviewed and incorrect object counts",
+      "provenance": "Algebraic conversion of measured fractions/counts or confirmed requirements; criteria are explicit.",
+      "limitations": "Only the declared reviewed population is scored; reviewer independence is user declared.",
+      "gate": null
+    },
+    {
+      "id": "verified_labels",
+      "dimension": "annotation_quality",
+      "label": "Trusted reference label agreement",
+      "definition": "Trusted reference label agreement; see linked raw metric definition and evidence denominator.",
+      "direction": "lower",
+      "source": "metric",
+      "normalization": "one_minus_fraction",
+      "metric_id": "verified_label_error",
+      "tasks": [
+        "classification"
+      ],
+      "modalities": [
+        "tabular"
+      ],
+      "weight": 1,
+      "requirements": "Explicitly trusted reference labels",
+      "provenance": "Algebraic conversion of measured fractions/counts or confirmed requirements; criteria are explicit.",
+      "limitations": "Descriptive criterion compliance only; does not estimate model performance.",
+      "gate": null
+    },
+    {
+      "id": "scene_coverage",
+      "dimension": "diversity",
+      "label": "Required scene categories observed",
+      "definition": "Required scene categories observed; see linked raw metric definition and evidence denominator.",
+      "direction": "criterion",
+      "source": "categories",
+      "normalization": "criterion_fraction",
+      "metric_id": "UAV-05",
+      "tasks": [],
+      "modalities": [
+        "image"
+      ],
+      "weight": 1,
+      "requirements": "Recorded scene categories and confirmed target_environment.scene list",
+      "provenance": "Algebraic conversion of measured fractions/counts or confirmed requirements; criteria are explicit.",
+      "limitations": "Presence only; not statistical sufficiency or visual appearance diversity.",
+      "gate": null
+    },
+    {
+      "id": "weather_coverage",
+      "dimension": "diversity",
+      "label": "Required weather categories observed",
+      "definition": "Required weather categories observed; see linked raw metric definition and evidence denominator.",
+      "direction": "criterion",
+      "source": "categories",
+      "normalization": "criterion_fraction",
+      "metric_id": "UAV-02",
+      "tasks": [],
+      "modalities": [
+        "image",
+        "tabular"
+      ],
+      "weight": 1,
+      "requirements": "Recorded weather metadata and confirmed target_environment.weather list",
+      "provenance": "Algebraic conversion of measured fractions/counts or confirmed requirements; criteria are explicit.",
+      "limitations": "Descriptive criterion compliance only; does not estimate model performance.",
+      "gate": null
+    },
+    {
+      "id": "clarity",
+      "dimension": "signal_quality",
+      "label": "Images meeting the declared clarity criterion",
+      "definition": "Images meeting the declared clarity criterion; see linked raw metric definition and evidence denominator.",
+      "direction": "criterion",
+      "source": "clarity",
+      "normalization": "criterion_fraction",
+      "metric_id": "UAV-14",
+      "tasks": [
+        "classification",
+        "object_detection",
+        "tracking",
+        "anomaly_detection"
+      ],
+      "modalities": [
+        "image"
+      ],
+      "weight": 1,
+      "requirements": "Full readable-image thumbnail Laplacian variances",
+      "provenance": "Algebraic conversion of measured fractions/counts or confirmed requirements; criteria are explicit.",
+      "limitations": "Default threshold 100 is inherited from the existing experimental feature and is illustrative and uncalibrated. Texture and thumbnail scale affect this proxy; no semantic visibility claim.",
+      "gate": null
+    },
+    {
+      "id": "finite_signals",
+      "dimension": "signal_quality",
+      "label": "Finite numeric sensor values",
+      "definition": "Finite numeric sensor values; see linked raw metric definition and evidence denominator.",
+      "direction": "lower",
+      "source": "metric",
+      "normalization": "one_minus_fraction",
+      "metric_id": "non_finite_rate",
+      "tasks": [
+        "telemetry",
+        "anomaly_detection",
+        "regression"
+      ],
+      "modalities": [
+        "tabular"
+      ],
+      "weight": 1,
+      "requirements": "Full numeric-cell nonfinite count; NaN is measured separately",
+      "provenance": "Algebraic conversion of measured fractions/counts or confirmed requirements; criteria are explicit.",
+      "limitations": "Descriptive criterion compliance only; does not estimate model performance.",
+      "gate": null
+    },
+    {
+      "id": "class_balance",
+      "dimension": "statistical_adequacy",
+      "label": "Normalized class entropy under a declared uniform target",
+      "definition": "Normalized class entropy under a declared uniform target; see linked raw metric definition and evidence denominator.",
+      "direction": "criterion",
+      "source": "class_balance",
+      "normalization": "entropy",
+      "metric_id": "class_distribution",
+      "tasks": [
+        "classification",
+        "object_detection"
+      ],
+      "modalities": [
+        "image",
+        "tabular"
+      ],
+      "weight": 1,
+      "requirements": "Confirmed uav_parameters.class_balance_target=uniform and complete class counts",
+      "provenance": "Algebraic conversion of measured fractions/counts or confirmed requirements; criteria are explicit.",
+      "limitations": "Uniformity is scored only if explicitly requested. A balanced dataset is not necessarily deployment representative; one-class balance is undefined.",
+      "gate": null
+    },
+    {
+      "id": "sample_requirements",
+      "dimension": "statistical_adequacy",
+      "label": "Confirmed minimum sample requirements met",
+      "definition": "Confirmed minimum sample requirements met; see linked raw metric definition and evidence denominator.",
+      "direction": "criterion",
+      "source": "findings",
+      "normalization": "requirement_fraction",
+      "metric_id": "sample_sufficiency",
+      "tasks": [],
+      "modalities": [
+        "image",
+        "tabular"
+      ],
+      "weight": 1,
+      "requirements": "Confirmed count requirements with explicit minimum greater than one",
+      "provenance": "Algebraic conversion of measured fractions/counts or confirmed requirements; criteria are explicit.",
+      "limitations": "Descriptive criterion compliance only; does not estimate model performance.",
+      "gate": null
+    },
+    {
+      "id": "required_classes",
+      "dimension": "task_suitability",
+      "label": "Required class presence",
+      "definition": "Required class presence; see linked raw metric definition and evidence denominator.",
+      "direction": "criterion",
+      "source": "findings",
+      "normalization": "requirement_fraction",
+      "metric_id": "required_class_count",
+      "tasks": [
+        "classification",
+        "object_detection",
+        "tracking"
+      ],
+      "modalities": [
+        "image",
+        "tabular"
+      ],
+      "weight": 1,
+      "requirements": "Confirmed required classes and usable label counts",
+      "provenance": "Algebraic conversion of measured fractions/counts or confirmed requirements; criteria are explicit.",
+      "limitations": "Descriptive criterion compliance only; does not estimate model performance.",
+      "gate": null
+    },
+    {
+      "id": "scenario_requirements",
+      "dimension": "task_suitability",
+      "label": "Confirmed operating-condition requirements met",
+      "definition": "Confirmed operating-condition requirements met; see linked raw metric definition and evidence denominator.",
+      "direction": "criterion",
+      "source": "findings",
+      "normalization": "requirement_fraction",
+      "metric_id": "scenario_count",
+      "tasks": [],
+      "modalities": [
+        "image",
+        "tabular"
+      ],
+      "weight": 1,
+      "requirements": "Confirmed scenario definitions and measured supporting metadata",
+      "provenance": "Algebraic conversion of measured fractions/counts or confirmed requirements; criteria are explicit.",
+      "limitations": "Descriptive criterion compliance only; does not estimate model performance.",
+      "gate": null
+    },
+    {
+      "id": "readability",
+      "dimension": "integrity",
+      "label": "Readable image inputs",
+      "definition": "Readable image inputs; see linked raw metric definition and evidence denominator.",
+      "direction": "lower",
+      "source": "metric",
+      "normalization": "one_minus_fraction",
+      "metric_id": "unreadable_rate",
+      "tasks": [],
+      "modalities": [
+        "image"
+      ],
+      "weight": 1,
+      "requirements": "All input image decodes",
+      "provenance": "Algebraic conversion of measured fractions/counts or confirmed requirements; criteria are explicit.",
+      "limitations": "Descriptive criterion compliance only; does not estimate model performance.",
+      "gate": "block"
+    },
+    {
+      "id": "completeness",
+      "dimension": "integrity",
+      "label": "Observed cell completeness",
+      "definition": "Observed cell completeness; see linked raw metric definition and evidence denominator.",
+      "direction": "lower",
+      "source": "metric",
+      "normalization": "one_minus_fraction",
+      "metric_id": "missingness",
+      "tasks": [],
+      "modalities": [
+        "tabular"
+      ],
+      "weight": 1,
+      "requirements": "Full dataset missing-cell fraction",
+      "provenance": "Algebraic conversion of measured fractions/counts or confirmed requirements; criteria are explicit.",
+      "limitations": "Descriptive criterion compliance only; does not estimate model performance.",
+      "gate": null
+    },
+    {
+      "id": "uniqueness",
+      "dimension": "integrity",
+      "label": "Exact content uniqueness",
+      "definition": "Exact content uniqueness; see linked raw metric definition and evidence denominator.",
+      "direction": "lower",
+      "source": "metric",
+      "normalization": "one_minus_fraction",
+      "metric_id": "duplicate_rate",
+      "tasks": [],
+      "modalities": [
+        "image",
+        "tabular"
+      ],
+      "weight": 1,
+      "requirements": "Full row/image hash duplicate fraction",
+      "provenance": "Algebraic conversion of measured fractions/counts or confirmed requirements; criteria are explicit.",
+      "limitations": "Legitimate repeats require domain review; duplicate frames are not independent observations.",
+      "gate": null
+    },
+    {
+      "id": "split_integrity",
+      "dimension": "integrity",
+      "label": "No exact content overlap between declared splits",
+      "definition": "No exact content overlap between declared splits; see linked raw metric definition and evidence denominator.",
+      "direction": "lower",
+      "source": "metric",
+      "normalization": "zero_count",
+      "metric_id": "split_overlap",
+      "tasks": [],
+      "modalities": [
+        "image",
+        "tabular"
+      ],
+      "weight": 1,
+      "requirements": "Declared split metadata and complete content hashes",
+      "provenance": "Algebraic conversion of measured fractions/counts or confirmed requirements; criteria are explicit.",
+      "limitations": "Zero exact overlaps does not rule out semantic leakage.",
+      "gate": "block"
+    },
+    {
+      "id": "group_integrity",
+      "dimension": "integrity",
+      "label": "No recording groups overlap declared splits",
+      "definition": "No recording groups overlap declared splits; see linked raw metric definition and evidence denominator.",
+      "direction": "lower",
+      "source": "metric",
+      "normalization": "zero_count",
+      "metric_id": "group_leakage",
+      "tasks": [],
+      "modalities": [
+        "image",
+        "tabular"
+      ],
+      "weight": 1,
+      "requirements": "Declared comparable group and split identifiers",
+      "provenance": "Algebraic conversion of measured fractions/counts or confirmed requirements; criteria are explicit.",
+      "limitations": "Descriptive criterion compliance only; does not estimate model performance.",
+      "gate": "block"
+    },
+    {
+      "id": "near_split_integrity",
+      "dimension": "integrity",
+      "label": "No candidate near-duplicate split overlap",
+      "definition": "No candidate near-duplicate split overlap; see linked raw metric definition and evidence denominator.",
+      "direction": "lower",
+      "source": "metric",
+      "normalization": "zero_count",
+      "metric_id": "near_split_overlap",
+      "tasks": [],
+      "modalities": [
+        "image"
+      ],
+      "weight": 1,
+      "requirements": "Perceptual hashes and declared splits",
+      "provenance": "Algebraic conversion of measured fractions/counts or confirmed requirements; criteria are explicit.",
+      "limitations": "Perceptual similarity is a review candidate, not proof of leakage.",
+      "gate": "warning"
+    },
+    {
+      "id": "object_visibility",
+      "dimension": "signal_quality",
+      "label": "Annotated objects meeting confirmed pixel-size criterion",
+      "definition": "Annotated objects meeting confirmed pixel-size criterion",
+      "direction": "lower",
+      "source": "object_visibility",
+      "normalization": "criterion_fraction",
+      "metric_id": "UAV-08",
+      "tasks": [
+        "object_detection",
+        "tracking"
+      ],
+      "modalities": [
+        "image"
+      ],
+      "weight": 1,
+      "requirements": "Complete measured source evidence and explicit context mappings/criteria.",
+      "provenance": "Algebraic conversion of measured fractions/counts or confirmed requirements; criteria are explicit.",
+      "limitations": "Criterion compliance only; timestamps, sensor metadata and annotations are user supplied. No physical correctness or downstream detectability guarantee.",
+      "gate": null
+    },
+    {
+      "id": "timestamp_completeness",
+      "dimension": "integrity",
+      "label": "Parseable recorded timestamps",
+      "definition": "Parseable recorded timestamps",
+      "direction": "lower",
+      "source": "timestamps",
+      "normalization": "criterion_fraction",
+      "metric_id": "UAV-20",
+      "tasks": [
+        "telemetry",
+        "tracking",
+        "anomaly_detection"
+      ],
+      "modalities": [
+        "image",
+        "tabular"
+      ],
+      "weight": 1,
+      "requirements": "Complete measured source evidence and explicit context mappings/criteria.",
+      "provenance": "Algebraic conversion of measured fractions/counts or confirmed requirements; criteria are explicit.",
+      "limitations": "Criterion compliance only; timestamps, sensor metadata and annotations are user supplied. No physical correctness or downstream detectability guarantee.",
+      "gate": null
+    },
+    {
+      "id": "temporal_order",
+      "dimension": "signal_quality",
+      "label": "Recorded timestamp ordering",
+      "definition": "Recorded timestamp ordering",
+      "direction": "lower",
+      "source": "temporal_order",
+      "normalization": "criterion_fraction",
+      "metric_id": "UAV-20",
+      "tasks": [
+        "telemetry",
+        "tracking",
+        "anomaly_detection"
+      ],
+      "modalities": [
+        "image",
+        "tabular"
+      ],
+      "weight": 1,
+      "requirements": "Complete measured source evidence and explicit context mappings/criteria.",
+      "provenance": "Algebraic conversion of measured fractions/counts or confirmed requirements; criteria are explicit.",
+      "limitations": "Criterion compliance only; timestamps, sensor metadata and annotations are user supplied. No physical correctness or downstream detectability guarantee.",
+      "gate": null
+    },
+    {
+      "id": "sensor_completeness",
+      "dimension": "integrity",
+      "label": "Declared sensor field completeness",
+      "definition": "Declared sensor field completeness",
+      "direction": "lower",
+      "source": "sensor_completeness",
+      "normalization": "criterion_fraction",
+      "metric_id": "UAV-19",
+      "tasks": [
+        "telemetry",
+        "anomaly_detection"
+      ],
+      "modalities": [
+        "tabular"
+      ],
+      "weight": 1,
+      "requirements": "Complete measured source evidence and explicit context mappings/criteria.",
+      "provenance": "Algebraic conversion of measured fractions/counts or confirmed requirements; criteria are explicit.",
+      "limitations": "Criterion compliance only; timestamps, sensor metadata and annotations are user supplied. No physical correctness or downstream detectability guarantee.",
+      "gate": null
+    }
+  ],
+  "tasks": {
+    "object_detection": {
+      "dimension_weights": {
+        "annotation_quality": 5,
+        "diversity": 3,
+        "signal_quality": 2,
+        "statistical_adequacy": 2,
+        "task_suitability": 4,
+        "integrity": 4
+      },
+      "metric_weights": {
+        "annotation_validity": 2,
+        "label_availability": 2
+      },
+      "explanation": "Detection requires usable object annotations; syntax, label presence and deployment requirements receive priority."
+    },
+    "classification": {
+      "dimension_weights": {
+        "annotation_quality": 4,
+        "diversity": 2,
+        "signal_quality": 2,
+        "statistical_adequacy": 4,
+        "task_suitability": 3,
+        "integrity": 3
+      },
+      "metric_weights": {
+        "label_availability": 2
+      },
+      "explanation": "Classification prioritizes usable class labels and explicitly requested class distribution; boxes are inapplicable."
+    },
+    "regression": {
+      "dimension_weights": {
+        "annotation_quality": 3,
+        "diversity": 2,
+        "signal_quality": 3,
+        "statistical_adequacy": 3,
+        "task_suitability": 3,
+        "integrity": 4
+      },
+      "metric_weights": {},
+      "explanation": "Regression prioritizes valid target/signal records and integrity; class and box criteria are inapplicable."
+    },
+    "anomaly_detection": {
+      "dimension_weights": {
+        "annotation_quality": 1,
+        "diversity": 3,
+        "signal_quality": 4,
+        "statistical_adequacy": 3,
+        "task_suitability": 3,
+        "integrity": 5
+      },
+      "metric_weights": {
+        "finite_signals": 2
+      },
+      "explanation": "Anomaly analysis prioritizes observed signal integrity and operational coverage; anomaly-label semantics need an independent audit."
+    },
+    "telemetry": {
+      "dimension_weights": {
+        "annotation_quality": 1,
+        "diversity": 3,
+        "signal_quality": 4,
+        "statistical_adequacy": 3,
+        "task_suitability": 4,
+        "integrity": 5
+      },
+      "metric_weights": {
+        "finite_signals": 2
+      },
+      "explanation": "Telemetry prioritizes signal, schema and operational evidence; image sharpness and boxes are inapplicable."
+    },
+    "tracking": {
+      "dimension_weights": {
+        "annotation_quality": 5,
+        "diversity": 3,
+        "signal_quality": 2,
+        "statistical_adequacy": 2,
+        "task_suitability": 4,
+        "integrity": 5
+      },
+      "metric_weights": {
+        "annotation_validity": 2
+      },
+      "explanation": "Tracking needs annotations and temporal independence; unsupported identity/continuity evidence remains unassessed."
+    }
+  },
+  "scenarios": {
+    "default": {
+      "tasks": [
+        "object_detection",
+        "classification",
+        "regression",
+        "anomaly_detection",
+        "telemetry",
+        "tracking"
+      ],
+      "dimension_multipliers": {},
+      "metric_multipliers": {},
+      "explanation": "No explicit scenario policy selected; retain the documented task defaults."
+    },
+    "airport_drone_detection": {
+      "tasks": [
+        "object_detection"
+      ],
+      "dimension_multipliers": {
+        "annotation_quality": 1.5,
+        "task_suitability": 1.5
+      },
+      "metric_multipliers": {
+        "annotation_validity": 1.5
+      },
+      "explanation": "Opt-in engineering sensitivity policy: prioritize object annotation integrity and confirmed airport operating conditions. Does not establish small-drone visibility or distractor coverage."
+    },
+    "nighttime_detection": {
+      "tasks": [
+        "object_detection",
+        "tracking"
+      ],
+      "dimension_multipliers": {
+        "signal_quality": 1.5,
+        "task_suitability": 1.5
+      },
+      "metric_multipliers": {},
+      "explanation": "Opt-in engineering sensitivity policy: prioritize visual-signal criteria and confirmed nighttime evidence. Brightness alone does not establish nighttime coverage."
+    }
+  },
+  "clarity_threshold": 100,
+  "warning_below": 70
+}

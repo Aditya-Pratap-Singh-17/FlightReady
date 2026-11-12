@@ -1,0 +1,12 @@
+flowchart TD
+  A["workbench.api.upload: UploadFile"] -->|"file handle + metadata"| B["datasets.import_file"]
+  B -->|"bounded stream"| C["large_ingestion.load_dataset_stream"]
+  C --> D{"Source format?"}
+  D -->|"container"| E["dataset_archives.load_container"]
+  E -->|"ambiguous layout"| X["SelectionRequired: explicit parser choice"]
+  E -->|"image layout"| F["load_image_archive / load_universal_images"]
+  D -->|"CSV / Parquet / record formats"| G["pandas or DuckDB table loading"]
+  F -->|"frame + objects + hashes"| H["ingestion.Dataset"]
+  G -->|"full profile; bounded preview if disk-backed"| H
+  H -->|"frame.json + evidence.json + optional table.duckdb"| I["datasets.persist"]
+  I -->|"metadata JSON"| S[("Store dataset record")]

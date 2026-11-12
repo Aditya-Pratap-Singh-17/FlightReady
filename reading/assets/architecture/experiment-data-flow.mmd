@@ -1,0 +1,27 @@
+sequenceDiagram
+  participant UI as GuidedValidation
+  participant WF as workflow_api
+  participant API as api job/record reads
+  participant Lab as lab_api.start_experiment
+  participant Q as JobManager
+  participant Worker as worker / execute_experiment
+  participant DB as Store
+  UI->>WF: validation/prepare (intervention, severity)
+  WF->>DB: variation + split + workflow_validation
+  WF->>Q: enqueue changed-data readiness
+  UI->>API: poll jobs / workflow-validations
+  API->>DB: read saved records
+  DB-->>API: current state
+  API-->>UI: JSON state
+  UI->>WF: validation/protocol after readiness completes
+  WF->>DB: create_experiment freezes validated protocol
+  UI->>Lab: POST experiments/{id}/start
+  Lab->>Q: enqueue experiment parent
+  Q->>Worker: launch parent experiment process
+  Worker->>Worker: child training for each mode and seed
+  Worker->>Worker: final evaluation after all training
+  Worker->>DB: models, evaluations, experiment outcome
+  UI->>API: poll completed records
+  API->>DB: read final records
+  DB-->>API: outcomes
+  API-->>UI: JSON models / evaluations

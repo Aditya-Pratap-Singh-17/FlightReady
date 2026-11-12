@@ -1,0 +1,22 @@
+flowchart TD
+  A["ingested frame + boxes + hashes + declared metadata"] --> S["exact population: whole data or scoped training subset"]
+  S --> D["existing assessment.calculate dispatcher"]
+  D --> G["research.scale_analysis -> UAV-08"]
+  D --> P["pixels.local_measurements -> UAV-12 / UAV-14"]
+  D --> Q["audit.annotation_audit / negative_coverage -> UAV-15"]
+  D --> C["research.scenarios -> UAV-17"]
+  D --> I["independence.collection_evidence -> UAV-18"]
+  S --> F["cached global pixels / dhash64"]
+  F --> P
+  F --> I
+  C --> E["shared scenario_evidence"]
+  R["requirements: scenario_count"] --> E
+  P --> K["one session result;<br/>bounded verified image reads"]
+  Q --> V["reference trust/scope + separate category denominators"]
+  I --> B["capped HashTree.find_bounded;<br/>completeness retained"]
+  G --> M["MetricResult / AssessmentEvidence"]
+  K --> M
+  V --> M
+  E --> M
+  B --> M
+  M --> T["Certificate + readable evidence views"]

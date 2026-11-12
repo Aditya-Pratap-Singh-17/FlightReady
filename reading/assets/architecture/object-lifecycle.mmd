@@ -1,0 +1,11 @@
+flowchart TD
+  A["Browser message string"] -->|"MessageRequest JSON"| B["project_goal"]
+  B -->|"interpret returns typed object"| C["DatasetContext confirmed=false"]
+  C -->|"model_dump JSON"| D[("context record: draft")]
+  D -->|"review response"| E["GoalChat draft state"]
+  E -->|"ConfirmRequest"| F["confirm_project validates"]
+  F -->|"new ID, confirmed=true"| G[("context record: confirmed")]
+  G -->|"workflow pointer"| H["assess_project model_validate"]
+  H -->|"ReadinessRequest -> job config"| I["worker.run reconstructs DatasetContext"]
+  I -->|"assess"| J["Certificate.confirmed_context"]
+  J -->|"immutable saved evidence"| K["training provenance / report / analytics"]

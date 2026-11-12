@@ -1,0 +1,10 @@
+flowchart TD
+  A["backend/readiness_engine.py"] -.->|"imports"| B["backend/context.py: contracts"]
+  A -.->|"imports"| C["metrics/core.py: run_metric"]
+  A -.->|"local import"| D["metrics/quality_aggregation.py"]
+  C -.->|"imports Dataset"| E["backend/ingestion.py"]
+  C -.->|"register_uav"| F["metrics/uav_metrics/registry.py"]
+  F -.->|"lazy calculation import"| G["metrics/uav_metrics/assessment.py"]
+  D -.->|"policy models"| H["metrics/quality_profiles.py"]
+  E -.->|"large / general formats"| I["backend/large_ingestion.py"]
+  I -.->|"archive dispatch"| J["backend/dataset_archives.py"]

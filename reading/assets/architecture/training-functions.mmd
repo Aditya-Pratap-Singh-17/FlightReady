@@ -1,0 +1,11 @@
+flowchart TD
+  A["api.training / execute_experiment"] -->|"TrainRequest config"| B["worker.run task=training"]
+  B --> C["detector.train"]
+  C --> D["validate_training + device"]
+  D --> E["materialize -> write_yaml"]
+  E --> F["setup_detector + fixed target initialization"]
+  F --> G["YOLO.train: actual PyTorch training"]
+  G -->|"on_fit_epoch_end callback"| P[("job progress + run/results.csv")]
+  G -->|"run/weights/best.pt"| H["finish_training"]
+  H -->|"validation + hashes + manifests"| M[("model record")]
+  M -->|"model_id"| R["completed job result"]

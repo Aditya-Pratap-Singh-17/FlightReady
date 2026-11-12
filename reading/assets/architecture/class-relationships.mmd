@@ -1,0 +1,53 @@
+classDiagram
+  class Model {
+    extra forbidden
+    finite numbers
+  }
+  class Goal {
+    task_type
+    required_classes
+    scenarios
+    requirements
+    quality_policy
+  }
+  class DatasetContext {
+    original_text
+    goal
+    clarification_questions
+    provider
+    confirmed
+  }
+  class Requirement {
+    metric_id
+    operator
+    expected_value
+    severity
+  }
+  class MetricResult {
+    metric_id
+    state
+    value
+    evidence
+  }
+  class AssessmentFinding {
+    requirement
+    result
+    state
+  }
+  class Certificate {
+    confirmed_context
+    findings
+    metrics
+    quality_profile
+    reproducibility
+  }
+  Model <|-- Goal
+  Model <|-- DatasetContext
+  Model <|-- Certificate
+  DatasetContext *-- Goal : contains
+  Goal o-- Requirement : requirements list
+  AssessmentFinding *-- Requirement : declared criterion
+  AssessmentFinding *-- MetricResult : measured evidence
+  Certificate *-- DatasetContext : frozen context
+  Certificate o-- AssessmentFinding : findings list
+  Certificate o-- MetricResult : diagnostics list

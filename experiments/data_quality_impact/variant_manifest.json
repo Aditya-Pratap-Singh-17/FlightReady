@@ -1,0 +1,746 @@
+{
+  "experiment_seed": 20261111,
+  "model_seeds": [
+    17,
+    42,
+    93
+  ],
+  "source": "C:\\dataSet\\ramen-ratings.csv",
+  "source_copy": "C:\\DataReadiness\\experiments\\data_quality_impact\\datasets\\source_original\\ramen-ratings.csv",
+  "source_sha256": "24cae6482d3e3e8a144cb13e3f8fd16f7bc9281d367c4f3afce7bfc5fce38d9f",
+  "source_rows": 2580,
+  "invalid_target_rows_excluded_before_split": 3,
+  "clean_test_rows": 516,
+  "clean_test_sha256": "881c57b6529b17beeb82971616d4905897fd2cbc68f2823334faa82877776dec",
+  "features": [
+    "Brand",
+    "Style",
+    "Country"
+  ],
+  "variants": [
+    {
+      "variant": "original_training",
+      "family": "original",
+      "corruption_percent": 0,
+      "rows": 2061,
+      "sha256": "0665a3e578512a6384dc19ba116ad5a0612f9d55c7ffec898f28a968262bd777",
+      "modification": "Unmodified model-eligible source rows; the two naturally missing Style values remain.",
+      "test_sha256": "881c57b6529b17beeb82971616d4905897fd2cbc68f2823334faa82877776dec",
+      "pipeline_assessment": {
+        "pipeline_status": "READY",
+        "readiness_score": 100.0,
+        "readiness_score_status": "partial",
+        "readiness_score_evidence_coverage_percent": 50.0,
+        "quality_dimensions": {
+          "annotation_quality": 100.0,
+          "diversity": null,
+          "signal_quality": 100.0,
+          "statistical_adequacy": null,
+          "task_suitability": null,
+          "integrity": null
+        },
+        "quality_dimension_coverage": {
+          "annotation_quality": 1.0,
+          "diversity": 0.0,
+          "signal_quality": 1.0,
+          "statistical_adequacy": 0.0,
+          "task_suitability": 0.0,
+          "integrity": 0.5
+        },
+        "metric_missingness": 0.14063907950370833,
+        "metric_duplicate_rate": 0.0,
+        "metric_conflicting_labels": 0.0,
+        "warnings": [],
+        "recommendations": [],
+        "certificate_sha256": "5857ad6b2da7ddfe15da2e7ff0c54b9f2553b14c1b513a1723052f13f9210ee3",
+        "assessment_seconds": 0.16018939996138215
+      }
+    },
+    {
+      "variant": "cleaned_reference",
+      "family": "repair",
+      "corruption_percent": 0,
+      "rows": 2061,
+      "sha256": "d5af70eac36e49f262b588cf01d9646b57db7c13096ed8c26a7f01b99dfdca69",
+      "modification": "Natural missing Style values replaced with 'Unknown'; invalid target rows were excluded before splitting.",
+      "test_sha256": "881c57b6529b17beeb82971616d4905897fd2cbc68f2823334faa82877776dec",
+      "pipeline_assessment": {
+        "pipeline_status": "READY",
+        "readiness_score": 100.0,
+        "readiness_score_status": "partial",
+        "readiness_score_evidence_coverage_percent": 50.0,
+        "quality_dimensions": {
+          "annotation_quality": 100.0,
+          "diversity": null,
+          "signal_quality": 100.0,
+          "statistical_adequacy": null,
+          "task_suitability": null,
+          "integrity": null
+        },
+        "quality_dimension_coverage": {
+          "annotation_quality": 1.0,
+          "diversity": 0.0,
+          "signal_quality": 1.0,
+          "statistical_adequacy": 0.0,
+          "task_suitability": 0.0,
+          "integrity": 0.5
+        },
+        "metric_missingness": 0.1405697650239135,
+        "metric_duplicate_rate": 0.0,
+        "metric_conflicting_labels": 0.0,
+        "warnings": [],
+        "recommendations": [],
+        "certificate_sha256": "3aeee5ac2886e11d8f3a0efc3a4dc734491c77f77211100f4ac7ae42a28df278",
+        "assessment_seconds": 0.1745482999831438
+      }
+    },
+    {
+      "variant": "missing_5",
+      "family": "missing",
+      "corruption_percent": 5,
+      "rows": 2061,
+      "sha256": "dc02eeac95416dc5f7f7d74523c4cc14f8ff121b572d8b528465a59d4d742b26",
+      "modification": "Set Brand, Style, and Country missing in 5% of training rows.",
+      "test_sha256": "881c57b6529b17beeb82971616d4905897fd2cbc68f2823334faa82877776dec",
+      "pipeline_assessment": {
+        "pipeline_status": "NOT_READY",
+        "readiness_score": 100.0,
+        "readiness_score_status": "partial",
+        "readiness_score_evidence_coverage_percent": 50.0,
+        "quality_dimensions": {
+          "annotation_quality": 100.0,
+          "diversity": null,
+          "signal_quality": 100.0,
+          "statistical_adequacy": null,
+          "task_suitability": null,
+          "integrity": null
+        },
+        "quality_dimension_coverage": {
+          "annotation_quality": 1.0,
+          "diversity": 0.0,
+          "signal_quality": 1.0,
+          "statistical_adequacy": 0.0,
+          "task_suitability": 0.0,
+          "integrity": 0.5
+        },
+        "metric_missingness": 0.1619879392805157,
+        "metric_duplicate_rate": 0.0,
+        "metric_conflicting_labels": 0.0,
+        "warnings": [
+          "Observed 0.04997573993207181; required lte 0.01. Observed diagnostic; no acceptance threshold specified",
+          "Observed 0.04997573993207181; required lte 0.01. Observed diagnostic; no acceptance threshold specified",
+          "Observed 0.04997573993207181; required lte 0.01. Observed diagnostic; no acceptance threshold specified"
+        ],
+        "recommendations": [
+          "Repair or supply evidence for: Missingness of Brand is at most 0.01",
+          "Repair or supply evidence for: Missingness of Style is at most 0.01",
+          "Repair or supply evidence for: Missingness of Country is at most 0.01"
+        ],
+        "certificate_sha256": "454466dc280972f117ba6d89e23329a5e7e70ac027e9a6b35a7ebe446298e7d7",
+        "assessment_seconds": 0.15911480016075075
+      }
+    },
+    {
+      "variant": "noise_5",
+      "family": "noise",
+      "corruption_percent": 5,
+      "rows": 2061,
+      "sha256": "55a6a35623932c6aebd4919d79e2eb123dd7730d00b5dab32e514bebc83d81d1",
+      "modification": "Replace Brand, Style, and Country with independently sampled valid values in 5% of training rows.",
+      "test_sha256": "881c57b6529b17beeb82971616d4905897fd2cbc68f2823334faa82877776dec",
+      "pipeline_assessment": {
+        "pipeline_status": "READY",
+        "readiness_score": 100.0,
+        "readiness_score_status": "partial",
+        "readiness_score_evidence_coverage_percent": 50.0,
+        "quality_dimensions": {
+          "annotation_quality": 100.0,
+          "diversity": null,
+          "signal_quality": 100.0,
+          "statistical_adequacy": null,
+          "task_suitability": null,
+          "integrity": null
+        },
+        "quality_dimension_coverage": {
+          "annotation_quality": 1.0,
+          "diversity": 0.0,
+          "signal_quality": 1.0,
+          "statistical_adequacy": 0.0,
+          "task_suitability": 0.0,
+          "integrity": 0.5
+        },
+        "metric_missingness": 0.1405697650239135,
+        "metric_duplicate_rate": 0.0,
+        "metric_conflicting_labels": 0.0,
+        "warnings": [],
+        "recommendations": [],
+        "certificate_sha256": "d67b6e086860eb2acbc08a5a1a924ecf8bee622d4fa62f4fe352a9c19e7a0bb2",
+        "assessment_seconds": 0.17989610019139946
+      }
+    },
+    {
+      "variant": "label_corruption_5",
+      "family": "label_corruption",
+      "corruption_percent": 5,
+      "rows": 2061,
+      "sha256": "6ed38f575dfd253caca162975dd5537112b72a8a70a8191307e1c0bad3db3825",
+      "modification": "Cyclically permute in-range Stars labels among 5% of training rows.",
+      "test_sha256": "881c57b6529b17beeb82971616d4905897fd2cbc68f2823334faa82877776dec",
+      "pipeline_assessment": {
+        "pipeline_status": "READY",
+        "readiness_score": 100.0,
+        "readiness_score_status": "partial",
+        "readiness_score_evidence_coverage_percent": 50.0,
+        "quality_dimensions": {
+          "annotation_quality": 100.0,
+          "diversity": null,
+          "signal_quality": 100.0,
+          "statistical_adequacy": null,
+          "task_suitability": null,
+          "integrity": null
+        },
+        "quality_dimension_coverage": {
+          "annotation_quality": 1.0,
+          "diversity": 0.0,
+          "signal_quality": 1.0,
+          "statistical_adequacy": 0.0,
+          "task_suitability": 0.0,
+          "integrity": 0.5
+        },
+        "metric_missingness": 0.1405697650239135,
+        "metric_duplicate_rate": 0.0,
+        "metric_conflicting_labels": 0.0,
+        "warnings": [],
+        "recommendations": [],
+        "certificate_sha256": "be9d3e73d7ecb423ef235cb7d5f332084b5d66ddea48e538438dd8c2139a76fa",
+        "assessment_seconds": 0.16184709989465773
+      }
+    },
+    {
+      "variant": "missing_10",
+      "family": "missing",
+      "corruption_percent": 10,
+      "rows": 2061,
+      "sha256": "0a5ce054a15ae6c0cf385629dd0937b8b658b98d4a38c1d1cb9946d92d954af6",
+      "modification": "Set Brand, Style, and Country missing in 10% of training rows.",
+      "test_sha256": "881c57b6529b17beeb82971616d4905897fd2cbc68f2823334faa82877776dec",
+      "pipeline_assessment": {
+        "pipeline_status": "NOT_READY",
+        "readiness_score": 100.0,
+        "readiness_score_status": "partial",
+        "readiness_score_evidence_coverage_percent": 50.0,
+        "quality_dimensions": {
+          "annotation_quality": 100.0,
+          "diversity": null,
+          "signal_quality": 100.0,
+          "statistical_adequacy": null,
+          "task_suitability": null,
+          "integrity": null
+        },
+        "quality_dimension_coverage": {
+          "annotation_quality": 1.0,
+          "diversity": 0.0,
+          "signal_quality": 1.0,
+          "statistical_adequacy": 0.0,
+          "task_suitability": 0.0,
+          "integrity": 0.5
+        },
+        "metric_missingness": 0.18340611353711792,
+        "metric_duplicate_rate": 0.0,
+        "metric_conflicting_labels": 0.0,
+        "warnings": [
+          "Observed 0.09995147986414361; required lte 0.01. Observed diagnostic; no acceptance threshold specified",
+          "Observed 0.09995147986414361; required lte 0.01. Observed diagnostic; no acceptance threshold specified",
+          "Observed 0.09995147986414361; required lte 0.01. Observed diagnostic; no acceptance threshold specified"
+        ],
+        "recommendations": [
+          "Repair or supply evidence for: Missingness of Brand is at most 0.01",
+          "Repair or supply evidence for: Missingness of Style is at most 0.01",
+          "Repair or supply evidence for: Missingness of Country is at most 0.01"
+        ],
+        "certificate_sha256": "5addad5bd7cf38092dd7f98db0fa1505a95b0ff99ebdf276114e7d9e7d5600ca",
+        "assessment_seconds": 0.16528750001452863
+      }
+    },
+    {
+      "variant": "noise_10",
+      "family": "noise",
+      "corruption_percent": 10,
+      "rows": 2061,
+      "sha256": "d8643c28da185da8cf41658d0f005893818fa9d8563910c29bd55cb5b7dc6d65",
+      "modification": "Replace Brand, Style, and Country with independently sampled valid values in 10% of training rows.",
+      "test_sha256": "881c57b6529b17beeb82971616d4905897fd2cbc68f2823334faa82877776dec",
+      "pipeline_assessment": {
+        "pipeline_status": "READY",
+        "readiness_score": 100.0,
+        "readiness_score_status": "partial",
+        "readiness_score_evidence_coverage_percent": 50.0,
+        "quality_dimensions": {
+          "annotation_quality": 100.0,
+          "diversity": null,
+          "signal_quality": 100.0,
+          "statistical_adequacy": null,
+          "task_suitability": null,
+          "integrity": null
+        },
+        "quality_dimension_coverage": {
+          "annotation_quality": 1.0,
+          "diversity": 0.0,
+          "signal_quality": 1.0,
+          "statistical_adequacy": 0.0,
+          "task_suitability": 0.0,
+          "integrity": 0.5
+        },
+        "metric_missingness": 0.1405697650239135,
+        "metric_duplicate_rate": 0.0,
+        "metric_conflicting_labels": 0.0,
+        "warnings": [],
+        "recommendations": [],
+        "certificate_sha256": "efac94b7be9624d086485fcd39236adca8999479fba8b9d2b51a04e292f95640",
+        "assessment_seconds": 0.15943120000883937
+      }
+    },
+    {
+      "variant": "label_corruption_10",
+      "family": "label_corruption",
+      "corruption_percent": 10,
+      "rows": 2061,
+      "sha256": "b03796c78d5a415c438410136d05490e0453bf8e7ea9d74927f941427cd31b23",
+      "modification": "Cyclically permute in-range Stars labels among 10% of training rows.",
+      "test_sha256": "881c57b6529b17beeb82971616d4905897fd2cbc68f2823334faa82877776dec",
+      "pipeline_assessment": {
+        "pipeline_status": "READY",
+        "readiness_score": 100.0,
+        "readiness_score_status": "partial",
+        "readiness_score_evidence_coverage_percent": 50.0,
+        "quality_dimensions": {
+          "annotation_quality": 100.0,
+          "diversity": null,
+          "signal_quality": 100.0,
+          "statistical_adequacy": null,
+          "task_suitability": null,
+          "integrity": null
+        },
+        "quality_dimension_coverage": {
+          "annotation_quality": 1.0,
+          "diversity": 0.0,
+          "signal_quality": 1.0,
+          "statistical_adequacy": 0.0,
+          "task_suitability": 0.0,
+          "integrity": 0.5
+        },
+        "metric_missingness": 0.1405697650239135,
+        "metric_duplicate_rate": 0.0,
+        "metric_conflicting_labels": 0.0,
+        "warnings": [],
+        "recommendations": [],
+        "certificate_sha256": "151a8fb89af44f12cda2847501d030f49ca08d3474e8b27aa22aae02c47b9855",
+        "assessment_seconds": 0.15752880019135773
+      }
+    },
+    {
+      "variant": "missing_20",
+      "family": "missing",
+      "corruption_percent": 20,
+      "rows": 2061,
+      "sha256": "07a4d6e1f5206a489aaf857da3ca876b73d1a32300a7bc7044b66643f9617a44",
+      "modification": "Set Brand, Style, and Country missing in 20% of training rows.",
+      "test_sha256": "881c57b6529b17beeb82971616d4905897fd2cbc68f2823334faa82877776dec",
+      "pipeline_assessment": {
+        "pipeline_status": "NOT_READY",
+        "readiness_score": 100.0,
+        "readiness_score_status": "partial",
+        "readiness_score_evidence_coverage_percent": 50.0,
+        "quality_dimensions": {
+          "annotation_quality": 100.0,
+          "diversity": null,
+          "signal_quality": 100.0,
+          "statistical_adequacy": null,
+          "task_suitability": null,
+          "integrity": null
+        },
+        "quality_dimension_coverage": {
+          "annotation_quality": 1.0,
+          "diversity": 0.0,
+          "signal_quality": 1.0,
+          "statistical_adequacy": 0.0,
+          "task_suitability": 0.0,
+          "integrity": 0.5
+        },
+        "metric_missingness": 0.2262424620503223,
+        "metric_duplicate_rate": 0.0,
+        "metric_conflicting_labels": 0.0,
+        "warnings": [
+          "Observed 0.19990295972828723; required lte 0.01. Observed diagnostic; no acceptance threshold specified",
+          "Observed 0.19990295972828723; required lte 0.01. Observed diagnostic; no acceptance threshold specified",
+          "Observed 0.19990295972828723; required lte 0.01. Observed diagnostic; no acceptance threshold specified"
+        ],
+        "recommendations": [
+          "Repair or supply evidence for: Missingness of Brand is at most 0.01",
+          "Repair or supply evidence for: Missingness of Style is at most 0.01",
+          "Repair or supply evidence for: Missingness of Country is at most 0.01"
+        ],
+        "certificate_sha256": "f62d9585a7e988fc1a6f6272d8739805a4fe15a5783608cd96e25b9d9e4d591f",
+        "assessment_seconds": 0.16716849990189075
+      }
+    },
+    {
+      "variant": "noise_20",
+      "family": "noise",
+      "corruption_percent": 20,
+      "rows": 2061,
+      "sha256": "f8677e717fd54e328eff3dcb4bb8f650608105963b7535fcdbc9c1d14d1bdfb4",
+      "modification": "Replace Brand, Style, and Country with independently sampled valid values in 20% of training rows.",
+      "test_sha256": "881c57b6529b17beeb82971616d4905897fd2cbc68f2823334faa82877776dec",
+      "pipeline_assessment": {
+        "pipeline_status": "READY",
+        "readiness_score": 100.0,
+        "readiness_score_status": "partial",
+        "readiness_score_evidence_coverage_percent": 50.0,
+        "quality_dimensions": {
+          "annotation_quality": 100.0,
+          "diversity": null,
+          "signal_quality": 100.0,
+          "statistical_adequacy": null,
+          "task_suitability": null,
+          "integrity": null
+        },
+        "quality_dimension_coverage": {
+          "annotation_quality": 1.0,
+          "diversity": 0.0,
+          "signal_quality": 1.0,
+          "statistical_adequacy": 0.0,
+          "task_suitability": 0.0,
+          "integrity": 0.5
+        },
+        "metric_missingness": 0.1405697650239135,
+        "metric_duplicate_rate": 0.0,
+        "metric_conflicting_labels": 0.0,
+        "warnings": [],
+        "recommendations": [],
+        "certificate_sha256": "5fd22bad1c352714780dc887f36c21b70ab5886aae1422db01411d657edef386",
+        "assessment_seconds": 0.15597750013694167
+      }
+    },
+    {
+      "variant": "label_corruption_20",
+      "family": "label_corruption",
+      "corruption_percent": 20,
+      "rows": 2061,
+      "sha256": "d027611c5f115f5471c77ed47743a2ad73f3a67c4a6de25dd821afdd623ee42c",
+      "modification": "Cyclically permute in-range Stars labels among 20% of training rows.",
+      "test_sha256": "881c57b6529b17beeb82971616d4905897fd2cbc68f2823334faa82877776dec",
+      "pipeline_assessment": {
+        "pipeline_status": "READY",
+        "readiness_score": 100.0,
+        "readiness_score_status": "partial",
+        "readiness_score_evidence_coverage_percent": 50.0,
+        "quality_dimensions": {
+          "annotation_quality": 100.0,
+          "diversity": null,
+          "signal_quality": 100.0,
+          "statistical_adequacy": null,
+          "task_suitability": null,
+          "integrity": null
+        },
+        "quality_dimension_coverage": {
+          "annotation_quality": 1.0,
+          "diversity": 0.0,
+          "signal_quality": 1.0,
+          "statistical_adequacy": 0.0,
+          "task_suitability": 0.0,
+          "integrity": 0.5
+        },
+        "metric_missingness": 0.1405697650239135,
+        "metric_duplicate_rate": 0.0,
+        "metric_conflicting_labels": 0.0,
+        "warnings": [],
+        "recommendations": [],
+        "certificate_sha256": "5cc31ad73bee45f69bf98553eed525ff70fd8f8e2df19c9662d5d09c96245ef0",
+        "assessment_seconds": 0.16545010008849204
+      }
+    },
+    {
+      "variant": "missing_40",
+      "family": "missing",
+      "corruption_percent": 40,
+      "rows": 2061,
+      "sha256": "1c2158ca38dfb2fa20eb7104e08678d4a380e368824bc1900b83ca1061139ae1",
+      "modification": "Set Brand, Style, and Country missing in 40% of training rows.",
+      "test_sha256": "881c57b6529b17beeb82971616d4905897fd2cbc68f2823334faa82877776dec",
+      "pipeline_assessment": {
+        "pipeline_status": "NOT_READY",
+        "readiness_score": 100.0,
+        "readiness_score_status": "partial",
+        "readiness_score_evidence_coverage_percent": 50.0,
+        "quality_dimensions": {
+          "annotation_quality": 100.0,
+          "diversity": null,
+          "signal_quality": 100.0,
+          "statistical_adequacy": null,
+          "task_suitability": null,
+          "integrity": null
+        },
+        "quality_dimension_coverage": {
+          "annotation_quality": 1.0,
+          "diversity": 0.0,
+          "signal_quality": 1.0,
+          "statistical_adequacy": 0.0,
+          "task_suitability": 0.0,
+          "integrity": 0.5
+        },
+        "metric_missingness": 0.3119151590767311,
+        "metric_duplicate_rate": 0.0,
+        "metric_conflicting_labels": 0.0,
+        "warnings": [
+          "Observed 0.39980591945657445; required lte 0.01. Observed diagnostic; no acceptance threshold specified",
+          "Observed 0.39980591945657445; required lte 0.01. Observed diagnostic; no acceptance threshold specified",
+          "Observed 0.39980591945657445; required lte 0.01. Observed diagnostic; no acceptance threshold specified"
+        ],
+        "recommendations": [
+          "Repair or supply evidence for: Missingness of Brand is at most 0.01",
+          "Repair or supply evidence for: Missingness of Style is at most 0.01",
+          "Repair or supply evidence for: Missingness of Country is at most 0.01"
+        ],
+        "certificate_sha256": "2c488d3cd84736c9dd2d2e4fe12caf1c45e6840deec3ad7dbbf6dacd0bade0f8",
+        "assessment_seconds": 0.16662489995360374
+      }
+    },
+    {
+      "variant": "noise_40",
+      "family": "noise",
+      "corruption_percent": 40,
+      "rows": 2061,
+      "sha256": "9120297f56ba45b67a73fc7376af3f21d8cb0e71b0d4b486e42c6466863f86fc",
+      "modification": "Replace Brand, Style, and Country with independently sampled valid values in 40% of training rows.",
+      "test_sha256": "881c57b6529b17beeb82971616d4905897fd2cbc68f2823334faa82877776dec",
+      "pipeline_assessment": {
+        "pipeline_status": "READY",
+        "readiness_score": 100.0,
+        "readiness_score_status": "partial",
+        "readiness_score_evidence_coverage_percent": 50.0,
+        "quality_dimensions": {
+          "annotation_quality": 100.0,
+          "diversity": null,
+          "signal_quality": 100.0,
+          "statistical_adequacy": null,
+          "task_suitability": null,
+          "integrity": null
+        },
+        "quality_dimension_coverage": {
+          "annotation_quality": 1.0,
+          "diversity": 0.0,
+          "signal_quality": 1.0,
+          "statistical_adequacy": 0.0,
+          "task_suitability": 0.0,
+          "integrity": 0.5
+        },
+        "metric_missingness": 0.1405697650239135,
+        "metric_duplicate_rate": 0.0,
+        "metric_conflicting_labels": 0.0,
+        "warnings": [],
+        "recommendations": [],
+        "certificate_sha256": "8e4f9a62b7b3e4f7757dfb5b6e4d1e19ba085ad6b9ca27c151e19ff323d242b9",
+        "assessment_seconds": 0.15459119994193316
+      }
+    },
+    {
+      "variant": "label_corruption_40",
+      "family": "label_corruption",
+      "corruption_percent": 40,
+      "rows": 2061,
+      "sha256": "45f3e82cc8d001a8c569eb009b427f6eb0c8d1cf4a4d87171d747a0c4926c623",
+      "modification": "Cyclically permute in-range Stars labels among 40% of training rows.",
+      "test_sha256": "881c57b6529b17beeb82971616d4905897fd2cbc68f2823334faa82877776dec",
+      "pipeline_assessment": {
+        "pipeline_status": "READY",
+        "readiness_score": 100.0,
+        "readiness_score_status": "partial",
+        "readiness_score_evidence_coverage_percent": 50.0,
+        "quality_dimensions": {
+          "annotation_quality": 100.0,
+          "diversity": null,
+          "signal_quality": 100.0,
+          "statistical_adequacy": null,
+          "task_suitability": null,
+          "integrity": null
+        },
+        "quality_dimension_coverage": {
+          "annotation_quality": 1.0,
+          "diversity": 0.0,
+          "signal_quality": 1.0,
+          "statistical_adequacy": 0.0,
+          "task_suitability": 0.0,
+          "integrity": 0.5
+        },
+        "metric_missingness": 0.1405697650239135,
+        "metric_duplicate_rate": 0.0,
+        "metric_conflicting_labels": 0.0,
+        "warnings": [],
+        "recommendations": [],
+        "certificate_sha256": "dc4a9b0c74e36a306559b4e0ae9fce16031740b0a5388a445c77dd52d9cc7d1f",
+        "assessment_seconds": 0.18751969980075955
+      }
+    },
+    {
+      "variant": "imbalance_20",
+      "family": "imbalance",
+      "corruption_percent": 20,
+      "rows": 2021,
+      "sha256": "5754fd0f50c02992c365961059c4e50744cc37de85d0f6cf16eeb709ecdf4bd5",
+      "modification": "Remove 20% of training rows with Stars < 2.5.",
+      "test_sha256": "881c57b6529b17beeb82971616d4905897fd2cbc68f2823334faa82877776dec",
+      "pipeline_assessment": {
+        "pipeline_status": "READY",
+        "readiness_score": 100.0,
+        "readiness_score_status": "partial",
+        "readiness_score_evidence_coverage_percent": 50.0,
+        "quality_dimensions": {
+          "annotation_quality": 100.0,
+          "diversity": null,
+          "signal_quality": 100.0,
+          "statistical_adequacy": null,
+          "task_suitability": null,
+          "integrity": null
+        },
+        "quality_dimension_coverage": {
+          "annotation_quality": 1.0,
+          "diversity": 0.0,
+          "signal_quality": 1.0,
+          "statistical_adequacy": 0.0,
+          "task_suitability": 0.0,
+          "integrity": 0.5
+        },
+        "metric_missingness": 0.140524492825334,
+        "metric_duplicate_rate": 0.0,
+        "metric_conflicting_labels": 0.0,
+        "warnings": [],
+        "recommendations": [],
+        "certificate_sha256": "3621e725560e59bdc5a8584b9a3f4e8eaa038edf1af5ce8d61112e67df469e2a",
+        "assessment_seconds": 0.15882199979387224
+      }
+    },
+    {
+      "variant": "imbalance_40",
+      "family": "imbalance",
+      "corruption_percent": 40,
+      "rows": 1982,
+      "sha256": "1ddcac6e29e23760d6408b818048855db61ce97da74dfa0bbd6b0d531f8b1037",
+      "modification": "Remove 40% of training rows with Stars < 2.5.",
+      "test_sha256": "881c57b6529b17beeb82971616d4905897fd2cbc68f2823334faa82877776dec",
+      "pipeline_assessment": {
+        "pipeline_status": "READY",
+        "readiness_score": 100.0,
+        "readiness_score_status": "partial",
+        "readiness_score_evidence_coverage_percent": 50.0,
+        "quality_dimensions": {
+          "annotation_quality": 100.0,
+          "diversity": null,
+          "signal_quality": 100.0,
+          "statistical_adequacy": null,
+          "task_suitability": null,
+          "integrity": null
+        },
+        "quality_dimension_coverage": {
+          "annotation_quality": 1.0,
+          "diversity": 0.0,
+          "signal_quality": 1.0,
+          "statistical_adequacy": 0.0,
+          "task_suitability": 0.0,
+          "integrity": 0.5
+        },
+        "metric_missingness": 0.14047859305175148,
+        "metric_duplicate_rate": 0.0,
+        "metric_conflicting_labels": 0.0,
+        "warnings": [],
+        "recommendations": [],
+        "certificate_sha256": "6ec944c5be21300696f551365931264c733186778c34ae877e719e7c6b6c1fcb",
+        "assessment_seconds": 0.16505729989148676
+      }
+    },
+    {
+      "variant": "combined_low_quality",
+      "family": "combined",
+      "corruption_percent": 40,
+      "rows": 1982,
+      "sha256": "91476c4ad7482be9213b3f834d200874f459cd3355fa98eaa2540c1dfef0bae4",
+      "modification": "Apply 40% low-rating removal, feature missingness, valid-category noise, and label permutation.",
+      "test_sha256": "881c57b6529b17beeb82971616d4905897fd2cbc68f2823334faa82877776dec",
+      "pipeline_assessment": {
+        "pipeline_status": "NOT_READY",
+        "readiness_score": 100.0,
+        "readiness_score_status": "partial",
+        "readiness_score_evidence_coverage_percent": 50.0,
+        "quality_dimensions": {
+          "annotation_quality": 100.0,
+          "diversity": null,
+          "signal_quality": 100.0,
+          "statistical_adequacy": null,
+          "task_suitability": null,
+          "integrity": null
+        },
+        "quality_dimension_coverage": {
+          "annotation_quality": 1.0,
+          "diversity": 0.0,
+          "signal_quality": 1.0,
+          "statistical_adequacy": 0.0,
+          "task_suitability": 0.0,
+          "integrity": 0.5
+        },
+        "metric_missingness": 0.24686463889289317,
+        "metric_duplicate_rate": 0.0,
+        "metric_conflicting_labels": 0.0,
+        "warnings": [
+          "Observed 0.248234106962664; required lte 0.01. Observed diagnostic; no acceptance threshold specified",
+          "Observed 0.248234106962664; required lte 0.01. Observed diagnostic; no acceptance threshold specified",
+          "Observed 0.248234106962664; required lte 0.01. Observed diagnostic; no acceptance threshold specified"
+        ],
+        "recommendations": [
+          "Repair or supply evidence for: Missingness of Brand is at most 0.01",
+          "Repair or supply evidence for: Missingness of Style is at most 0.01",
+          "Repair or supply evidence for: Missingness of Country is at most 0.01"
+        ],
+        "certificate_sha256": "8f7c00ca5f9b3616432c4e2625344caf515e3891cb57af85567bf81030a2432a",
+        "assessment_seconds": 0.15703220013529062
+      }
+    },
+    {
+      "variant": "combined_repaired",
+      "family": "combined_repaired",
+      "corruption_percent": 0,
+      "rows": 2061,
+      "sha256": "d5af70eac36e49f262b588cf01d9646b57db7c13096ed8c26a7f01b99dfdca69",
+      "modification": "Oracle repair restores the controlled combined variant to the clean pre-corruption training snapshot.",
+      "test_sha256": "881c57b6529b17beeb82971616d4905897fd2cbc68f2823334faa82877776dec",
+      "pipeline_assessment": {
+        "pipeline_status": "READY",
+        "readiness_score": 100.0,
+        "readiness_score_status": "partial",
+        "readiness_score_evidence_coverage_percent": 50.0,
+        "quality_dimensions": {
+          "annotation_quality": 100.0,
+          "diversity": null,
+          "signal_quality": 100.0,
+          "statistical_adequacy": null,
+          "task_suitability": null,
+          "integrity": null
+        },
+        "quality_dimension_coverage": {
+          "annotation_quality": 1.0,
+          "diversity": 0.0,
+          "signal_quality": 1.0,
+          "statistical_adequacy": 0.0,
+          "task_suitability": 0.0,
+          "integrity": 0.5
+        },
+        "metric_missingness": 0.1405697650239135,
+        "metric_duplicate_rate": 0.0,
+        "metric_conflicting_labels": 0.0,
+        "warnings": [],
+        "recommendations": [],
+        "certificate_sha256": "d0bcb6f9292b6233c23bc386833b3f3fb0c73e524d17a5043865ec18b0699e2a",
+        "assessment_seconds": 0.15853830007836223
+      }
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+flowchart TD
+  A["create_split: eligible detection dataset"] --> B["load full image hashes + optional groups"]
+  B --> C["union exact duplicates, near images, recording groups"]
+  C --> D{"Complete declared partitions?"}
+  D -->|"yes"| E["preserve train/val/test; reject overlapping clusters"]
+  D -->|"no declarations"| F["seeded whole-cluster allocation"]
+  E --> G["nonempty train/val/test + checksum"]
+  F --> G
+  G --> S[("split record")]
+  S -->|"training subset only"| R["readiness assessment"]
+  S -->|"development vs final test"| I["assert_independent"]

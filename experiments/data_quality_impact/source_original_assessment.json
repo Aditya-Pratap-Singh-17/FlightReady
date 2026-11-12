@@ -1,0 +1,39 @@
+{
+  "pipeline_status": "NOT_READY",
+  "readiness_score": 100.0,
+  "readiness_score_status": "partial",
+  "readiness_score_evidence_coverage_percent": 50.0,
+  "quality_dimensions": {
+    "annotation_quality": 100.0,
+    "diversity": null,
+    "signal_quality": 100.0,
+    "statistical_adequacy": null,
+    "task_suitability": null,
+    "integrity": null
+  },
+  "quality_dimension_coverage": {
+    "annotation_quality": 1.0,
+    "diversity": 0.0,
+    "signal_quality": 1.0,
+    "statistical_adequacy": 0.0,
+    "task_suitability": 0.0,
+    "integrity": 0.5
+  },
+  "metric_missingness": 0.14069767441860465,
+  "metric_duplicate_rate": 0.0,
+  "metric_conflicting_labels": 0.0,
+  "warnings": [
+    "Excluded input use requires declared model_input_columns pipeline metadata",
+    "Excluded input use requires declared model_input_columns pipeline metadata",
+    "Observed 0.9988372093023256; required equals 1.0. Observed diagnostic; no acceptance threshold specified",
+    "Observed 0.0011627906976744186; required equals 0.0. Observed diagnostic; no acceptance threshold specified"
+  ],
+  "recommendations": [
+    "Repair or supply evidence for: Excluded input is not used: Review #",
+    "Repair or supply evidence for: Excluded input is not used: Top Ten",
+    "Repair or supply evidence for: Stars conforms to numeric",
+    "Repair or supply evidence for: Stars respects declared valid range"
+  ],
+  "certificate_sha256": "e3fc77a7d898ee8fe75100ac5858baa1dba54b9e3e2f71928dd0085aacf31fc3",
+  "assessment_seconds": 0.7159259999170899
+}

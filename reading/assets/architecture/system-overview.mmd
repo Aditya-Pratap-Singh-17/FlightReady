@@ -1,0 +1,14 @@
+flowchart TD
+  B["Browser: Workbench / GuidedWorkflow"] -->|"files, goal, actions"| A["backend/main.py / workbench API routers"]
+  A -->|"bytes"| I["datasets.import_file"]
+  A -->|"task text only"| C["context_extractor.interpret"]
+  A -->|"task/config"| J["JobManager.enqueue"]
+  J -->|"separate process"| W["worker.run"]
+  W -->|"readiness"| M["readiness_engine.assess<br/>metrics + adaptive scoring"]
+  W -->|"experiment/training/test"| T["experiments / detector"]
+  I -->|"Dataset evidence"| S[("Store: research_records")]
+  C -->|"context after review"| S
+  M -->|"Certificate"| S
+  T -->|"models, evaluations"| S
+  S -->|"saved evidence"| R["analytics / reporting"]
+  R -->|"JSON, HTML, CSV, PDF"| O["Browser results / downloads"]

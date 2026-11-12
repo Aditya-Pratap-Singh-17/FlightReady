@@ -1,0 +1,32 @@
+{
+  "variant": "pilot",
+  "epochs": 1,
+  "seed": 42,
+  "image_size": 320,
+  "batch": 16,
+  "initialization": "C:\\DataReadiness\\experiments\\visdrone_model_validation\\resources\\downloads\\yolo11n.pt",
+  "initialization_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+  "best_checkpoint": "C:\\DataReadiness\\experiments\\visdrone_model_validation\\training_runs\\pilot\\weights\\best.pt",
+  "best_checkpoint_sha256": "f36792a7ccb021879f45f1424542050f924074ee9c24017fb017056c279a5698",
+  "training_seconds": 103.80438179988414,
+  "test_split": "official labeled VisDrone2019-DET-test-dev",
+  "test_images": 1610,
+  "metrics": {
+    "precision": 2.877085856778103e-05,
+    "recall": 0.0006969898082800502,
+    "mAP50": 9.396805274811804e-07,
+    "mAP50_95": 4.093382367265391e-07,
+    "per_class_mAP50_95": {
+      "pedestrian": 1.9035532994923857e-06,
+      "people": 0.0,
+      "bicycle": 0.0,
+      "car": 0.0,
+      "van": 1.4743512176179393e-06,
+      "truck": 0.0,
+      "tricycle": 1.7978129888806416e-07,
+      "awning-tricycle": 1.6777896480636844e-07,
+      "bus": 0.0,
+      "motor": 3.6791758646063283e-07
+    }
+  }
+}

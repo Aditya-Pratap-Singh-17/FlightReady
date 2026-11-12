@@ -1,0 +1,17 @@
+sequenceDiagram
+  participant CLI as uvicorn backend.main:app
+  participant App as main.lifespan
+  participant Services as api.services
+  participant DB as Store
+  participant Queue as JobManager
+  participant UI as Browser / Shell
+  CLI->>App: enter FastAPI lifespan
+  App->>Services: services() cached singleton
+  Services->>DB: Store(), create_all + WAL
+  Services-->>App: (store, manager)
+  App->>Queue: recover(), start()
+  UI->>CLI: GET / and built assets
+  UI->>CLI: GET /api/v1/datasets, jobs, compute
+  UI->>CLI: GET /api/v1/workflows
+  CLI-->>UI: stored records / actual compute state
+  Note over Queue,UI: Jobs are polled, no WebSocket or server event stream

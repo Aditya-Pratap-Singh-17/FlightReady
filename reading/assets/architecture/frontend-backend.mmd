@@ -1,0 +1,17 @@
+sequenceDiagram
+  participant User
+  participant Chat as GoalChat.send
+  participant Client as api.ts api / json
+  participant Route as workflow_api.project_goal
+  participant Extract as interpret
+  participant Store
+  User->>Chat: submit a goal message
+  Chat->>Client: POST /workflows/{id}/goal
+  Client->>Route: MessageRequest JSON
+  Route->>Store: load workflow, require_idle
+  Route->>Extract: accumulated user text, allow_remote
+  Extract-->>Route: unconfirmed DatasetContext
+  Route->>Store: create context, update workflow pointers
+  Route-->>Client: RecordResponse with draft context
+  Client-->>Chat: query cache update, render review
+  Note over User,Store: confirm_project is a separate request, interpretation does not confirm

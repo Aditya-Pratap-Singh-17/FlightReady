@@ -1,0 +1,14 @@
+flowchart TD
+  A["evaluate_models: model IDs + independent-test config"] --> B["test_manifest + classes + assert_independent"]
+  B --> C["materialize verified canonical test data"]
+  C --> D["YOLO.val: AP confidence sweep"]
+  D -->|"mAP + per-class AP + curves"| R["actual evaluation metrics"]
+  C --> E["YOLO.predict: declared operating confidence"]
+  E --> F["detection_errors: class-aware one-to-one matching"]
+  E --> G["confusion_counts: spatial class-agnostic matching"]
+  F -->|"TP / FP / FN and defined ratios"| R
+  F --> N["native_size_outcomes:<br/>truth-area recall; FP by predicted area"]
+  N -->|"small / medium / large native recall"| R
+  G -->|"predicted rows / true columns"| R
+  R --> S[("evaluation + predictions.json + protocol version")]
+  S --> U["BenchmarkCharts / comparison / research outcomes"]

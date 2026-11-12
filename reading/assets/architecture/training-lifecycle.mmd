@@ -1,0 +1,13 @@
+stateDiagram-v2
+  [*] --> queued : JobManager.enqueue creates record
+  queued --> running : JobManager._run launches worker
+  queued --> cancelled : cancel before start
+  running --> completed : worker.run saves result
+  running --> failed : worker catches exception or exits unexpectedly
+  running --> cancelled : manager terminates owning process
+  running --> interrupted : recover after backend restart
+  interrupted --> queued : new resume job if training checkpoint valid
+  cancelled --> queued : new resume job if training checkpoint valid
+  failed --> queued : new resume job if training checkpoint valid
+  completed --> [*]
+  note right of queued: Resume creates another job ID; it does not rewrite history

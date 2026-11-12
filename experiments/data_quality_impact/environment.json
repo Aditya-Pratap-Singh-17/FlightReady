@@ -1,0 +1,26 @@
+{
+  "python": "3.13.5",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "packages": {
+    "numpy": "2.3.5",
+    "pandas": "2.3.3",
+    "sklearn": "1.8.0",
+    "scipy": "1.16.3",
+    "matplotlib": "3.11.2"
+  },
+  "models": {
+    "random_forest": {
+      "n_estimators": 240,
+      "max_features": 0.8,
+      "min_samples_leaf": 2
+    },
+    "hist_gradient_boosting": {
+      "max_iter": 180,
+      "learning_rate": 0.06,
+      "max_leaf_nodes": 31,
+      "l2_regularization": 0.2
+    }
+  },
+  "elapsed_seconds": 54.647552399896085,
+  "command": "scripts\\quality_impact_experiment.py"
+}

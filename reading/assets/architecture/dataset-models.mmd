@@ -1,0 +1,35 @@
+classDiagram
+  class Dataset {
+    name : str
+    sha256 : str
+    modality : str
+    frame : DataFrame
+    profile : dict
+    objects : list
+    disk_path : str or None
+    image_reader : runtime callable or None
+    close()
+  }
+  class DataProfile {
+    row_count : int
+    missing_count : dict
+    duplicate_rows : int
+    to_dict()
+  }
+  class Record {
+    id : String primary key
+    kind : String
+    created_at : String
+    document : Text
+  }
+  class Store {
+    root : Path
+    engine
+    create(kind, payload)
+    get(id, kind)
+    update(id, changes)
+    list(kind)
+  }
+  Dataset --> DataProfile : profile derived from data
+  Store --> Record : SQLAlchemy persistence
+  Dataset ..> Record : persist serializes selected fields

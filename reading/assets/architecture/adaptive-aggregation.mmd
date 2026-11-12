@@ -1,0 +1,14 @@
+flowchart TD
+  A["Certificate metrics/findings + quality_measurements"] --> B["aggregate_quality: copy frozen inputs"]
+  P["QualityProfile + task/scenario + confirmed overrides"] --> B
+  B --> C["_measure: applicability + normalized component score"]
+  C --> D["effective component weights; unknowns retain weight"]
+  D --> E{"Weighted coverage equals 1?"}
+  E -->|"no"| N["dimension score = null"]
+  E -->|"yes"| G["geometric: zero preserved"]
+  C -->|"separate evaluation"| K["critical gates + confirmed findings"]
+  N --> S["six scores/statuses + normalized importance"]
+  G --> S
+  K --> R["adaptive readiness_status"]
+  S --> R
+  R --> O["profile + versions + hashes + evidence"]

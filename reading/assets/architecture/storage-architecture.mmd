@@ -1,0 +1,10 @@
+flowchart TD
+  U["Browser"] -->|"IDs, theme, selection"| L["localStorage / sessionStorage"]
+  U -->|"HTTP"| A["FastAPI process"]
+  A -->|"legacy only"| M["memory: datasets / interpretations / jobs"]
+  A -->|"workbench"| S[("metadata.sqlite3: research_records")]
+  S -->|"JSON paths/references"| D["datasets/id: frame + evidence + table"]
+  S -->|"job IDs"| J["jobs/id: log + config + YAML + checkpoints"]
+  S -->|"cached source paths"| C["cache / imagecache / variations"]
+  S -->|"prediction path"| E["evaluation JSON on disk"]
+  A -->|"temporary intake"| T["owned staging / DuckDB spill directories"]

@@ -1,0 +1,9 @@
+flowchart TD
+  A["load_dataset_stream: staged upload"] -->|"CSV batches / Parquet batches / records"| B["DuckDB private table"]
+  B -->|"whole-table SQL"| C["full_profile"]
+  B -->|"LIMIT 100 preview"| P["Dataset.frame"]
+  B -->|"database path"| D["Dataset.disk_path"]
+  C -->|"global statistics"| E["Dataset.profile"]
+  D -->|"run_metric detects disk backend"| F["disk_metrics.run_disk_metric"]
+  P -->|"display only"| UI["profile / sample UI"]
+  F -->|"full-table result or explicit unsupported"| M["MetricResult"]

@@ -1,0 +1,20 @@
+{
+  "browser": "Installed Google Chrome, headless, file:// (no server)",
+  "chapters": 17,
+  "diagrams": 25,
+  "diagramSvgs": 25,
+  "details": 10,
+  "codeExamples": 25,
+  "missingTargets": [],
+  "externalAssets": [],
+  "svgMissingViewBox": 0,
+  "searchResults": 23,
+  "zoomButtonsWorked": true,
+  "expandCollapseWorked": true,
+  "mobileNavigationWorked": true,
+  "documentHorizontalOverflow": false,
+  "networkRequests": [],
+  "browserErrors": [],
+  "missingTextBlocks": 0,
+  "expectedTextBlocks": 8013
+}

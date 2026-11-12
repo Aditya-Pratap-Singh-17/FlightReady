@@ -1,0 +1,16 @@
+flowchart TD
+  A["run_metric: ID + Dataset + Goal + parameters"] --> B{"Registered / modality supported?"}
+  B -->|"no"| N["unavailable or not_applicable"]
+  B -->|"yes"| C{"UAV property?"}
+  C -->|"yes"| U["assessment.calculate under stable UAV ID"]
+  U --> X{"output_path requested?"}
+  X -->|"yes"| Y["reject unavailable parent/leaf;<br/>preserve measured or estimated provenance"]
+  X -->|"no"| R["MetricResult with structured evidence"]
+  Y --> R
+  C -->|"no"| D{"disk_path present?"}
+  D -->|"yes"| SQL["whole-data disk metric"]
+  D -->|"no"| P["registered pandas/image function;<br/>scenario_count shares scenario_evidence"]
+  SQL --> R
+  P --> R
+  N --> R
+  R --> E["evaluate explicit requirement or retain diagnostic"]

@@ -1,0 +1,13 @@
+* text=auto
+
+# Keep generated research artifacts byte-for-byte stable.
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.whl binary
+
+# These are generated/vendor assets; do not normalize their contents.
+reading/tools/mermaid.min.js -text

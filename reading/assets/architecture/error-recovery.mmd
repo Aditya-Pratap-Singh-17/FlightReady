@@ -1,0 +1,12 @@
+flowchart TD
+  A["User operation"] --> D{"Failure location?"}
+  D -->|"input / lookup"| V["ErrorRoute: 422 or 404"]
+  D -->|"remote context invalid"| C["interpret: identified local fallback"]
+  D -->|"metric evidence absent"| M["run_metric: insufficient_evidence"]
+  D -->|"compute exception"| W["worker.run: failed + worker.log"]
+  D -->|"backend stopped"| R["JobManager.recover: interrupted"]
+  V --> U["frontend shows error; correct request"]
+  C --> H["human reviews and confirms"]
+  M --> Q["unknown score / requirement; supply evidence"]
+  W --> N["new run / checkpoint resume if supported"]
+  R --> N

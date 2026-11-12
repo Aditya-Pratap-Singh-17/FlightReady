@@ -1,0 +1,31 @@
+import {test,expect} from '@playwright/test';
+import path from 'node:path';
+
+test('synthetic upload through guided readiness and research evidence, without training',async({page})=>{
+  const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
+  await page.goto('/');
+  await page.getByLabel('Upload dataset',{exact:true}).setInputFiles(path.resolve('../.work/research-browser/synthetic.zip'));
+  await page.getByLabel('Describe your goal').fill('Detect drones in images.');
+  await page.getByRole('button',{name:'Interpret goal',exact:true}).click();
+  await expect(page.getByRole('heading',{name:'Review the goal before analysis'})).toBeVisible();
+  await page.getByRole('button',{name:'Confirm & save goal'}).click();
+  await page.getByRole('button',{name:'Continue to analysis'}).click();
+  await page.getByRole('button',{name:'Analyze dataset',exact:true}).click();
+  await expect(page.getByRole('heading',{name:'Your data, through the lens of your goal.'})).toBeVisible({timeout:90000});
+  await page.getByRole('button',{name:'Quality & visual evidence',exact:true}).click();
+  const evidence=page.getByRole('region',{name:'Research measurement evidence'});
+  await expect(evidence.getByRole('heading',{name:'Inspect the evidence behind your dataset'})).toBeVisible();
+  await expect(evidence.getByText(/Sample size: 6/)).toBeVisible();
+  await expect(evidence.getByText(/Units: objects\/bin/)).toBeVisible();
+  await evidence.getByLabel('Evidence view').selectOption('annotation_audit');
+  await expect(evidence.getByRole('status')).toContainText('This does not imply zero');
+  await evidence.getByLabel('Evidence view').selectOption('object_local');
+  await expect(evidence.getByText(/observed sampled pixel proxies/)).toBeVisible();
+  await page.screenshot({path:'../.work/research-browser/research-desktop.png',fullPage:true});
+  await page.setViewportSize({width:390,height:844});
+  await expect.poll(()=>page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  await page.screenshot({path:'../.work/research-browser/research-mobile.png',fullPage:true});
+  expect(errors).toEqual([]);
+  const models=await page.request.get('/api/v1/models');
+  expect(await models.json()).toEqual([]);
+});

@@ -1,0 +1,22 @@
+{
+  "include": [
+    "main.py",
+    "backend",
+    "metrics",
+    "sql",
+    "tests"
+  ],
+  "exclude": [
+    ".packages",
+    ".venv",
+    ".npm-cache",
+    "frontend/node_modules",
+    "frontend/dist",
+    "**/__pycache__"
+  ],
+  "extraPaths": [
+    ".packages"
+  ],
+  "pythonVersion": "3.12",
+  "typeCheckingMode": "basic"
+}

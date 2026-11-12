@@ -1,0 +1,3021 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Readiness report</title><style>body{font:16px system-ui;max-width:1100px;margin:40px auto;padding:20px;color:#183a38}td,th{text-align:left;border-bottom:1px solid #ddd;padding:12px}pre{white-space:pre-wrap;overflow-wrap:anywhere}summary{padding:10px;cursor:pointer}h1{font-size:32px}</style><h1>Dataset readiness assessment</h1><p>Research dataset-readiness assessment only; not official aviation safety certification or a guarantee of model performance.</p><h2>READY</h2><p>READY: 5 requirements passed, 0 failed and 0 lack evidence. Readiness is relative to your confirmed goal.</p><p>Dataset: synthetic-demonstration.zip<br>SHA256: d3439ddf83ad03af7b9828cd12da84123acf28ff2c9c2c315b9bcd993ca0e859</p><h2>Your goal</h2><p>Synthetic software demonstration: detect annotated cars in UAV-like images.</p><details><summary>Initial and confirmed context</summary><pre>{
+  &quot;initial&quot;: null,
+  &quot;confirmed&quot;: {
+    &quot;original_text&quot;: &quot;Synthetic software demonstration: detect annotated cars in UAV-like images.&quot;,
+    &quot;selected_tags&quot;: {},
+    &quot;goal&quot;: {
+      &quot;task_type&quot;: &quot;object_detection&quot;,
+      &quot;task_description&quot;: &quot;Unspecified goal&quot;,
+      &quot;prediction_target&quot;: &quot;&quot;,
+      &quot;prediction_unit&quot;: &quot;&quot;,
+      &quot;input_modalities&quot;: [
+        &quot;image&quot;
+      ],
+      &quot;required_inputs&quot;: [],
+      &quot;optional_inputs&quot;: [],
+      &quot;trash_inputs&quot;: [],
+      &quot;target_population&quot;: null,
+      &quot;prediction_horizon&quot;: null,
+      &quot;relevant_time_period&quot;: null,
+      &quot;geography&quot;: null,
+      &quot;expected_types&quot;: {},
+      &quot;valid_ranges&quot;: {},
+      &quot;allowed_values&quot;: {},
+      &quot;max_missing_fraction&quot;: {},
+      &quot;expected_units&quot;: {},
+      &quot;date_column&quot;: null,
+      &quot;max_data_age_days&quot;: null,
+      &quot;reference_columns&quot;: {},
+      &quot;require_source&quot;: false,
+      &quot;require_collection_date&quot;: false,
+      &quot;require_dataset_version&quot;: false,
+      &quot;criterion_weights&quot;: {},
+      &quot;required_classes&quot;: [
+        &quot;car&quot;
+      ],
+      &quot;target_environment&quot;: {},
+      &quot;priorities&quot;: {},
+      &quot;scenarios&quot;: [],
+      &quot;requirements&quot;: [],
+      &quot;split_column&quot;: null,
+      &quot;group_column&quot;: null,
+      &quot;identifier_column&quot;: null,
+      &quot;uav_parameters&quot;: {},
+      &quot;performance_objectives&quot;: {}
+    },
+    &quot;field_sources&quot;: {},
+    &quot;clarification_questions&quot;: [],
+    &quot;provider&quot;: &quot;deterministic&quot;,
+    &quot;confirmed&quot;: true
+  }
+}</pre></details><h2>Requirement findings</h2><table><tr><th>Requirement</th><th>Severity</th><th>State</th><th>Evidence and reason</th></tr><tr><td>Dataset has observations</td><td>hard</td><td>pass</td><td>Observed 4; required gte 1. Observed diagnostic; no acceptance threshold specified</td></tr><tr><td>Dataset contains annotated car</td><td>hard</td><td>pass</td><td>Observed 2; required gte 1. Observed diagnostic; no acceptance threshold specified</td></tr><tr><td>Detection image files are readable</td><td>hard</td><td>pass</td><td>Observed 0.0; required equals 0.0. Observed diagnostic; no acceptance threshold specified</td></tr><tr><td>Detection annotations are syntactically valid</td><td>hard</td><td>pass</td><td>Observed 0.0; required equals 0.0. 0 of 4 annotated images contain invalid target annotations. Ignored-region geometry diagnostics are reported separately.</td></tr><tr><td>Detection images have annotation files, including explicit negatives</td><td>hard</td><td>pass</td><td>Observed 0.0; required equals 0.0. Empty annotation files are annotated negatives; missing objects within annotated images cannot be inferred</td></tr></table><h2>Eight-dimensional assessment</h2><details><summary>integrity / row_count — pass</summary><pre>{
+  &quot;metric_id&quot;: &quot;row_count&quot;,
+  &quot;dimension&quot;: &quot;integrity&quot;,
+  &quot;state&quot;: &quot;pass&quot;,
+  &quot;value&quot;: 4,
+  &quot;reason&quot;: &quot;Observed diagnostic; no acceptance threshold specified&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Number of dataset rows or image files&quot;,
+    &quot;sample_size&quot;: 4,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {},
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: null,
+  &quot;unit&quot;: null,
+  &quot;dataset_scope&quot;: null,
+  &quot;provenance&quot;: {},
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [],
+  &quot;reproducibility&quot;: {}
+}</pre></details><details><summary>integrity / missingness — pass</summary><pre>{
+  &quot;metric_id&quot;: &quot;missingness&quot;,
+  &quot;dimension&quot;: &quot;integrity&quot;,
+  &quot;state&quot;: &quot;pass&quot;,
+  &quot;value&quot;: 0.0,
+  &quot;reason&quot;: &quot;Observed diagnostic; no acceptance threshold specified&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Missing cells / all cells, or missing values / rows for a named field&quot;,
+    &quot;sample_size&quot;: 76,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {},
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: null,
+  &quot;unit&quot;: null,
+  &quot;dataset_scope&quot;: null,
+  &quot;provenance&quot;: {},
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [],
+  &quot;reproducibility&quot;: {}
+}</pre></details><details><summary>integrity / non_finite_rate — pass</summary><pre>{
+  &quot;metric_id&quot;: &quot;non_finite_rate&quot;,
+  &quot;dimension&quot;: &quot;integrity&quot;,
+  &quot;state&quot;: &quot;pass&quot;,
+  &quot;value&quot;: 0.0,
+  &quot;reason&quot;: &quot;Observed diagnostic; no acceptance threshold specified&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Positive or negative infinity / numeric cells (NaN reported separately)&quot;,
+    &quot;sample_size&quot;: 36,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {},
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: null,
+  &quot;unit&quot;: null,
+  &quot;dataset_scope&quot;: null,
+  &quot;provenance&quot;: {},
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [],
+  &quot;reproducibility&quot;: {}
+}</pre></details><details><summary>integrity / unreadable_rate — pass</summary><pre>{
+  &quot;metric_id&quot;: &quot;unreadable_rate&quot;,
+  &quot;dimension&quot;: &quot;integrity&quot;,
+  &quot;state&quot;: &quot;pass&quot;,
+  &quot;value&quot;: 0.0,
+  &quot;reason&quot;: &quot;Observed diagnostic; no acceptance threshold specified&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Unreadable image files / image files&quot;,
+    &quot;sample_size&quot;: 4,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {},
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: null,
+  &quot;unit&quot;: null,
+  &quot;dataset_scope&quot;: null,
+  &quot;provenance&quot;: {},
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [],
+  &quot;reproducibility&quot;: {}
+}</pre></details><details><summary>integrity / missing_label_rate — pass</summary><pre>{
+  &quot;metric_id&quot;: &quot;missing_label_rate&quot;,
+  &quot;dimension&quot;: &quot;integrity&quot;,
+  &quot;state&quot;: &quot;pass&quot;,
+  &quot;value&quot;: 0.0,
+  &quot;reason&quot;: &quot;Empty annotation files are annotated negatives; missing objects within annotated images cannot be inferred&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Missing target values / rows, or missing annotation files / images&quot;,
+    &quot;sample_size&quot;: 4,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {},
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: null,
+  &quot;unit&quot;: null,
+  &quot;dataset_scope&quot;: null,
+  &quot;provenance&quot;: {},
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [],
+  &quot;reproducibility&quot;: {}
+}</pre></details><details><summary>validity / bbox_invalid_rate — pass</summary><pre>{
+  &quot;metric_id&quot;: &quot;bbox_invalid_rate&quot;,
+  &quot;dimension&quot;: &quot;validity&quot;,
+  &quot;state&quot;: &quot;pass&quot;,
+  &quot;value&quot;: 0.0,
+  &quot;reason&quot;: &quot;0 of 4 annotated images contain invalid target annotations. Ignored-region geometry diagnostics are reported separately.&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Images with malformed annotations / images with annotation files&quot;,
+    &quot;sample_size&quot;: 4,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {
+      &quot;annotation_format&quot;: &quot;yolo&quot;,
+      &quot;invalid_target_examples&quot;: [],
+      &quot;ignored_region_diagnostics&quot;: []
+    },
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: null,
+  &quot;unit&quot;: null,
+  &quot;dataset_scope&quot;: null,
+  &quot;provenance&quot;: {},
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [],
+  &quot;reproducibility&quot;: {}
+}</pre></details><details><summary>duplication / duplicate_rate — pass</summary><pre>{
+  &quot;metric_id&quot;: &quot;duplicate_rate&quot;,
+  &quot;dimension&quot;: &quot;duplication&quot;,
+  &quot;state&quot;: &quot;pass&quot;,
+  &quot;value&quot;: 0.0,
+  &quot;reason&quot;: &quot;Repeated observations may be legitimate; review acquisition context before removal&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Redundant full rows / rows, or repeated exact file SHA256 hashes / images&quot;,
+    &quot;sample_size&quot;: 4,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {},
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: null,
+  &quot;unit&quot;: null,
+  &quot;dataset_scope&quot;: null,
+  &quot;provenance&quot;: {},
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [],
+  &quot;reproducibility&quot;: {}
+}</pre></details><details><summary>duplication / duplicate_identifiers — not_applicable</summary><pre>{
+  &quot;metric_id&quot;: &quot;duplicate_identifiers&quot;,
+  &quot;dimension&quot;: &quot;duplication&quot;,
+  &quot;state&quot;: &quot;not_applicable&quot;,
+  &quot;value&quot;: null,
+  &quot;reason&quot;: &quot;Metric does not support this dataset modality&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Repeated nonmissing identifier values beyond their first occurrence&quot;,
+    &quot;sample_size&quot;: null,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {},
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: null,
+  &quot;unit&quot;: null,
+  &quot;dataset_scope&quot;: null,
+  &quot;provenance&quot;: {},
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [],
+  &quot;reproducibility&quot;: {}
+}</pre></details><details><summary>duplication / conflicting_labels — not_applicable</summary><pre>{
+  &quot;metric_id&quot;: &quot;conflicting_labels&quot;,
+  &quot;dimension&quot;: &quot;duplication&quot;,
+  &quot;state&quot;: &quot;not_applicable&quot;,
+  &quot;value&quot;: null,
+  &quot;reason&quot;: &quot;Metric does not support this dataset modality&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Feature-identical groups with more than one nonmissing target value&quot;,
+    &quot;sample_size&quot;: null,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {},
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: null,
+  &quot;unit&quot;: null,
+  &quot;dataset_scope&quot;: null,
+  &quot;provenance&quot;: {},
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [],
+  &quot;reproducibility&quot;: {}
+}</pre></details><details><summary>duplication / near_duplicates — insufficient_evidence</summary><pre>{
+  &quot;metric_id&quot;: &quot;near_duplicates&quot;,
+  &quot;dimension&quot;: &quot;duplication&quot;,
+  &quot;state&quot;: &quot;insufficient_evidence&quot;,
+  &quot;value&quot;: null,
+  &quot;reason&quot;: &quot;disabled&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Candidate image pairs with 64-bit difference-hash Hamming distance &lt;= configured threshold&quot;,
+    &quot;sample_size&quot;: null,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {},
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: null,
+  &quot;unit&quot;: null,
+  &quot;dataset_scope&quot;: null,
+  &quot;provenance&quot;: {},
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [],
+  &quot;reproducibility&quot;: {}
+}</pre></details><details><summary>label_quality / class_distribution — pass</summary><pre>{
+  &quot;metric_id&quot;: &quot;class_distribution&quot;,
+  &quot;dimension&quot;: &quot;label_quality&quot;,
+  &quot;state&quot;: &quot;pass&quot;,
+  &quot;value&quot;: {
+    &quot;car&quot;: 2,
+    &quot;pedestrian&quot;: 2
+  },
+  &quot;reason&quot;: &quot;Observed diagnostic; no acceptance threshold specified&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Class object counts for detection; class row counts for categorical targets&quot;,
+    &quot;sample_size&quot;: 4,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {
+      &quot;fractions&quot;: {
+        &quot;car&quot;: 0.5,
+        &quot;pedestrian&quot;: 0.5
+      },
+      &quot;imbalance_ratio&quot;: 1.0
+    },
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: null,
+  &quot;unit&quot;: null,
+  &quot;dataset_scope&quot;: null,
+  &quot;provenance&quot;: {},
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [],
+  &quot;reproducibility&quot;: {}
+}</pre></details><details><summary>label_quality / label_agreement — not_applicable</summary><pre>{
+  &quot;metric_id&quot;: &quot;label_agreement&quot;,
+  &quot;dimension&quot;: &quot;label_quality&quot;,
+  &quot;state&quot;: &quot;not_applicable&quot;,
+  &quot;value&quot;: null,
+  &quot;reason&quot;: &quot;Metric does not support this dataset modality&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Cohen kappa = (observed agreement - expected agreement)/(1 - expected agreement)&quot;,
+    &quot;sample_size&quot;: null,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {},
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: null,
+  &quot;unit&quot;: null,
+  &quot;dataset_scope&quot;: null,
+  &quot;provenance&quot;: {},
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [],
+  &quot;reproducibility&quot;: {}
+}</pre></details><details><summary>label_quality / verified_label_error — not_applicable</summary><pre>{
+  &quot;metric_id&quot;: &quot;verified_label_error&quot;,
+  &quot;dimension&quot;: &quot;label_quality&quot;,
+  &quot;state&quot;: &quot;not_applicable&quot;,
+  &quot;value&quot;: null,
+  &quot;reason&quot;: &quot;Metric does not support this dataset modality&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Mismatches / complete target-reference pairs; reference must be explicitly declared trusted&quot;,
+    &quot;sample_size&quot;: null,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {},
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: null,
+  &quot;unit&quot;: null,
+  &quot;dataset_scope&quot;: null,
+  &quot;provenance&quot;: {},
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [],
+  &quot;reproducibility&quot;: {}
+}</pre></details><details><summary>coverage / sample_sufficiency — insufficient_evidence</summary><pre>{
+  &quot;metric_id&quot;: &quot;sample_sufficiency&quot;,
+  &quot;dimension&quot;: &quot;coverage&quot;,
+  &quot;state&quot;: &quot;insufficient_evidence&quot;,
+  &quot;value&quot;: null,
+  &quot;reason&quot;: &quot;No universal training sample minimum exists; supply scenario minimum_samples or an explicit count requirement&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Compare observed counts with an explicitly supplied minimum&quot;,
+    &quot;sample_size&quot;: null,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {},
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: null,
+  &quot;unit&quot;: null,
+  &quot;dataset_scope&quot;: null,
+  &quot;provenance&quot;: {},
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [],
+  &quot;reproducibility&quot;: {}
+}</pre></details><details><summary>representativeness / reference_comparison — insufficient_evidence</summary><pre>{
+  &quot;metric_id&quot;: &quot;reference_comparison&quot;,
+  &quot;dimension&quot;: &quot;representativeness&quot;,
+  &quot;state&quot;: &quot;insufficient_evidence&quot;,
+  &quot;value&quot;: null,
+  &quot;reason&quot;: &quot;No reference dataset supplied; diversity alone does not establish representativeness&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Per-feature Wasserstein distance for numeric data; base-2 Jensen-Shannon divergence for categorical data&quot;,
+    &quot;sample_size&quot;: null,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {},
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: null,
+  &quot;unit&quot;: null,
+  &quot;dataset_scope&quot;: null,
+  &quot;provenance&quot;: {},
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [],
+  &quot;reproducibility&quot;: {}
+}</pre></details><details><summary>leakage / split_overlap — insufficient_evidence</summary><pre>{
+  &quot;metric_id&quot;: &quot;split_overlap&quot;,
+  &quot;dimension&quot;: &quot;leakage&quot;,
+  &quot;state&quot;: &quot;insufficient_evidence&quot;,
+  &quot;value&quot;: null,
+  &quot;reason&quot;: &quot;Required evidence column is unavailable: unspecified&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Exact duplicate content observed in more than one declared split&quot;,
+    &quot;sample_size&quot;: null,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {},
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: null,
+  &quot;unit&quot;: null,
+  &quot;dataset_scope&quot;: null,
+  &quot;provenance&quot;: {},
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [],
+  &quot;reproducibility&quot;: {}
+}</pre></details><details><summary>leakage / group_leakage — insufficient_evidence</summary><pre>{
+  &quot;metric_id&quot;: &quot;group_leakage&quot;,
+  &quot;dimension&quot;: &quot;leakage&quot;,
+  &quot;state&quot;: &quot;insufficient_evidence&quot;,
+  &quot;value&quot;: null,
+  &quot;reason&quot;: &quot;Required evidence column is unavailable: unspecified&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Flight/session/group identifiers occurring in multiple declared splits&quot;,
+    &quot;sample_size&quot;: null,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {},
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: null,
+  &quot;unit&quot;: null,
+  &quot;dataset_scope&quot;: null,
+  &quot;provenance&quot;: {},
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [],
+  &quot;reproducibility&quot;: {}
+}</pre></details><details><summary>leakage / near_split_overlap — insufficient_evidence</summary><pre>{
+  &quot;metric_id&quot;: &quot;near_split_overlap&quot;,
+  &quot;dimension&quot;: &quot;leakage&quot;,
+  &quot;state&quot;: &quot;insufficient_evidence&quot;,
+  &quot;value&quot;: null,
+  &quot;reason&quot;: &quot;Near-duplicate analysis is disabled&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Perceptually similar image pairs assigned to different splits&quot;,
+    &quot;sample_size&quot;: null,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {},
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: null,
+  &quot;unit&quot;: null,
+  &quot;dataset_scope&quot;: null,
+  &quot;provenance&quot;: {},
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [],
+  &quot;reproducibility&quot;: {}
+}</pre></details><details><summary>leakage / target_leakage — not_applicable</summary><pre>{
+  &quot;metric_id&quot;: &quot;target_leakage&quot;,
+  &quot;dimension&quot;: &quot;leakage&quot;,
+  &quot;state&quot;: &quot;not_applicable&quot;,
+  &quot;value&quot;: null,
+  &quot;reason&quot;: &quot;Metric does not support this dataset modality&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Input-target identity and feature heuristics; no proof of causal leakage&quot;,
+    &quot;sample_size&quot;: null,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {},
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: null,
+  &quot;unit&quot;: null,
+  &quot;dataset_scope&quot;: null,
+  &quot;provenance&quot;: {},
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [],
+  &quot;reproducibility&quot;: {}
+}</pre></details><details><summary>leakage / preprocessing_leakage — insufficient_evidence</summary><pre>{
+  &quot;metric_id&quot;: &quot;preprocessing_leakage&quot;,
+  &quot;dimension&quot;: &quot;leakage&quot;,
+  &quot;state&quot;: &quot;insufficient_evidence&quot;,
+  &quot;value&quot;: null,
+  &quot;reason&quot;: &quot;Preprocessing pipeline metadata is absent&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Inspect explicitly supplied fit-scope metadata&quot;,
+    &quot;sample_size&quot;: null,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {},
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: null,
+  &quot;unit&quot;: null,
+  &quot;dataset_scope&quot;: null,
+  &quot;provenance&quot;: {},
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [],
+  &quot;reproducibility&quot;: {}
+}</pre></details><details><summary>evidence_reliability / evidence_summary — pass</summary><pre>{
+  &quot;metric_id&quot;: &quot;evidence_summary&quot;,
+  &quot;dimension&quot;: &quot;evidence_reliability&quot;,
+  &quot;state&quot;: &quot;pass&quot;,
+  &quot;value&quot;: {
+    &quot;rows&quot;: 4,
+    &quot;independent_groups&quot;: null,
+    &quot;missing_provenance&quot;: [
+      &quot;source&quot;,
+      &quot;collection_date&quot;,
+      &quot;dataset_version&quot;
+    ]
+  },
+  &quot;reason&quot;: &quot;No population confidence interval: sampling design and within-flight correlation are not established; neighboring frames are not assumed independent&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Observed evidence availability; no invented confidence intervals for correlated samples&quot;,
+    &quot;sample_size&quot;: 4,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {},
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: null,
+  &quot;unit&quot;: null,
+  &quot;dataset_scope&quot;: null,
+  &quot;provenance&quot;: {},
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [],
+  &quot;reproducibility&quot;: {}
+}</pre></details><details><summary>coverage / UAV-01 — measured</summary><pre>{
+  &quot;metric_id&quot;: &quot;UAV-01&quot;,
+  &quot;dimension&quot;: &quot;coverage&quot;,
+  &quot;state&quot;: &quot;warning&quot;,
+  &quot;value&quot;: {
+    &quot;luminance&quot;: {
+      &quot;count&quot;: 4,
+      &quot;unit&quot;: &quot;8-bit gray level&quot;,
+      &quot;minimum&quot;: 85.76595052083333,
+      &quot;q25&quot;: 89.36159261067708,
+      &quot;median&quot;: 92.92313639322916,
+      &quot;q75&quot;: 96.46807861328125,
+      &quot;maximum&quot;: 100.013916015625,
+      &quot;mean&quot;: 92.90653483072916,
+      &quot;missing&quot;: 0,
+      &quot;invalid&quot;: 0
+    },
+    &quot;contrast&quot;: {
+      &quot;count&quot;: 4,
+      &quot;unit&quot;: &quot;gray standard deviation&quot;,
+      &quot;minimum&quot;: 16.714623274674807,
+      &quot;q25&quot;: 19.00272164827654,
+      &quot;median&quot;: 21.536512830210164,
+      &quot;q75&quot;: 24.215012281670624,
+      &quot;maximum&quot;: 26.93723546385286,
+      &quot;mean&quot;: 21.681221099737,
+      &quot;missing&quot;: 0,
+      &quot;invalid&quot;: 0
+    },
+    &quot;declared_lighting&quot;: {
+      &quot;counts&quot;: {
+        &quot;daytime&quot;: 4
+      },
+      &quot;fractions&quot;: {
+        &quot;daytime&quot;: 1.0
+      },
+      &quot;observed&quot;: 4,
+      &quot;missing&quot;: 0,
+      &quot;denominator&quot;: 4,
+      &quot;population&quot;: 4
+    }
+  },
+  &quot;reason&quot;: &quot;Descriptive evidence; no acceptance decision without a confirmed criterion.&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Luminance/contrast quantiles and declared category frequencies&quot;,
+    &quot;sample_size&quot;: 4,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {},
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: &quot;measured&quot;,
+  &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+  &quot;dataset_scope&quot;: &quot;full_ingested_dataset&quot;,
+  &quot;provenance&quot;: {
+    &quot;dataset_sha256&quot;: &quot;d3439ddf83ad03af7b9828cd12da84123acf28ff2c9c2c315b9bcd993ca0e859&quot;,
+    &quot;pixel_evidence&quot;: &quot;decoded image data&quot;,
+    &quot;metadata_evidence&quot;: &quot;user-declared metadata; authenticity not independently verified&quot;
+  },
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [
+    &quot;Brightness does not establish day/night or weather.&quot;
+  ],
+  &quot;reproducibility&quot;: {
+    &quot;implementation_version&quot;: &quot;1.0&quot;
+  }
+}</pre></details><details><summary>coverage / UAV-02 — insufficient_evidence</summary><pre>{
+  &quot;metric_id&quot;: &quot;UAV-02&quot;,
+  &quot;dimension&quot;: &quot;coverage&quot;,
+  &quot;state&quot;: &quot;insufficient_evidence&quot;,
+  &quot;value&quot;: null,
+  &quot;reason&quot;: &quot;Supply recorded weather metadata (column weather) or an explicitly configured local classifier where supported.&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Observed category counts and missingness; optional classifier estimates&quot;,
+    &quot;sample_size&quot;: null,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {},
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: &quot;insufficient_evidence&quot;,
+  &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+  &quot;dataset_scope&quot;: &quot;full_ingested_dataset&quot;,
+  &quot;provenance&quot;: {
+    &quot;dataset_sha256&quot;: &quot;d3439ddf83ad03af7b9828cd12da84123acf28ff2c9c2c315b9bcd993ca0e859&quot;,
+    &quot;pixel_evidence&quot;: &quot;decoded image data&quot;,
+    &quot;metadata_evidence&quot;: &quot;user-declared metadata; authenticity not independently verified&quot;
+  },
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [
+    &quot;Declared metadata is not independently authenticated; visual predictions remain estimates.&quot;
+  ],
+  &quot;reproducibility&quot;: {
+    &quot;implementation_version&quot;: &quot;1.0&quot;
+  }
+}</pre></details><details><summary>coverage / UAV-03 — insufficient_evidence</summary><pre>{
+  &quot;metric_id&quot;: &quot;UAV-03&quot;,
+  &quot;dimension&quot;: &quot;coverage&quot;,
+  &quot;state&quot;: &quot;insufficient_evidence&quot;,
+  &quot;value&quot;: null,
+  &quot;reason&quot;: &quot;Recorded timestamps or time_of_day metadata required; appearance is not capture time.&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;UTC timestamp hour counts or declared time categories&quot;,
+    &quot;sample_size&quot;: null,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {},
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: &quot;insufficient_evidence&quot;,
+  &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+  &quot;dataset_scope&quot;: &quot;full_ingested_dataset&quot;,
+  &quot;provenance&quot;: {
+    &quot;dataset_sha256&quot;: &quot;d3439ddf83ad03af7b9828cd12da84123acf28ff2c9c2c315b9bcd993ca0e859&quot;,
+    &quot;pixel_evidence&quot;: &quot;decoded image data&quot;,
+    &quot;metadata_evidence&quot;: &quot;user-declared metadata; authenticity not independently verified&quot;
+  },
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [
+    &quot;UTC hour is not solar/local time; appearance cannot establish capture time.&quot;
+  ],
+  &quot;reproducibility&quot;: {
+    &quot;implementation_version&quot;: &quot;1.0&quot;
+  }
+}</pre></details><details><summary>coverage / UAV-04 — insufficient_evidence</summary><pre>{
+  &quot;metric_id&quot;: &quot;UAV-04&quot;,
+  &quot;dimension&quot;: &quot;coverage&quot;,
+  &quot;state&quot;: &quot;insufficient_evidence&quot;,
+  &quot;value&quot;: null,
+  &quot;reason&quot;: &quot;Supply declared seasons, or recorded timestamps and explicit north/south hemisphere for meteorological seasons.&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Declared season counts or explicitly configured meteorological month mapping&quot;,
+    &quot;sample_size&quot;: null,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {},
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: &quot;insufficient_evidence&quot;,
+  &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+  &quot;dataset_scope&quot;: &quot;full_ingested_dataset&quot;,
+  &quot;provenance&quot;: {
+    &quot;dataset_sha256&quot;: &quot;d3439ddf83ad03af7b9828cd12da84123acf28ff2c9c2c315b9bcd993ca0e859&quot;,
+    &quot;pixel_evidence&quot;: &quot;decoded image data&quot;,
+    &quot;metadata_evidence&quot;: &quot;user-declared metadata; authenticity not independently verified&quot;
+  },
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [
+    &quot;Hemisphere/calendar assumptions may not describe local climate.&quot;
+  ],
+  &quot;reproducibility&quot;: {
+    &quot;implementation_version&quot;: &quot;1.0&quot;
+  }
+}</pre></details><details><summary>coverage / UAV-05 — insufficient_evidence</summary><pre>{
+  &quot;metric_id&quot;: &quot;UAV-05&quot;,
+  &quot;dimension&quot;: &quot;coverage&quot;,
+  &quot;state&quot;: &quot;insufficient_evidence&quot;,
+  &quot;value&quot;: null,
+  &quot;reason&quot;: &quot;Supply recorded scene metadata (column scene) or an explicitly configured local classifier where supported.&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Category counts; bounded normalized embedding centroid dispersion&quot;,
+    &quot;sample_size&quot;: null,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {},
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: &quot;insufficient_evidence&quot;,
+  &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+  &quot;dataset_scope&quot;: &quot;full_ingested_dataset&quot;,
+  &quot;provenance&quot;: {
+    &quot;dataset_sha256&quot;: &quot;d3439ddf83ad03af7b9828cd12da84123acf28ff2c9c2c315b9bcd993ca0e859&quot;,
+    &quot;pixel_evidence&quot;: &quot;decoded image data&quot;,
+    &quot;metadata_evidence&quot;: &quot;user-declared metadata; authenticity not independently verified&quot;
+  },
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [
+    &quot;Image embeddings include objects and may encode irrelevant variation.&quot;
+  ],
+  &quot;reproducibility&quot;: {
+    &quot;implementation_version&quot;: &quot;1.0&quot;
+  }
+}</pre></details><details><summary>coverage / UAV-06 — insufficient_evidence</summary><pre>{
+  &quot;metric_id&quot;: &quot;UAV-06&quot;,
+  &quot;dimension&quot;: &quot;coverage&quot;,
+  &quot;state&quot;: &quot;insufficient_evidence&quot;,
+  &quot;value&quot;: null,
+  &quot;reason&quot;: &quot;Supply viewpoint categories or calibrated camera_pitch metadata with explicit angular units.&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Category counts or angle quantiles with declared units&quot;,
+    &quot;sample_size&quot;: null,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {},
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: &quot;insufficient_evidence&quot;,
+  &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+  &quot;dataset_scope&quot;: &quot;full_ingested_dataset&quot;,
+  &quot;provenance&quot;: {
+    &quot;dataset_sha256&quot;: &quot;d3439ddf83ad03af7b9828cd12da84123acf28ff2c9c2c315b9bcd993ca0e859&quot;,
+    &quot;pixel_evidence&quot;: &quot;decoded image data&quot;,
+    &quot;metadata_evidence&quot;: &quot;user-declared metadata; authenticity not independently verified&quot;
+  },
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [
+    &quot;No precise camera orientation inferred from uncalibrated appearance.&quot;
+  ],
+  &quot;reproducibility&quot;: {
+    &quot;implementation_version&quot;: &quot;1.0&quot;
+  }
+}</pre></details><details><summary>coverage / UAV-07 — insufficient_evidence</summary><pre>{
+  &quot;metric_id&quot;: &quot;UAV-07&quot;,
+  &quot;dimension&quot;: &quot;coverage&quot;,
+  &quot;state&quot;: &quot;insufficient_evidence&quot;,
+  &quot;value&quot;: null,
+  &quot;reason&quot;: &quot;Flight altitude column and explicit unit/datum metadata required; apparent object scale is not altitude.&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Finite altitude quantiles, missing/invalid counts, declared intervals&quot;,
+    &quot;sample_size&quot;: null,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {},
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: &quot;insufficient_evidence&quot;,
+  &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+  &quot;dataset_scope&quot;: &quot;full_ingested_dataset&quot;,
+  &quot;provenance&quot;: {
+    &quot;dataset_sha256&quot;: &quot;d3439ddf83ad03af7b9828cd12da84123acf28ff2c9c2c315b9bcd993ca0e859&quot;,
+    &quot;pixel_evidence&quot;: &quot;decoded image data&quot;,
+    &quot;metadata_evidence&quot;: &quot;user-declared metadata; authenticity not independently verified&quot;
+  },
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [
+    &quot;Altitude datum and units must be declared; object size is not altitude.&quot;
+  ],
+  &quot;reproducibility&quot;: {
+    &quot;implementation_version&quot;: &quot;1.0&quot;
+  }
+}</pre></details><details><summary>coverage / UAV-08 — measured</summary><pre>{
+  &quot;metric_id&quot;: &quot;UAV-08&quot;,
+  &quot;dimension&quot;: &quot;coverage&quot;,
+  &quot;state&quot;: &quot;warning&quot;,
+  &quot;value&quot;: {
+    &quot;per_class&quot;: {
+      &quot;car&quot;: {
+        &quot;width_pixels&quot;: {
+          &quot;count&quot;: 2,
+          &quot;unit&quot;: &quot;pixel&quot;,
+          &quot;minimum&quot;: 32.0,
+          &quot;q25&quot;: 32.0,
+          &quot;median&quot;: 32.0,
+          &quot;q75&quot;: 32.0,
+          &quot;maximum&quot;: 32.0,
+          &quot;mean&quot;: 32.0
+        },
+        &quot;height_pixels&quot;: {
+          &quot;count&quot;: 2,
+          &quot;unit&quot;: &quot;pixel&quot;,
+          &quot;minimum&quot;: 24.0,
+          &quot;q25&quot;: 24.0,
+          &quot;median&quot;: 24.0,
+          &quot;q75&quot;: 24.0,
+          &quot;maximum&quot;: 24.0,
+          &quot;mean&quot;: 24.0
+        },
+        &quot;area_pixels&quot;: {
+          &quot;count&quot;: 2,
+          &quot;unit&quot;: &quot;pixel²&quot;,
+          &quot;minimum&quot;: 768.0,
+          &quot;q25&quot;: 768.0,
+          &quot;median&quot;: 768.0,
+          &quot;q75&quot;: 768.0,
+          &quot;maximum&quot;: 768.0,
+          &quot;mean&quot;: 768.0
+        },
+        &quot;aspect_ratio&quot;: {
+          &quot;count&quot;: 2,
+          &quot;unit&quot;: &quot;ratio&quot;,
+          &quot;minimum&quot;: 1.3333333333333333,
+          &quot;q25&quot;: 1.3333333333333333,
+          &quot;median&quot;: 1.3333333333333333,
+          &quot;q75&quot;: 1.3333333333333333,
+          &quot;maximum&quot;: 1.3333333333333333,
+          &quot;mean&quot;: 1.3333333333333333
+        },
+        &quot;relative_occupancy&quot;: {
+          &quot;count&quot;: 2,
+          &quot;unit&quot;: &quot;ratio&quot;,
+          &quot;minimum&quot;: 0.0625,
+          &quot;q25&quot;: 0.0625,
+          &quot;median&quot;: 0.0625,
+          &quot;q75&quot;: 0.0625,
+          &quot;maximum&quot;: 0.0625,
+          &quot;mean&quot;: 0.0625
+        }
+      },
+      &quot;pedestrian&quot;: {
+        &quot;width_pixels&quot;: {
+          &quot;count&quot;: 2,
+          &quot;unit&quot;: &quot;pixel&quot;,
+          &quot;minimum&quot;: 32.0,
+          &quot;q25&quot;: 32.0,
+          &quot;median&quot;: 32.0,
+          &quot;q75&quot;: 32.0,
+          &quot;maximum&quot;: 32.0,
+          &quot;mean&quot;: 32.0
+        },
+        &quot;height_pixels&quot;: {
+          &quot;count&quot;: 2,
+          &quot;unit&quot;: &quot;pixel&quot;,
+          &quot;minimum&quot;: 24.0,
+          &quot;q25&quot;: 24.0,
+          &quot;median&quot;: 24.0,
+          &quot;q75&quot;: 24.0,
+          &quot;maximum&quot;: 24.0,
+          &quot;mean&quot;: 24.0
+        },
+        &quot;area_pixels&quot;: {
+          &quot;count&quot;: 2,
+          &quot;unit&quot;: &quot;pixel²&quot;,
+          &quot;minimum&quot;: 768.0,
+          &quot;q25&quot;: 768.0,
+          &quot;median&quot;: 768.0,
+          &quot;q75&quot;: 768.0,
+          &quot;maximum&quot;: 768.0,
+          &quot;mean&quot;: 768.0
+        },
+        &quot;aspect_ratio&quot;: {
+          &quot;count&quot;: 2,
+          &quot;unit&quot;: &quot;ratio&quot;,
+          &quot;minimum&quot;: 1.3333333333333333,
+          &quot;q25&quot;: 1.3333333333333333,
+          &quot;median&quot;: 1.3333333333333333,
+          &quot;q75&quot;: 1.3333333333333333,
+          &quot;maximum&quot;: 1.3333333333333333,
+          &quot;mean&quot;: 1.3333333333333333
+        },
+        &quot;relative_occupancy&quot;: {
+          &quot;count&quot;: 2,
+          &quot;unit&quot;: &quot;ratio&quot;,
+          &quot;minimum&quot;: 0.0625,
+          &quot;q25&quot;: 0.0625,
+          &quot;median&quot;: 0.0625,
+          &quot;q75&quot;: 0.0625,
+          &quot;maximum&quot;: 0.0625,
+          &quot;mean&quot;: 0.0625
+        }
+      }
+    }
+  },
+  &quot;reason&quot;: &quot;Descriptive evidence; no acceptance decision without a confirmed criterion.&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Per-class box width/height/area/aspect/occupancy quantiles and user bins&quot;,
+    &quot;sample_size&quot;: 4,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {},
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: &quot;measured&quot;,
+  &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+  &quot;dataset_scope&quot;: &quot;full_ingested_dataset&quot;,
+  &quot;provenance&quot;: {
+    &quot;dataset_sha256&quot;: &quot;d3439ddf83ad03af7b9828cd12da84123acf28ff2c9c2c315b9bcd993ca0e859&quot;,
+    &quot;pixel_evidence&quot;: &quot;decoded image data&quot;,
+    &quot;metadata_evidence&quot;: &quot;user-declared metadata; authenticity not independently verified&quot;
+  },
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [
+    &quot;Annotation-derived only; unannotated objects are excluded.&quot;
+  ],
+  &quot;reproducibility&quot;: {
+    &quot;implementation_version&quot;: &quot;1.0&quot;
+  }
+}</pre></details><details><summary>coverage / UAV-09 — insufficient_evidence</summary><pre>{
+  &quot;metric_id&quot;: &quot;UAV-09&quot;,
+  &quot;dimension&quot;: &quot;coverage&quot;,
+  &quot;state&quot;: &quot;insufficient_evidence&quot;,
+  &quot;value&quot;: null,
+  &quot;reason&quot;: &quot;Configure a local visual encoder; valid crop embeddings and model/version are required. No model is downloaded.&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Within-class mean cosine distance to normalized centroid&quot;,
+    &quot;sample_size&quot;: null,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {},
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: &quot;insufficient_evidence&quot;,
+  &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+  &quot;dataset_scope&quot;: &quot;full_ingested_dataset&quot;,
+  &quot;provenance&quot;: {
+    &quot;dataset_sha256&quot;: &quot;d3439ddf83ad03af7b9828cd12da84123acf28ff2c9c2c315b9bcd993ca0e859&quot;,
+    &quot;pixel_evidence&quot;: &quot;decoded image data&quot;,
+    &quot;metadata_evidence&quot;: &quot;user-declared metadata; authenticity not independently verified&quot;
+  },
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [
+    &quot;Encoder-dependent estimates; diversity does not prove usefulness.&quot;
+  ],
+  &quot;reproducibility&quot;: {
+    &quot;implementation_version&quot;: &quot;1.0&quot;
+  }
+}</pre></details><details><summary>coverage / UAV-10 — insufficient_evidence</summary><pre>{
+  &quot;metric_id&quot;: &quot;UAV-10&quot;,
+  &quot;dimension&quot;: &quot;coverage&quot;,
+  &quot;state&quot;: &quot;insufficient_evidence&quot;,
+  &quot;value&quot;: {
+    &quot;per_class&quot;: {
+      &quot;car&quot;: {
+        &quot;counts&quot;: {},
+        &quot;fractions&quot;: {},
+        &quot;observed&quot;: 0,
+        &quot;missing&quot;: 2,
+        &quot;denominator&quot;: 0,
+        &quot;population&quot;: 2
+      },
+      &quot;pedestrian&quot;: {
+        &quot;counts&quot;: {},
+        &quot;fractions&quot;: {},
+        &quot;observed&quot;: 0,
+        &quot;missing&quot;: 2,
+        &quot;denominator&quot;: 0,
+        &quot;population&quot;: 2
+      }
+    },
+    &quot;annotation_format&quot;: &quot;yolo&quot;,
+    &quot;total_objects&quot;: 4
+  },
+  &quot;reason&quot;: &quot;Occlusion annotations are absent; missing values are not zero occlusion.&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Per-class observed occlusion code counts and missingness&quot;,
+    &quot;sample_size&quot;: 0,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {},
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: &quot;insufficient_evidence&quot;,
+  &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+  &quot;dataset_scope&quot;: &quot;full_ingested_dataset&quot;,
+  &quot;provenance&quot;: {
+    &quot;dataset_sha256&quot;: &quot;d3439ddf83ad03af7b9828cd12da84123acf28ff2c9c2c315b9bcd993ca0e859&quot;,
+    &quot;pixel_evidence&quot;: &quot;decoded image data&quot;,
+    &quot;metadata_evidence&quot;: &quot;user-declared metadata; authenticity not independently verified&quot;
+  },
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [
+    &quot;Missing annotation is unknown, not zero occlusion.&quot;
+  ],
+  &quot;reproducibility&quot;: {
+    &quot;implementation_version&quot;: &quot;1.0&quot;
+  }
+}</pre></details><details><summary>coverage / UAV-11 — measured</summary><pre>{
+  &quot;metric_id&quot;: &quot;UAV-11&quot;,
+  &quot;dimension&quot;: &quot;coverage&quot;,
+  &quot;state&quot;: &quot;warning&quot;,
+  &quot;value&quot;: {
+    &quot;per_class&quot;: {
+      &quot;car&quot;: {
+        &quot;counts&quot;: {},
+        &quot;fractions&quot;: {},
+        &quot;observed&quot;: 0,
+        &quot;missing&quot;: 2,
+        &quot;denominator&quot;: 0,
+        &quot;population&quot;: 2
+      },
+      &quot;pedestrian&quot;: {
+        &quot;counts&quot;: {},
+        &quot;fractions&quot;: {},
+        &quot;observed&quot;: 0,
+        &quot;missing&quot;: 2,
+        &quot;denominator&quot;: 0,
+        &quot;population&quot;: 2
+      }
+    },
+    &quot;annotation_format&quot;: &quot;yolo&quot;,
+    &quot;total_objects&quot;: 4,
+    &quot;border_contact_proxy&quot;: {
+      &quot;car&quot;: {
+        &quot;count&quot;: 0,
+        &quot;denominator&quot;: 2,
+        &quot;fraction&quot;: 0.0
+      },
+      &quot;pedestrian&quot;: {
+        &quot;count&quot;: 0,
+        &quot;denominator&quot;: 2,
+        &quot;fraction&quot;: 0.0
+      }
+    },
+    &quot;true_truncation_status&quot;: &quot;insufficient_evidence&quot;
+  },
+  &quot;reason&quot;: &quot;Descriptive evidence; no acceptance decision without a confirmed criterion.&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Per-class truncation counts and border-contact fractions&quot;,
+    &quot;sample_size&quot;: 4,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {
+      &quot;border_contact_is_proxy&quot;: true
+    },
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: &quot;measured&quot;,
+  &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+  &quot;dataset_scope&quot;: &quot;full_ingested_dataset&quot;,
+  &quot;provenance&quot;: {
+    &quot;dataset_sha256&quot;: &quot;d3439ddf83ad03af7b9828cd12da84123acf28ff2c9c2c315b9bcd993ca0e859&quot;,
+    &quot;pixel_evidence&quot;: &quot;decoded image data&quot;,
+    &quot;metadata_evidence&quot;: &quot;user-declared metadata; authenticity not independently verified&quot;
+  },
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [
+    &quot;Border contact is only a truncation proxy.&quot;
+  ],
+  &quot;reproducibility&quot;: {
+    &quot;implementation_version&quot;: &quot;1.0&quot;
+  }
+}</pre></details><details><summary>coverage / UAV-12 — measured</summary><pre>{
+  &quot;metric_id&quot;: &quot;UAV-12&quot;,
+  &quot;dimension&quot;: &quot;coverage&quot;,
+  &quot;state&quot;: &quot;warning&quot;,
+  &quot;value&quot;: {
+    &quot;luminance_entropy&quot;: {
+      &quot;count&quot;: 4,
+      &quot;unit&quot;: &quot;bits/pixel histogram&quot;,
+      &quot;minimum&quot;: 0.5439603509057929,
+      &quot;q25&quot;: 0.5458775037590338,
+      &quot;median&quot;: 0.5465773706503458,
+      &quot;q75&quot;: 0.5466788766947444,
+      &quot;maximum&quot;: 0.5468009470072444,
+      &quot;mean&quot;: 0.5459790098034323,
+      &quot;missing&quot;: 0,
+      &quot;invalid&quot;: 0
+    },
+    &quot;semantic_clutter_status&quot;: &quot;unverified&quot;,
+    &quot;annotated_density_source&quot;: &quot;UAV-13&quot;
+  },
+  &quot;reason&quot;: &quot;Descriptive evidence; no acceptance decision without a confirmed criterion.&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Thumbnail entropy and annotated object density summaries&quot;,
+    &quot;sample_size&quot;: 4,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {
+      &quot;proxy_scale&quot;: &quot;aspect-preserving thumbnail, longest edge &lt;=256&quot;
+    },
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: &quot;measured&quot;,
+  &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+  &quot;dataset_scope&quot;: &quot;full_ingested_dataset&quot;,
+  &quot;provenance&quot;: {
+    &quot;dataset_sha256&quot;: &quot;d3439ddf83ad03af7b9828cd12da84123acf28ff2c9c2c315b9bcd993ca0e859&quot;,
+    &quot;pixel_evidence&quot;: &quot;decoded image data&quot;,
+    &quot;metadata_evidence&quot;: &quot;user-declared metadata; authenticity not independently verified&quot;
+  },
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [
+    &quot;Entropy and object density are supporting proxies, not semantic background clutter.&quot;
+  ],
+  &quot;reproducibility&quot;: {
+    &quot;implementation_version&quot;: &quot;1.0&quot;
+  }
+}</pre></details><details><summary>coverage / UAV-13 — measured</summary><pre>{
+  &quot;metric_id&quot;: &quot;UAV-13&quot;,
+  &quot;dimension&quot;: &quot;coverage&quot;,
+  &quot;state&quot;: &quot;warning&quot;,
+  &quot;value&quot;: {
+    &quot;objects_per_image&quot;: {
+      &quot;count&quot;: 4,
+      &quot;unit&quot;: &quot;objects/image&quot;,
+      &quot;minimum&quot;: 1.0,
+      &quot;q25&quot;: 1.0,
+      &quot;median&quot;: 1.0,
+      &quot;q75&quot;: 1.0,
+      &quot;maximum&quot;: 1.0,
+      &quot;mean&quot;: 1.0
+    },
+    &quot;objects_per_megapixel&quot;: {
+      &quot;count&quot;: 4,
+      &quot;unit&quot;: &quot;objects/megapixel&quot;,
+      &quot;minimum&quot;: 81.38020833333333,
+      &quot;q25&quot;: 81.38020833333333,
+      &quot;median&quot;: 81.38020833333333,
+      &quot;q75&quot;: 81.38020833333333,
+      &quot;maximum&quot;: 81.38020833333333,
+      &quot;mean&quot;: 81.38020833333333
+    },
+    &quot;per_class_objects_per_image&quot;: {
+      &quot;car&quot;: {
+        &quot;count&quot;: 4,
+        &quot;unit&quot;: &quot;objects/image&quot;,
+        &quot;minimum&quot;: 0.0,
+        &quot;q25&quot;: 0.0,
+        &quot;median&quot;: 0.5,
+        &quot;q75&quot;: 1.0,
+        &quot;maximum&quot;: 1.0,
+        &quot;mean&quot;: 0.5
+      },
+      &quot;pedestrian&quot;: {
+        &quot;count&quot;: 4,
+        &quot;unit&quot;: &quot;objects/image&quot;,
+        &quot;minimum&quot;: 0.0,
+        &quot;q25&quot;: 0.0,
+        &quot;median&quot;: 0.5,
+        &quot;q75&quot;: 1.0,
+        &quot;maximum&quot;: 1.0,
+        &quot;mean&quot;: 0.5
+      }
+    },
+    &quot;declared_density_bins&quot;: {},
+    &quot;pair_iou&quot;: {
+      &quot;count&quot;: 0,
+      &quot;unit&quot;: &quot;ratio&quot;
+    },
+    &quot;pair_center_distance&quot;: {
+      &quot;count&quot;: 0,
+      &quot;unit&quot;: &quot;fraction of image diagonal&quot;
+    },
+    &quot;pair_population&quot;: 0,
+    &quot;pairs_examined&quot;: 0,
+    &quot;pair_policy&quot;: &quot;ordered prefix up to max_spatial_pairs&quot;,
+    &quot;excluded_images&quot;: 0
+  },
+  &quot;reason&quot;: &quot;Descriptive evidence; no acceptance decision without a confirmed criterion.&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Objects/image and megapixel; bounded pair IoU and center-distance quantiles&quot;,
+    &quot;sample_size&quot;: 4,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {
+      &quot;max_spatial_pairs&quot;: 10000
+    },
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: &quot;measured&quot;,
+  &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+  &quot;dataset_scope&quot;: &quot;full_ingested_dataset&quot;,
+  &quot;provenance&quot;: {
+    &quot;dataset_sha256&quot;: &quot;d3439ddf83ad03af7b9828cd12da84123acf28ff2c9c2c315b9bcd993ca0e859&quot;,
+    &quot;pixel_evidence&quot;: &quot;decoded image data&quot;,
+    &quot;metadata_evidence&quot;: &quot;user-declared metadata; authenticity not independently verified&quot;
+  },
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [
+    &quot;Pair and image populations are explicit; no universal sparse/dense cutoffs.&quot;
+  ],
+  &quot;reproducibility&quot;: {
+    &quot;implementation_version&quot;: &quot;1.0&quot;
+  }
+}</pre></details><details><summary>integrity / UAV-14 — measured</summary><pre>{
+  &quot;metric_id&quot;: &quot;UAV-14&quot;,
+  &quot;dimension&quot;: &quot;integrity&quot;,
+  &quot;state&quot;: &quot;warning&quot;,
+  &quot;value&quot;: {
+    &quot;width&quot;: {
+      &quot;count&quot;: 4,
+      &quot;unit&quot;: &quot;pixel&quot;,
+      &quot;minimum&quot;: 128.0,
+      &quot;q25&quot;: 128.0,
+      &quot;median&quot;: 128.0,
+      &quot;q75&quot;: 128.0,
+      &quot;maximum&quot;: 128.0,
+      &quot;mean&quot;: 128.0,
+      &quot;missing&quot;: 0,
+      &quot;invalid&quot;: 0
+    },
+    &quot;height&quot;: {
+      &quot;count&quot;: 4,
+      &quot;unit&quot;: &quot;pixel&quot;,
+      &quot;minimum&quot;: 96.0,
+      &quot;q25&quot;: 96.0,
+      &quot;median&quot;: 96.0,
+      &quot;q75&quot;: 96.0,
+      &quot;maximum&quot;: 96.0,
+      &quot;mean&quot;: 96.0,
+      &quot;missing&quot;: 0,
+      &quot;invalid&quot;: 0
+    },
+    &quot;brightness&quot;: {
+      &quot;count&quot;: 4,
+      &quot;unit&quot;: &quot;gray level&quot;,
+      &quot;minimum&quot;: 85.76595052083333,
+      &quot;q25&quot;: 89.36159261067708,
+      &quot;median&quot;: 92.92313639322916,
+      &quot;q75&quot;: 96.46807861328125,
+      &quot;maximum&quot;: 100.013916015625,
+      &quot;mean&quot;: 92.90653483072916,
+      &quot;missing&quot;: 0,
+      &quot;invalid&quot;: 0
+    },
+    &quot;contrast&quot;: {
+      &quot;count&quot;: 4,
+      &quot;unit&quot;: &quot;gray standard deviation&quot;,
+      &quot;minimum&quot;: 16.714623274674807,
+      &quot;q25&quot;: 19.00272164827654,
+      &quot;median&quot;: 21.536512830210164,
+      &quot;q75&quot;: 24.215012281670624,
+      &quot;maximum&quot;: 26.93723546385286,
+      &quot;mean&quot;: 21.681221099737,
+      &quot;missing&quot;: 0,
+      &quot;invalid&quot;: 0
+    },
+    &quot;laplacian_variance&quot;: {
+      &quot;count&quot;: 4,
+      &quot;unit&quot;: &quot;squared gray level&quot;,
+      &quot;minimum&quot;: 1600.3836541708881,
+      &quot;q25&quot;: 1717.2288922661262,
+      &quot;median&quot;: 1844.4426713947992,
+      &quot;q75&quot;: 1979.829913880446,
+      &quot;maximum&quot;: 2121.195542046606,
+      &quot;mean&quot;: 1852.616134751773,
+      &quot;missing&quot;: 0,
+      &quot;invalid&quot;: 0
+    },
+    &quot;encoded_bytes_per_pixel&quot;: {
+      &quot;count&quot;: 4,
+      &quot;unit&quot;: &quot;bytes/pixel&quot;,
+      &quot;minimum&quot;: 0.0830078125,
+      &quot;q25&quot;: 0.08319091796875,
+      &quot;median&quot;: 0.08329264322916666,
+      &quot;q75&quot;: 0.08349609375,
+      &quot;maximum&quot;: 0.083984375,
+      &quot;mean&quot;: 0.08339436848958333,
+      &quot;missing&quot;: 0,
+      &quot;invalid&quot;: 0
+    },
+    &quot;excluded_unreadable_images&quot;: 0
+  },
+  &quot;reason&quot;: &quot;Descriptive evidence; no acceptance decision without a confirmed criterion.&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Resolution, luminance, contrast, thumbnail Laplacian variance and bytes/pixel&quot;,
+    &quot;sample_size&quot;: 4,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {
+      &quot;laplacian_kernel&quot;: &quot;4-neighbor discrete Laplacian; interior pixels; population variance&quot;,
+      &quot;proxy_scale&quot;: &quot;thumbnail &lt;=256 pixels longest edge, Pillow default resize&quot;
+    },
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: &quot;measured&quot;,
+  &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+  &quot;dataset_scope&quot;: &quot;full_ingested_dataset&quot;,
+  &quot;provenance&quot;: {
+    &quot;dataset_sha256&quot;: &quot;d3439ddf83ad03af7b9828cd12da84123acf28ff2c9c2c315b9bcd993ca0e859&quot;,
+    &quot;pixel_evidence&quot;: &quot;decoded image data&quot;,
+    &quot;metadata_evidence&quot;: &quot;user-declared metadata; authenticity not independently verified&quot;
+  },
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [
+    &quot;No-reference proxies depend on content, sensor and thumbnail scale; bytes/pixel is not compression quality.&quot;
+  ],
+  &quot;reproducibility&quot;: {
+    &quot;implementation_version&quot;: &quot;1.0&quot;
+  }
+}</pre></details><details><summary>label_quality / UAV-15 — measured</summary><pre>{
+  &quot;metric_id&quot;: &quot;UAV-15&quot;,
+  &quot;dimension&quot;: &quot;label_quality&quot;,
+  &quot;state&quot;: &quot;warning&quot;,
+  &quot;value&quot;: {
+    &quot;bbox_invalid_rate&quot;: {
+      &quot;metric_id&quot;: &quot;bbox_invalid_rate&quot;,
+      &quot;state&quot;: &quot;pass&quot;,
+      &quot;value&quot;: 0.0,
+      &quot;denominator&quot;: 4,
+      &quot;reason&quot;: &quot;0 of 4 annotated images contain invalid target annotations. Ignored-region geometry diagnostics are reported separately.&quot;,
+      &quot;details&quot;: {
+        &quot;annotation_format&quot;: &quot;yolo&quot;,
+        &quot;invalid_target_examples&quot;: [],
+        &quot;ignored_region_diagnostics&quot;: []
+      }
+    },
+    &quot;missing_label_rate&quot;: {
+      &quot;metric_id&quot;: &quot;missing_label_rate&quot;,
+      &quot;state&quot;: &quot;pass&quot;,
+      &quot;value&quot;: 0.0,
+      &quot;denominator&quot;: 4,
+      &quot;reason&quot;: &quot;Empty annotation files are annotated negatives; missing objects within annotated images cannot be inferred&quot;,
+      &quot;details&quot;: {}
+    },
+    &quot;manifest_errors&quot;: null,
+    &quot;annotation_policy&quot;: &quot;Not independently reviewed&quot;,
+    &quot;semantic_correctness&quot;: &quot;unverified&quot;,
+    &quot;visible_object_completeness&quot;: &quot;unverified&quot;
+  },
+  &quot;reason&quot;: &quot;Descriptive evidence; no acceptance decision without a confirmed criterion.&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Reuse syntax/presence/manifest diagnostics and independently reviewed audit counts&quot;,
+    &quot;sample_size&quot;: 4,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {},
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: &quot;measured&quot;,
+  &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+  &quot;dataset_scope&quot;: &quot;full_ingested_dataset&quot;,
+  &quot;provenance&quot;: {
+    &quot;dataset_sha256&quot;: &quot;d3439ddf83ad03af7b9828cd12da84123acf28ff2c9c2c315b9bcd993ca0e859&quot;,
+    &quot;pixel_evidence&quot;: &quot;decoded image data&quot;,
+    &quot;metadata_evidence&quot;: &quot;user-declared metadata; authenticity not independently verified&quot;
+  },
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [
+    &quot;Syntax is not semantic correctness or exhaustive visible-object annotation.&quot;
+  ],
+  &quot;reproducibility&quot;: {
+    &quot;implementation_version&quot;: &quot;1.0&quot;
+  }
+}</pre></details><details><summary>label_quality / UAV-16 — insufficient_evidence</summary><pre>{
+  &quot;metric_id&quot;: &quot;UAV-16&quot;,
+  &quot;dimension&quot;: &quot;label_quality&quot;,
+  &quot;state&quot;: &quot;insufficient_evidence&quot;,
+  &quot;value&quot;: null,
+  &quot;reason&quot;: &quot;Configure a local visual encoder; valid crop embeddings and model/version are required. No model is downloaded.&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Sampled nearest cross-class cosine similarity and candidate review pairs&quot;,
+    &quot;sample_size&quot;: null,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {},
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: &quot;insufficient_evidence&quot;,
+  &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+  &quot;dataset_scope&quot;: &quot;full_ingested_dataset&quot;,
+  &quot;provenance&quot;: {
+    &quot;dataset_sha256&quot;: &quot;d3439ddf83ad03af7b9828cd12da84123acf28ff2c9c2c315b9bcd993ca0e859&quot;,
+    &quot;pixel_evidence&quot;: &quot;decoded image data&quot;,
+    &quot;metadata_evidence&quot;: &quot;user-declared metadata; authenticity not independently verified&quot;
+  },
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [
+    &quot;Similarity is model-dependent; difficult examples are not automatically wrong or useful.&quot;
+  ],
+  &quot;reproducibility&quot;: {
+    &quot;implementation_version&quot;: &quot;1.0&quot;
+  }
+}</pre></details><details><summary>representativeness / UAV-17 — insufficient_evidence</summary><pre>{
+  &quot;metric_id&quot;: &quot;UAV-17&quot;,
+  &quot;dimension&quot;: &quot;representativeness&quot;,
+  &quot;state&quot;: &quot;insufficient_evidence&quot;,
+  &quot;value&quot;: null,
+  &quot;reason&quot;: &quot;Supply explicit reference_columns plus a reference dataset, or reference_distributions. Target categories alone do not define a reference distribution.&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Reuse Wasserstein/JS comparisons; JS divergence for declared categorical references&quot;,
+    &quot;sample_size&quot;: null,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {},
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: &quot;insufficient_evidence&quot;,
+  &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+  &quot;dataset_scope&quot;: &quot;full_ingested_dataset&quot;,
+  &quot;provenance&quot;: {
+    &quot;dataset_sha256&quot;: &quot;d3439ddf83ad03af7b9828cd12da84123acf28ff2c9c2c315b9bcd993ca0e859&quot;,
+    &quot;pixel_evidence&quot;: &quot;decoded image data&quot;,
+    &quot;metadata_evidence&quot;: &quot;user-declared metadata; authenticity not independently verified&quot;
+  },
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [
+    &quot;Descriptive shift does not predict accuracy loss or prove deployment representativeness.&quot;
+  ],
+  &quot;reproducibility&quot;: {
+    &quot;implementation_version&quot;: &quot;1.0&quot;
+  }
+}</pre></details><details><summary>duplication / UAV-18 — measured</summary><pre>{
+  &quot;metric_id&quot;: &quot;UAV-18&quot;,
+  &quot;dimension&quot;: &quot;duplication&quot;,
+  &quot;state&quot;: &quot;warning&quot;,
+  &quot;value&quot;: {
+    &quot;class_distribution&quot;: {
+      &quot;metric_id&quot;: &quot;class_distribution&quot;,
+      &quot;state&quot;: &quot;pass&quot;,
+      &quot;value&quot;: {
+        &quot;car&quot;: 2,
+        &quot;pedestrian&quot;: 2
+      },
+      &quot;denominator&quot;: 4,
+      &quot;reason&quot;: &quot;Observed diagnostic; no acceptance threshold specified&quot;,
+      &quot;details&quot;: {
+        &quot;fractions&quot;: {
+          &quot;car&quot;: 0.5,
+          &quot;pedestrian&quot;: 0.5
+        },
+        &quot;imbalance_ratio&quot;: 1.0
+      }
+    },
+    &quot;duplicate_rate&quot;: {
+      &quot;metric_id&quot;: &quot;duplicate_rate&quot;,
+      &quot;state&quot;: &quot;pass&quot;,
+      &quot;value&quot;: 0.0,
+      &quot;denominator&quot;: 4,
+      &quot;reason&quot;: &quot;Repeated observations may be legitimate; review acquisition context before removal&quot;,
+      &quot;details&quot;: {}
+    },
+    &quot;near_duplicates&quot;: {
+      &quot;metric_id&quot;: &quot;near_duplicates&quot;,
+      &quot;state&quot;: &quot;insufficient_evidence&quot;,
+      &quot;value&quot;: null,
+      &quot;denominator&quot;: null,
+      &quot;reason&quot;: &quot;disabled&quot;,
+      &quot;details&quot;: {}
+    },
+    &quot;split_overlap&quot;: {
+      &quot;metric_id&quot;: &quot;split_overlap&quot;,
+      &quot;state&quot;: &quot;insufficient_evidence&quot;,
+      &quot;value&quot;: null,
+      &quot;denominator&quot;: null,
+      &quot;reason&quot;: &quot;Required evidence column is unavailable: unspecified&quot;,
+      &quot;details&quot;: {}
+    },
+    &quot;group_leakage&quot;: {
+      &quot;metric_id&quot;: &quot;group_leakage&quot;,
+      &quot;state&quot;: &quot;insufficient_evidence&quot;,
+      &quot;value&quot;: null,
+      &quot;denominator&quot;: null,
+      &quot;reason&quot;: &quot;Required evidence column is unavailable: unspecified&quot;,
+      &quot;details&quot;: {}
+    },
+    &quot;near_split_overlap&quot;: {
+      &quot;metric_id&quot;: &quot;near_split_overlap&quot;,
+      &quot;state&quot;: &quot;insufficient_evidence&quot;,
+      &quot;value&quot;: null,
+      &quot;denominator&quot;: null,
+      &quot;reason&quot;: &quot;Near-duplicate analysis is disabled&quot;,
+      &quot;details&quot;: {}
+    },
+    &quot;evidence_summary&quot;: {
+      &quot;metric_id&quot;: &quot;evidence_summary&quot;,
+      &quot;state&quot;: &quot;pass&quot;,
+      &quot;value&quot;: {
+        &quot;rows&quot;: 4,
+        &quot;independent_groups&quot;: null,
+        &quot;missing_provenance&quot;: [
+          &quot;source&quot;,
+          &quot;collection_date&quot;,
+          &quot;dataset_version&quot;
+        ]
+      },
+      &quot;denominator&quot;: 4,
+      &quot;reason&quot;: &quot;No population confidence interval: sampling design and within-flight correlation are not established; neighboring frames are not assumed independent&quot;,
+      &quot;details&quot;: {}
+    },
+    &quot;sample_adequacy&quot;: &quot;unverified; no universal minimum&quot;
+  },
+  &quot;reason&quot;: &quot;Descriptive evidence; no acceptance decision without a confirmed criterion.&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Reuse class/duplicate/split/group statistics; count known collection groups&quot;,
+    &quot;sample_size&quot;: 4,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {},
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: &quot;measured&quot;,
+  &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+  &quot;dataset_scope&quot;: &quot;full_ingested_dataset&quot;,
+  &quot;provenance&quot;: {
+    &quot;dataset_sha256&quot;: &quot;d3439ddf83ad03af7b9828cd12da84123acf28ff2c9c2c315b9bcd993ca0e859&quot;,
+    &quot;pixel_evidence&quot;: &quot;decoded image data&quot;,
+    &quot;metadata_evidence&quot;: &quot;user-declared metadata; authenticity not independently verified&quot;
+  },
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [
+    &quot;Group IDs are declared; total frames are not independent observations; adequacy is unverified.&quot;
+  ],
+  &quot;reproducibility&quot;: {
+    &quot;implementation_version&quot;: &quot;1.0&quot;
+  }
+}</pre></details><details><summary>integrity / UAV-19 — insufficient_evidence</summary><pre>{
+  &quot;metric_id&quot;: &quot;UAV-19&quot;,
+  &quot;dimension&quot;: &quot;integrity&quot;,
+  &quot;state&quot;: &quot;insufficient_evidence&quot;,
+  &quot;value&quot;: null,
+  &quot;reason&quot;: &quot;Declare sensor_types mappings, units, and calibration/alignment evidence for relevant modalities.&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Validate declared mapped fields and units; paired sensor timestamp deltas&quot;,
+    &quot;sample_size&quot;: null,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {},
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: &quot;insufficient_evidence&quot;,
+  &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+  &quot;dataset_scope&quot;: &quot;full_ingested_dataset&quot;,
+  &quot;provenance&quot;: {
+    &quot;dataset_sha256&quot;: &quot;d3439ddf83ad03af7b9828cd12da84123acf28ff2c9c2c315b9bcd993ca0e859&quot;,
+    &quot;pixel_evidence&quot;: &quot;decoded image data&quot;,
+    &quot;metadata_evidence&quot;: &quot;user-declared metadata; authenticity not independently verified&quot;
+  },
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [
+    &quot;Calibration presence is not calibration validity; synchronization needs timestamps and explicit tolerance.&quot;
+  ],
+  &quot;reproducibility&quot;: {
+    &quot;implementation_version&quot;: &quot;1.0&quot;
+  }
+}</pre></details><details><summary>integrity / UAV-20 — not_applicable</summary><pre>{
+  &quot;metric_id&quot;: &quot;UAV-20&quot;,
+  &quot;dimension&quot;: &quot;integrity&quot;,
+  &quot;state&quot;: &quot;not_applicable&quot;,
+  &quot;value&quot;: null,
+  &quot;reason&quot;: &quot;Static-image collection; temporal continuity is not applicable. Declare collection_kind=video/telemetry and sequence metadata when appropriate.&quot;,
+  &quot;evidence&quot;: {
+    &quot;method&quot;: &quot;Within-sequence timestamp differences in recorded order, duplicates and frame gaps&quot;,
+    &quot;sample_size&quot;: null,
+    &quot;references&quot;: [],
+    &quot;details&quot;: {},
+    &quot;confidence_interval&quot;: null
+  },
+  &quot;assessment_status&quot;: &quot;not_applicable&quot;,
+  &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+  &quot;dataset_scope&quot;: &quot;full_ingested_dataset&quot;,
+  &quot;provenance&quot;: {
+    &quot;dataset_sha256&quot;: &quot;d3439ddf83ad03af7b9828cd12da84123acf28ff2c9c2c315b9bcd993ca0e859&quot;,
+    &quot;pixel_evidence&quot;: &quot;decoded image data&quot;,
+    &quot;metadata_evidence&quot;: &quot;user-declared metadata; authenticity not independently verified&quot;
+  },
+  &quot;estimation_method&quot;: null,
+  &quot;limitations&quot;: [
+    &quot;Static imagery is not video; tracking identity correctness and physical motion require additional evidence.&quot;
+  ],
+  &quot;reproducibility&quot;: {
+    &quot;implementation_version&quot;: &quot;1.0&quot;
+  }
+}</pre></details><h2>Learning-potential diagnostics</h2><pre>{
+  &quot;concept_coverage&quot;: {
+    &quot;supporting_metric_ids&quot;: [
+      &quot;UAV-08&quot;,
+      &quot;UAV-09&quot;,
+      &quot;UAV-10&quot;,
+      &quot;UAV-11&quot;,
+      &quot;UAV-15&quot;
+    ],
+    &quot;evidence_status&quot;: {
+      &quot;UAV-08&quot;: &quot;measured&quot;,
+      &quot;UAV-09&quot;: &quot;insufficient_evidence&quot;,
+      &quot;UAV-10&quot;: &quot;insufficient_evidence&quot;,
+      &quot;UAV-11&quot;: &quot;measured&quot;,
+      &quot;UAV-15&quot;: &quot;measured&quot;
+    },
+    &quot;interpretation&quot;: &quot;Observed target-concept variation only; unannotated concepts and semantic annotation correctness require audit.&quot;
+  },
+  &quot;invariance_support&quot;: {
+    &quot;supporting_metric_ids&quot;: [
+      &quot;UAV-01&quot;,
+      &quot;UAV-05&quot;,
+      &quot;UAV-06&quot;,
+      &quot;UAV-08&quot;,
+      &quot;UAV-10&quot;,
+      &quot;UAV-14&quot;
+    ],
+    &quot;evidence_status&quot;: {
+      &quot;UAV-01&quot;: &quot;measured&quot;,
+      &quot;UAV-05&quot;: &quot;insufficient_evidence&quot;,
+      &quot;UAV-06&quot;: &quot;insufficient_evidence&quot;,
+      &quot;UAV-08&quot;: &quot;measured&quot;,
+      &quot;UAV-10&quot;: &quot;insufficient_evidence&quot;,
+      &quot;UAV-14&quot;: &quot;measured&quot;
+    },
+    &quot;interpretation&quot;: &quot;Marginal condition coverage does not establish label-preserving invariance; within-class condition coverage is supporting evidence only.&quot;,
+    &quot;class_condition_image_counts&quot;: {
+      &quot;lighting&quot;: {
+        &quot;car&quot;: {
+          &quot;daytime&quot;: 2
+        },
+        &quot;pedestrian&quot;: {
+          &quot;daytime&quot;: 2
+        }
+      }
+    },
+    &quot;label_preserving_transformations&quot;: &quot;unverified; no generated transformation is assumed label-preserving&quot;,
+    &quot;required_validation&quot;: &quot;Independent visibility and label-preservation review for each transformation and target class.&quot;
+  },
+  &quot;shortcut_vulnerability&quot;: {
+    &quot;supporting_metric_ids&quot;: [
+      &quot;UAV-01&quot;,
+      &quot;UAV-05&quot;,
+      &quot;UAV-18&quot;
+    ],
+    &quot;evidence_status&quot;: {
+      &quot;UAV-01&quot;: &quot;measured&quot;,
+      &quot;UAV-05&quot;: &quot;insufficient_evidence&quot;,
+      &quot;UAV-18&quot;: &quot;measured&quot;
+    },
+    &quot;interpretation&quot;: &quot;Conditional label/nuisance associations identify candidates for controlled downstream tests.&quot;,
+    &quot;conditional_associations&quot;: {
+      &quot;status&quot;: &quot;measured&quot;,
+      &quot;associations&quot;: {
+        &quot;lighting&quot;: {
+          &quot;per_class&quot;: {
+            &quot;car&quot;: {
+              &quot;normalized_mutual_information&quot;: null,
+              &quot;mutual_information_bits&quot;: 0.0,
+              &quot;denominator&quot;: 4,
+              &quot;contingency&quot;: {
+                &quot;daytime&quot;: {
+                  &quot;0&quot;: 2,
+                  &quot;1&quot;: 2
+                }
+              },
+              &quot;degenerate&quot;: true
+            }
+          },
+          &quot;excluded_missing_nuisance&quot;: 0
+        }
+      },
+      &quot;definition&quot;: &quot;MI / sqrt(H(nuisance)*H(binary class presence)); undefined for constant variables&quot;,
+      &quot;limitations&quot;: &quot;Descriptive annotation associations; class co-occurrence and collection design confound results. Correlation does not establish a trained model uses a shortcut.&quot;
+    }
+  },
+  &quot;discriminative_information&quot;: {
+    &quot;supporting_metric_ids&quot;: [
+      &quot;UAV-09&quot;,
+      &quot;UAV-16&quot;
+    ],
+    &quot;evidence_status&quot;: {
+      &quot;UAV-09&quot;: &quot;insufficient_evidence&quot;,
+      &quot;UAV-16&quot;: &quot;insufficient_evidence&quot;
+    },
+    &quot;interpretation&quot;: &quot;Encoder similarities identify review candidates; discriminability of the target model remains unverified.&quot;
+  },
+  &quot;independent_evidence_and_redundancy&quot;: {
+    &quot;supporting_metric_ids&quot;: [
+      &quot;UAV-18&quot;
+    ],
+    &quot;evidence_status&quot;: {
+      &quot;UAV-18&quot;: &quot;measured&quot;
+    },
+    &quot;interpretation&quot;: &quot;Collection groups and duplicates constrain evidence interpretation; sample adequacy remains task/model-specific.&quot;
+  },
+  &quot;potential_deployment_domain_shift&quot;: {
+    &quot;supporting_metric_ids&quot;: [
+      &quot;UAV-17&quot;
+    ],
+    &quot;evidence_status&quot;: {
+      &quot;UAV-17&quot;: &quot;insufficient_evidence&quot;
+    },
+    &quot;interpretation&quot;: &quot;Descriptive reference differences; downstream degradation requires independent model evaluation.&quot;
+  }
+}</pre><h2>Measurement availability</h2><pre>{
+  &quot;measured&quot;: [
+    &quot;UAV-01&quot;,
+    &quot;UAV-08&quot;,
+    &quot;UAV-11&quot;,
+    &quot;UAV-12&quot;,
+    &quot;UAV-13&quot;,
+    &quot;UAV-14&quot;,
+    &quot;UAV-15&quot;,
+    &quot;UAV-18&quot;
+  ],
+  &quot;estimated&quot;: [],
+  &quot;insufficient_evidence&quot;: [
+    &quot;UAV-02&quot;,
+    &quot;UAV-03&quot;,
+    &quot;UAV-04&quot;,
+    &quot;UAV-05&quot;,
+    &quot;UAV-06&quot;,
+    &quot;UAV-07&quot;,
+    &quot;UAV-09&quot;,
+    &quot;UAV-10&quot;,
+    &quot;UAV-16&quot;,
+    &quot;UAV-17&quot;,
+    &quot;UAV-19&quot;
+  ],
+  &quot;not_applicable&quot;: [
+    &quot;UAV-20&quot;
+  ],
+  &quot;unsupported&quot;: [],
+  &quot;error&quot;: []
+}</pre><h2>Environmental and scenario coverage</h2><ul><li>UAV-01: measured</li><li>UAV-02: insufficient_evidence</li><li>UAV-03: insufficient_evidence</li><li>UAV-04: insufficient_evidence</li><li>UAV-05: insufficient_evidence</li><li>UAV-06: insufficient_evidence</li><li>UAV-07: insufficient_evidence</li></ul><h2>Object-level coverage and observability</h2><ul><li>UAV-08: measured</li><li>UAV-09: insufficient_evidence</li><li>UAV-10: insufficient_evidence</li><li>UAV-11: measured</li><li>UAV-12: measured</li><li>UAV-13: measured</li><li>UAV-14: measured</li></ul><h2>Annotation diagnostics</h2><ul><li>UAV-15: measured</li><li>UAV-16: insufficient_evidence</li></ul><h2>Deployment, independent evidence and leakage</h2><ul><li>UAV-17: insufficient_evidence</li><li>UAV-18: measured</li></ul><h2>Sensor and temporal findings</h2><ul><li>UAV-19: insufficient_evidence</li><li>UAV-20: not_applicable</li></ul><h2>Recommendation evidence</h2><pre>[
+  {
+    &quot;description&quot;: &quot;Supply or independently review evidence for UAV-02: Supply recorded weather metadata (column weather) or an explicitly configured local classifier where supported.&quot;,
+    &quot;finding_ids&quot;: [],
+    &quot;conditional&quot;: true,
+    &quot;supporting_metric_ids&quot;: [
+      &quot;UAV-02&quot;
+    ],
+    &quot;observed_evidence&quot;: &quot;Required evidence unavailable; no numerical absence was inferred.&quot;,
+    &quot;hypothesized_effect&quot;: &quot;This gap limits assessment of the intended task. Its model-performance effect has not been established.&quot;
+  },
+  {
+    &quot;description&quot;: &quot;Supply or independently review evidence for UAV-03: Recorded timestamps or time_of_day metadata required; appearance is not capture time.&quot;,
+    &quot;finding_ids&quot;: [],
+    &quot;conditional&quot;: true,
+    &quot;supporting_metric_ids&quot;: [
+      &quot;UAV-03&quot;
+    ],
+    &quot;observed_evidence&quot;: &quot;Required evidence unavailable; no numerical absence was inferred.&quot;,
+    &quot;hypothesized_effect&quot;: &quot;This gap limits assessment of the intended task. Its model-performance effect has not been established.&quot;
+  },
+  {
+    &quot;description&quot;: &quot;Supply or independently review evidence for UAV-04: Supply declared seasons, or recorded timestamps and explicit north/south hemisphere for meteorological seasons.&quot;,
+    &quot;finding_ids&quot;: [],
+    &quot;conditional&quot;: true,
+    &quot;supporting_metric_ids&quot;: [
+      &quot;UAV-04&quot;
+    ],
+    &quot;observed_evidence&quot;: &quot;Required evidence unavailable; no numerical absence was inferred.&quot;,
+    &quot;hypothesized_effect&quot;: &quot;This gap limits assessment of the intended task. Its model-performance effect has not been established.&quot;
+  },
+  {
+    &quot;description&quot;: &quot;Supply or independently review evidence for UAV-05: Supply recorded scene metadata (column scene) or an explicitly configured local classifier where supported.&quot;,
+    &quot;finding_ids&quot;: [],
+    &quot;conditional&quot;: true,
+    &quot;supporting_metric_ids&quot;: [
+      &quot;UAV-05&quot;
+    ],
+    &quot;observed_evidence&quot;: &quot;Required evidence unavailable; no numerical absence was inferred.&quot;,
+    &quot;hypothesized_effect&quot;: &quot;This gap limits assessment of the intended task. Its model-performance effect has not been established.&quot;
+  },
+  {
+    &quot;description&quot;: &quot;Supply or independently review evidence for UAV-06: Supply viewpoint categories or calibrated camera_pitch metadata with explicit angular units.&quot;,
+    &quot;finding_ids&quot;: [],
+    &quot;conditional&quot;: true,
+    &quot;supporting_metric_ids&quot;: [
+      &quot;UAV-06&quot;
+    ],
+    &quot;observed_evidence&quot;: &quot;Required evidence unavailable; no numerical absence was inferred.&quot;,
+    &quot;hypothesized_effect&quot;: &quot;This gap limits assessment of the intended task. Its model-performance effect has not been established.&quot;
+  },
+  {
+    &quot;description&quot;: &quot;Supply or independently review evidence for UAV-07: Flight altitude column and explicit unit/datum metadata required; apparent object scale is not altitude.&quot;,
+    &quot;finding_ids&quot;: [],
+    &quot;conditional&quot;: true,
+    &quot;supporting_metric_ids&quot;: [
+      &quot;UAV-07&quot;
+    ],
+    &quot;observed_evidence&quot;: &quot;Required evidence unavailable; no numerical absence was inferred.&quot;,
+    &quot;hypothesized_effect&quot;: &quot;This gap limits assessment of the intended task. Its model-performance effect has not been established.&quot;
+  },
+  {
+    &quot;description&quot;: &quot;Supply or independently review evidence for UAV-09: Configure a local visual encoder; valid crop embeddings and model/version are required. No model is downloaded.&quot;,
+    &quot;finding_ids&quot;: [],
+    &quot;conditional&quot;: true,
+    &quot;supporting_metric_ids&quot;: [
+      &quot;UAV-09&quot;
+    ],
+    &quot;observed_evidence&quot;: &quot;Required evidence unavailable; no numerical absence was inferred.&quot;,
+    &quot;hypothesized_effect&quot;: &quot;This gap limits assessment of the intended task. Its model-performance effect has not been established.&quot;
+  },
+  {
+    &quot;description&quot;: &quot;Supply or independently review evidence for UAV-10: Occlusion annotations are absent; missing values are not zero occlusion.&quot;,
+    &quot;finding_ids&quot;: [],
+    &quot;conditional&quot;: true,
+    &quot;supporting_metric_ids&quot;: [
+      &quot;UAV-10&quot;
+    ],
+    &quot;observed_evidence&quot;: &quot;Required evidence unavailable; no numerical absence was inferred.&quot;,
+    &quot;hypothesized_effect&quot;: &quot;This gap limits assessment of the intended task. Its model-performance effect has not been established.&quot;
+  },
+  {
+    &quot;description&quot;: &quot;Supply or independently review evidence for UAV-16: Configure a local visual encoder; valid crop embeddings and model/version are required. No model is downloaded.&quot;,
+    &quot;finding_ids&quot;: [],
+    &quot;conditional&quot;: true,
+    &quot;supporting_metric_ids&quot;: [
+      &quot;UAV-16&quot;
+    ],
+    &quot;observed_evidence&quot;: &quot;Required evidence unavailable; no numerical absence was inferred.&quot;,
+    &quot;hypothesized_effect&quot;: &quot;This gap limits assessment of the intended task. Its model-performance effect has not been established.&quot;
+  },
+  {
+    &quot;description&quot;: &quot;Supply or independently review evidence for UAV-17: Supply explicit reference_columns plus a reference dataset, or reference_distributions. Target categories alone do not define a reference distribution.&quot;,
+    &quot;finding_ids&quot;: [],
+    &quot;conditional&quot;: true,
+    &quot;supporting_metric_ids&quot;: [
+      &quot;UAV-17&quot;
+    ],
+    &quot;observed_evidence&quot;: &quot;Required evidence unavailable; no numerical absence was inferred.&quot;,
+    &quot;hypothesized_effect&quot;: &quot;This gap limits assessment of the intended task. Its model-performance effect has not been established.&quot;
+  },
+  {
+    &quot;description&quot;: &quot;Supply or independently review evidence for UAV-19: Declare sensor_types mappings, units, and calibration/alignment evidence for relevant modalities.&quot;,
+    &quot;finding_ids&quot;: [],
+    &quot;conditional&quot;: true,
+    &quot;supporting_metric_ids&quot;: [
+      &quot;UAV-19&quot;
+    ],
+    &quot;observed_evidence&quot;: &quot;Required evidence unavailable; no numerical absence was inferred.&quot;,
+    &quot;hypothesized_effect&quot;: &quot;This gap limits assessment of the intended task. Its model-performance effect has not been established.&quot;
+  }
+]</pre><h2>Dataset provenance</h2><pre>{
+  &quot;source_declared&quot;: false,
+  &quot;source_description_sha256&quot;: null,
+  &quot;collection_date&quot;: null,
+  &quot;authenticity&quot;: &quot;user-declared; not independently verified&quot;
+}</pre><h2>Additional benefits</h2><ul><li>Supported: Dataset has observations</li><li>Supported: Dataset contains annotated car</li><li>Supported: Detection image files are readable</li><li>Supported: Detection annotations are syntactically valid</li><li>Supported: Detection images have annotation files, including explicit negatives</li><li>Additional observed classes: pedestrian</li></ul><h2>Limitations and risks</h2><ul><li>disabled</li><li>No universal training sample minimum exists; supply scenario minimum_samples or an explicit count requirement</li><li>No reference dataset supplied; diversity alone does not establish representativeness</li><li>Required evidence column is unavailable: unspecified</li><li>Near-duplicate analysis is disabled</li><li>Preprocessing pipeline metadata is absent</li><li>Supply recorded weather metadata (column weather) or an explicitly configured local classifier where supported.</li><li>Recorded timestamps or time_of_day metadata required; appearance is not capture time.</li><li>Supply declared seasons, or recorded timestamps and explicit north/south hemisphere for meteorological seasons.</li><li>Supply recorded scene metadata (column scene) or an explicitly configured local classifier where supported.</li><li>Supply viewpoint categories or calibrated camera_pitch metadata with explicit angular units.</li><li>Flight altitude column and explicit unit/datum metadata required; apparent object scale is not altitude.</li><li>Configure a local visual encoder; valid crop embeddings and model/version are required. No model is downloaded.</li><li>Occlusion annotations are absent; missing values are not zero occlusion.</li><li>Supply explicit reference_columns plus a reference dataset, or reference_distributions. Target categories alone do not define a reference distribution.</li><li>Declare sensor_types mappings, units, and calibration/alignment evidence for relevant modalities.</li><li>READY means the confirmed, measurable requirements passed; it does not establish model accuracy, sufficient training size, or deployment safety.</li><li>Statistical outliers are not classified as corruption without declared valid ranges or platform specifications.</li><li>Annotation completeness inside an image and true object-label correctness are unverified without independent audit.</li><li>Dataset metadata and reference relevance are user-declared; their authenticity is not independently verified.</li></ul><h2>Remediation</h2><ul><li>Supply or independently review evidence for UAV-02: Supply recorded weather metadata (column weather) or an explicitly configured local classifier where supported.</li><li>Supply or independently review evidence for UAV-03: Recorded timestamps or time_of_day metadata required; appearance is not capture time.</li><li>Supply or independently review evidence for UAV-04: Supply declared seasons, or recorded timestamps and explicit north/south hemisphere for meteorological seasons.</li><li>Supply or independently review evidence for UAV-05: Supply recorded scene metadata (column scene) or an explicitly configured local classifier where supported.</li><li>Supply or independently review evidence for UAV-06: Supply viewpoint categories or calibrated camera_pitch metadata with explicit angular units.</li><li>Supply or independently review evidence for UAV-07: Flight altitude column and explicit unit/datum metadata required; apparent object scale is not altitude.</li><li>Supply or independently review evidence for UAV-09: Configure a local visual encoder; valid crop embeddings and model/version are required. No model is downloaded.</li><li>Supply or independently review evidence for UAV-10: Occlusion annotations are absent; missing values are not zero occlusion.</li><li>Supply or independently review evidence for UAV-16: Configure a local visual encoder; valid crop embeddings and model/version are required. No model is downloaded.</li><li>Supply or independently review evidence for UAV-17: Supply explicit reference_columns plus a reference dataset, or reference_distributions. Target categories alone do not define a reference distribution.</li><li>Supply or independently review evidence for UAV-19: Declare sensor_types mappings, units, and calibration/alignment evidence for relevant modalities.</li></ul><details><summary>Reproducibility</summary><pre>{
+  &quot;engine_version&quot;: &quot;1.4.0&quot;,
+  &quot;assessment_fingerprint&quot;: &quot;522e68f66b18e0b44a45becf7e43be1758edc94c49a0bccd157fafc35a3a421b&quot;,
+  &quot;configuration&quot;: {
+    &quot;near_duplicate_distance&quot;: null,
+    &quot;engine_version&quot;: &quot;1.4.0&quot;,
+    &quot;uav_implementation_version&quot;: &quot;1.0&quot;,
+    &quot;visual_models&quot;: {},
+    &quot;storage_backend&quot;: &quot;pandas&quot;,
+    &quot;processing&quot;: {
+      &quot;archive_access&quot;: &quot;streamed_members&quot;,
+      &quot;image_decode&quot;: &quot;all_images&quot;,
+      &quot;images_per_decode_batch&quot;: 1
+    },
+    &quot;source_container&quot;: null
+  },
+  &quot;python&quot;: &quot;3.13.5&quot;,
+  &quot;dependencies&quot;: {
+    &quot;pandas&quot;: &quot;2.3.3&quot;,
+    &quot;numpy&quot;: &quot;2.3.5&quot;,
+    &quot;Pillow&quot;: &quot;12.0.0&quot;,
+    &quot;pydantic&quot;: &quot;2.13.4&quot;,
+    &quot;scipy&quot;: &quot;1.16.3&quot;,
+    &quot;scikit-learn&quot;: &quot;1.8.0&quot;,
+    &quot;pyarrow&quot;: &quot;26.0.0&quot;,
+    &quot;duckdb&quot;: &quot;2.0.0&quot;,
+    &quot;ijson&quot;: &quot;3.6.0&quot;,
+    &quot;defusedxml&quot;: &quot;0.7.1&quot;,
+    &quot;openpyxl&quot;: &quot;3.1.5&quot;,
+    &quot;PyYAML&quot;: &quot;6.0.3&quot;
+  },
+  &quot;reference_sha256&quot;: null,
+  &quot;dataset_metadata&quot;: {},
+  &quot;selected_metric_ids&quot;: [
+    &quot;row_count&quot;,
+    &quot;required_class_count&quot;,
+    &quot;unreadable_rate&quot;,
+    &quot;bbox_invalid_rate&quot;,
+    &quot;missing_label_rate&quot;,
+    &quot;missingness&quot;,
+    &quot;non_finite_rate&quot;,
+    &quot;duplicate_rate&quot;,
+    &quot;duplicate_identifiers&quot;,
+    &quot;conflicting_labels&quot;,
+    &quot;near_duplicates&quot;,
+    &quot;class_distribution&quot;,
+    &quot;label_agreement&quot;,
+    &quot;verified_label_error&quot;,
+    &quot;sample_sufficiency&quot;,
+    &quot;reference_comparison&quot;,
+    &quot;split_overlap&quot;,
+    &quot;group_leakage&quot;,
+    &quot;near_split_overlap&quot;,
+    &quot;target_leakage&quot;,
+    &quot;preprocessing_leakage&quot;,
+    &quot;evidence_summary&quot;,
+    &quot;UAV-01&quot;,
+    &quot;UAV-02&quot;,
+    &quot;UAV-03&quot;,
+    &quot;UAV-04&quot;,
+    &quot;UAV-05&quot;,
+    &quot;UAV-06&quot;,
+    &quot;UAV-07&quot;,
+    &quot;UAV-08&quot;,
+    &quot;UAV-09&quot;,
+    &quot;UAV-10&quot;,
+    &quot;UAV-11&quot;,
+    &quot;UAV-12&quot;,
+    &quot;UAV-13&quot;,
+    &quot;UAV-14&quot;,
+    &quot;UAV-15&quot;,
+    &quot;UAV-16&quot;,
+    &quot;UAV-17&quot;,
+    &quot;UAV-18&quot;,
+    &quot;UAV-19&quot;,
+    &quot;UAV-20&quot;
+  ],
+  &quot;registry&quot;: {
+    &quot;row_count&quot;: {
+      &quot;metric_id&quot;: &quot;row_count&quot;,
+      &quot;dimension&quot;: &quot;integrity&quot;,
+      &quot;description&quot;: &quot;row_count&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;tabular&quot;,
+        &quot;image&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [],
+      &quot;required_context&quot;: [],
+      &quot;output_type&quot;: &quot;number&quot;,
+      &quot;unit&quot;: null,
+      &quot;applicability&quot;: &quot;See metric documentation&quot;,
+      &quot;evidence_requirements&quot;: &quot;Observed dataset records&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;Number of dataset rows or image files&quot;,
+      &quot;name&quot;: null,
+      &quot;assessment_category&quot;: null,
+      &quot;applicable_tasks&quot;: [],
+      &quot;measurement_type&quot;: &quot;observed&quot;,
+      &quot;limitations&quot;: [],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1&quot;
+    },
+    &quot;missingness&quot;: {
+      &quot;metric_id&quot;: &quot;missingness&quot;,
+      &quot;dimension&quot;: &quot;integrity&quot;,
+      &quot;description&quot;: &quot;missingness&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;tabular&quot;,
+        &quot;image&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [
+        &quot;parameters.column (optional for overall missingness)&quot;
+      ],
+      &quot;required_context&quot;: [
+        &quot;parameters&quot;
+      ],
+      &quot;output_type&quot;: &quot;number&quot;,
+      &quot;unit&quot;: &quot;fraction&quot;,
+      &quot;applicability&quot;: &quot;See metric documentation&quot;,
+      &quot;evidence_requirements&quot;: &quot;Observed dataset records&quot;,
+      &quot;decision_relevant&quot;: true,
+      &quot;calculation_method&quot;: &quot;Missing cells / all cells, or missing values / rows for a named field&quot;,
+      &quot;name&quot;: null,
+      &quot;assessment_category&quot;: null,
+      &quot;applicable_tasks&quot;: [],
+      &quot;measurement_type&quot;: &quot;observed&quot;,
+      &quot;limitations&quot;: [],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1&quot;
+    },
+    &quot;non_finite_rate&quot;: {
+      &quot;metric_id&quot;: &quot;non_finite_rate&quot;,
+      &quot;dimension&quot;: &quot;integrity&quot;,
+      &quot;description&quot;: &quot;non_finite_rate&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;tabular&quot;,
+        &quot;image&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [],
+      &quot;required_context&quot;: [],
+      &quot;output_type&quot;: &quot;number&quot;,
+      &quot;unit&quot;: &quot;fraction&quot;,
+      &quot;applicability&quot;: &quot;See metric documentation&quot;,
+      &quot;evidence_requirements&quot;: &quot;Observed dataset records&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;Positive or negative infinity / numeric cells (NaN reported separately)&quot;,
+      &quot;name&quot;: null,
+      &quot;assessment_category&quot;: null,
+      &quot;applicable_tasks&quot;: [],
+      &quot;measurement_type&quot;: &quot;observed&quot;,
+      &quot;limitations&quot;: [],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1&quot;
+    },
+    &quot;unreadable_rate&quot;: {
+      &quot;metric_id&quot;: &quot;unreadable_rate&quot;,
+      &quot;dimension&quot;: &quot;integrity&quot;,
+      &quot;description&quot;: &quot;unreadable_rate&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;image&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [],
+      &quot;required_context&quot;: [],
+      &quot;output_type&quot;: &quot;number&quot;,
+      &quot;unit&quot;: &quot;fraction&quot;,
+      &quot;applicability&quot;: &quot;See metric documentation&quot;,
+      &quot;evidence_requirements&quot;: &quot;Observed dataset records&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;Unreadable image files / image files&quot;,
+      &quot;name&quot;: null,
+      &quot;assessment_category&quot;: null,
+      &quot;applicable_tasks&quot;: [],
+      &quot;measurement_type&quot;: &quot;observed&quot;,
+      &quot;limitations&quot;: [],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1&quot;
+    },
+    &quot;missing_label_rate&quot;: {
+      &quot;metric_id&quot;: &quot;missing_label_rate&quot;,
+      &quot;dimension&quot;: &quot;integrity&quot;,
+      &quot;description&quot;: &quot;missing_label_rate&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;tabular&quot;,
+        &quot;image&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [],
+      &quot;required_context&quot;: [],
+      &quot;output_type&quot;: &quot;number&quot;,
+      &quot;unit&quot;: &quot;fraction&quot;,
+      &quot;applicability&quot;: &quot;See metric documentation&quot;,
+      &quot;evidence_requirements&quot;: &quot;Observed dataset records&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;Missing target values / rows, or missing annotation files / images&quot;,
+      &quot;name&quot;: null,
+      &quot;assessment_category&quot;: null,
+      &quot;applicable_tasks&quot;: [],
+      &quot;measurement_type&quot;: &quot;observed&quot;,
+      &quot;limitations&quot;: [],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1&quot;
+    },
+    &quot;bbox_invalid_rate&quot;: {
+      &quot;metric_id&quot;: &quot;bbox_invalid_rate&quot;,
+      &quot;dimension&quot;: &quot;validity&quot;,
+      &quot;description&quot;: &quot;bbox_invalid_rate&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;image&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [],
+      &quot;required_context&quot;: [],
+      &quot;output_type&quot;: &quot;number&quot;,
+      &quot;unit&quot;: &quot;fraction&quot;,
+      &quot;applicability&quot;: &quot;See metric documentation&quot;,
+      &quot;evidence_requirements&quot;: &quot;Observed dataset records&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;Images with malformed annotations / images with annotation files&quot;,
+      &quot;name&quot;: null,
+      &quot;assessment_category&quot;: null,
+      &quot;applicable_tasks&quot;: [],
+      &quot;measurement_type&quot;: &quot;observed&quot;,
+      &quot;limitations&quot;: [],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1&quot;
+    },
+    &quot;duplicate_rate&quot;: {
+      &quot;metric_id&quot;: &quot;duplicate_rate&quot;,
+      &quot;dimension&quot;: &quot;duplication&quot;,
+      &quot;description&quot;: &quot;duplicate_rate&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;tabular&quot;,
+        &quot;image&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [],
+      &quot;required_context&quot;: [],
+      &quot;output_type&quot;: &quot;number&quot;,
+      &quot;unit&quot;: &quot;fraction&quot;,
+      &quot;applicability&quot;: &quot;See metric documentation&quot;,
+      &quot;evidence_requirements&quot;: &quot;Observed dataset records&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;Redundant full rows / rows, or repeated exact file SHA256 hashes / images&quot;,
+      &quot;name&quot;: null,
+      &quot;assessment_category&quot;: null,
+      &quot;applicable_tasks&quot;: [],
+      &quot;measurement_type&quot;: &quot;observed&quot;,
+      &quot;limitations&quot;: [],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1&quot;
+    },
+    &quot;duplicate_identifiers&quot;: {
+      &quot;metric_id&quot;: &quot;duplicate_identifiers&quot;,
+      &quot;dimension&quot;: &quot;duplication&quot;,
+      &quot;description&quot;: &quot;duplicate_identifiers&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;tabular&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [
+        &quot;parameters.column (optional for overall missingness)&quot;
+      ],
+      &quot;required_context&quot;: [
+        &quot;parameters&quot;
+      ],
+      &quot;output_type&quot;: &quot;number&quot;,
+      &quot;unit&quot;: null,
+      &quot;applicability&quot;: &quot;See metric documentation&quot;,
+      &quot;evidence_requirements&quot;: &quot;Observed dataset records&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;Repeated nonmissing identifier values beyond their first occurrence&quot;,
+      &quot;name&quot;: null,
+      &quot;assessment_category&quot;: null,
+      &quot;applicable_tasks&quot;: [],
+      &quot;measurement_type&quot;: &quot;observed&quot;,
+      &quot;limitations&quot;: [],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1&quot;
+    },
+    &quot;conflicting_labels&quot;: {
+      &quot;metric_id&quot;: &quot;conflicting_labels&quot;,
+      &quot;dimension&quot;: &quot;duplication&quot;,
+      &quot;description&quot;: &quot;conflicting_labels&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;tabular&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [],
+      &quot;required_context&quot;: [],
+      &quot;output_type&quot;: &quot;number&quot;,
+      &quot;unit&quot;: null,
+      &quot;applicability&quot;: &quot;See metric documentation&quot;,
+      &quot;evidence_requirements&quot;: &quot;Observed dataset records&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;Feature-identical groups with more than one nonmissing target value&quot;,
+      &quot;name&quot;: null,
+      &quot;assessment_category&quot;: null,
+      &quot;applicable_tasks&quot;: [],
+      &quot;measurement_type&quot;: &quot;observed&quot;,
+      &quot;limitations&quot;: [],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1&quot;
+    },
+    &quot;near_duplicates&quot;: {
+      &quot;metric_id&quot;: &quot;near_duplicates&quot;,
+      &quot;dimension&quot;: &quot;duplication&quot;,
+      &quot;description&quot;: &quot;near_duplicates&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;image&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [],
+      &quot;required_context&quot;: [],
+      &quot;output_type&quot;: &quot;number&quot;,
+      &quot;unit&quot;: null,
+      &quot;applicability&quot;: &quot;See metric documentation&quot;,
+      &quot;evidence_requirements&quot;: &quot;Observed dataset records&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;Candidate image pairs with 64-bit difference-hash Hamming distance &lt;= configured threshold&quot;,
+      &quot;name&quot;: null,
+      &quot;assessment_category&quot;: null,
+      &quot;applicable_tasks&quot;: [],
+      &quot;measurement_type&quot;: &quot;observed&quot;,
+      &quot;limitations&quot;: [],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1&quot;
+    },
+    &quot;class_distribution&quot;: {
+      &quot;metric_id&quot;: &quot;class_distribution&quot;,
+      &quot;dimension&quot;: &quot;label_quality&quot;,
+      &quot;description&quot;: &quot;class_distribution&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;tabular&quot;,
+        &quot;image&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [],
+      &quot;required_context&quot;: [],
+      &quot;output_type&quot;: &quot;object&quot;,
+      &quot;unit&quot;: null,
+      &quot;applicability&quot;: &quot;See metric documentation&quot;,
+      &quot;evidence_requirements&quot;: &quot;Observed dataset records&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;Class object counts for detection; class row counts for categorical targets&quot;,
+      &quot;name&quot;: null,
+      &quot;assessment_category&quot;: null,
+      &quot;applicable_tasks&quot;: [],
+      &quot;measurement_type&quot;: &quot;observed&quot;,
+      &quot;limitations&quot;: [],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1&quot;
+    },
+    &quot;label_agreement&quot;: {
+      &quot;metric_id&quot;: &quot;label_agreement&quot;,
+      &quot;dimension&quot;: &quot;label_quality&quot;,
+      &quot;description&quot;: &quot;label_agreement&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;tabular&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [],
+      &quot;required_context&quot;: [
+        &quot;prediction_target and explicitly independent/trusted annotation metadata&quot;
+      ],
+      &quot;output_type&quot;: &quot;number&quot;,
+      &quot;unit&quot;: null,
+      &quot;applicability&quot;: &quot;See metric documentation&quot;,
+      &quot;evidence_requirements&quot;: &quot;Complete paired annotations; declared independence/trust is not authenticated&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;Cohen kappa = (observed agreement - expected agreement)/(1 - expected agreement)&quot;,
+      &quot;name&quot;: null,
+      &quot;assessment_category&quot;: null,
+      &quot;applicable_tasks&quot;: [],
+      &quot;measurement_type&quot;: &quot;observed&quot;,
+      &quot;limitations&quot;: [],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1&quot;
+    },
+    &quot;verified_label_error&quot;: {
+      &quot;metric_id&quot;: &quot;verified_label_error&quot;,
+      &quot;dimension&quot;: &quot;label_quality&quot;,
+      &quot;description&quot;: &quot;verified_label_error&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;tabular&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [],
+      &quot;required_context&quot;: [
+        &quot;prediction_target and explicitly independent/trusted annotation metadata&quot;
+      ],
+      &quot;output_type&quot;: &quot;number&quot;,
+      &quot;unit&quot;: null,
+      &quot;applicability&quot;: &quot;See metric documentation&quot;,
+      &quot;evidence_requirements&quot;: &quot;Complete paired annotations; declared independence/trust is not authenticated&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;Mismatches / complete target-reference pairs; reference must be explicitly declared trusted&quot;,
+      &quot;name&quot;: null,
+      &quot;assessment_category&quot;: null,
+      &quot;applicable_tasks&quot;: [],
+      &quot;measurement_type&quot;: &quot;observed&quot;,
+      &quot;limitations&quot;: [],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1&quot;
+    },
+    &quot;required_class_count&quot;: {
+      &quot;metric_id&quot;: &quot;required_class_count&quot;,
+      &quot;dimension&quot;: &quot;coverage&quot;,
+      &quot;description&quot;: &quot;required_class_count&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;tabular&quot;,
+        &quot;image&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [],
+      &quot;required_context&quot;: [
+        &quot;required class / scenario parameters&quot;
+      ],
+      &quot;output_type&quot;: &quot;number&quot;,
+      &quot;unit&quot;: null,
+      &quot;applicability&quot;: &quot;Usable class annotations or declared scenario metadata are required&quot;,
+      &quot;evidence_requirements&quot;: &quot;Observed dataset records&quot;,
+      &quot;decision_relevant&quot;: true,
+      &quot;calculation_method&quot;: &quot;Usable annotated object count or labeled row count for the exact required class&quot;,
+      &quot;name&quot;: null,
+      &quot;assessment_category&quot;: null,
+      &quot;applicable_tasks&quot;: [],
+      &quot;measurement_type&quot;: &quot;observed&quot;,
+      &quot;limitations&quot;: [],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1&quot;
+    },
+    &quot;sample_sufficiency&quot;: {
+      &quot;metric_id&quot;: &quot;sample_sufficiency&quot;,
+      &quot;dimension&quot;: &quot;coverage&quot;,
+      &quot;description&quot;: &quot;sample_sufficiency&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;tabular&quot;,
+        &quot;image&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [],
+      &quot;required_context&quot;: [],
+      &quot;output_type&quot;: &quot;number&quot;,
+      &quot;unit&quot;: null,
+      &quot;applicability&quot;: &quot;See metric documentation&quot;,
+      &quot;evidence_requirements&quot;: &quot;Observed dataset records&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;Compare observed counts with an explicitly supplied minimum&quot;,
+      &quot;name&quot;: null,
+      &quot;assessment_category&quot;: null,
+      &quot;applicable_tasks&quot;: [],
+      &quot;measurement_type&quot;: &quot;observed&quot;,
+      &quot;limitations&quot;: [],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1&quot;
+    },
+    &quot;reference_comparison&quot;: {
+      &quot;metric_id&quot;: &quot;reference_comparison&quot;,
+      &quot;dimension&quot;: &quot;representativeness&quot;,
+      &quot;description&quot;: &quot;reference_comparison&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;tabular&quot;,
+        &quot;image&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [],
+      &quot;required_context&quot;: [],
+      &quot;output_type&quot;: &quot;object&quot;,
+      &quot;unit&quot;: null,
+      &quot;applicability&quot;: &quot;See metric documentation&quot;,
+      &quot;evidence_requirements&quot;: &quot;User-selected corresponding columns in a supplied reference dataset&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;Per-feature Wasserstein distance for numeric data; base-2 Jensen-Shannon divergence for categorical data&quot;,
+      &quot;name&quot;: null,
+      &quot;assessment_category&quot;: null,
+      &quot;applicable_tasks&quot;: [],
+      &quot;measurement_type&quot;: &quot;observed&quot;,
+      &quot;limitations&quot;: [],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1&quot;
+    },
+    &quot;split_overlap&quot;: {
+      &quot;metric_id&quot;: &quot;split_overlap&quot;,
+      &quot;dimension&quot;: &quot;leakage&quot;,
+      &quot;description&quot;: &quot;split_overlap&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;tabular&quot;,
+        &quot;image&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [],
+      &quot;required_context&quot;: [
+        &quot;split_column; group_column for group leakage&quot;
+      ],
+      &quot;output_type&quot;: &quot;number&quot;,
+      &quot;unit&quot;: null,
+      &quot;applicability&quot;: &quot;See metric documentation&quot;,
+      &quot;evidence_requirements&quot;: &quot;Complete observed split assignments; independent group identifiers when relevant&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;Exact duplicate content observed in more than one declared split&quot;,
+      &quot;name&quot;: null,
+      &quot;assessment_category&quot;: null,
+      &quot;applicable_tasks&quot;: [],
+      &quot;measurement_type&quot;: &quot;observed&quot;,
+      &quot;limitations&quot;: [],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1&quot;
+    },
+    &quot;group_leakage&quot;: {
+      &quot;metric_id&quot;: &quot;group_leakage&quot;,
+      &quot;dimension&quot;: &quot;leakage&quot;,
+      &quot;description&quot;: &quot;group_leakage&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;tabular&quot;,
+        &quot;image&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [],
+      &quot;required_context&quot;: [
+        &quot;split_column; group_column for group leakage&quot;
+      ],
+      &quot;output_type&quot;: &quot;number&quot;,
+      &quot;unit&quot;: null,
+      &quot;applicability&quot;: &quot;See metric documentation&quot;,
+      &quot;evidence_requirements&quot;: &quot;Complete observed split assignments; independent group identifiers when relevant&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;Flight/session/group identifiers occurring in multiple declared splits&quot;,
+      &quot;name&quot;: null,
+      &quot;assessment_category&quot;: null,
+      &quot;applicable_tasks&quot;: [],
+      &quot;measurement_type&quot;: &quot;observed&quot;,
+      &quot;limitations&quot;: [],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1&quot;
+    },
+    &quot;near_split_overlap&quot;: {
+      &quot;metric_id&quot;: &quot;near_split_overlap&quot;,
+      &quot;dimension&quot;: &quot;leakage&quot;,
+      &quot;description&quot;: &quot;near_split_overlap&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;image&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [],
+      &quot;required_context&quot;: [
+        &quot;split_column; group_column for group leakage&quot;
+      ],
+      &quot;output_type&quot;: &quot;number&quot;,
+      &quot;unit&quot;: null,
+      &quot;applicability&quot;: &quot;See metric documentation&quot;,
+      &quot;evidence_requirements&quot;: &quot;Complete observed split assignments; independent group identifiers when relevant&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;Perceptually similar image pairs assigned to different splits&quot;,
+      &quot;name&quot;: null,
+      &quot;assessment_category&quot;: null,
+      &quot;applicable_tasks&quot;: [],
+      &quot;measurement_type&quot;: &quot;observed&quot;,
+      &quot;limitations&quot;: [],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1&quot;
+    },
+    &quot;target_leakage&quot;: {
+      &quot;metric_id&quot;: &quot;target_leakage&quot;,
+      &quot;dimension&quot;: &quot;leakage&quot;,
+      &quot;description&quot;: &quot;target_leakage&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;tabular&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [],
+      &quot;required_context&quot;: [],
+      &quot;output_type&quot;: &quot;object&quot;,
+      &quot;unit&quot;: null,
+      &quot;applicability&quot;: &quot;See metric documentation&quot;,
+      &quot;evidence_requirements&quot;: &quot;Observed dataset records&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;Input-target identity and feature heuristics; no proof of causal leakage&quot;,
+      &quot;name&quot;: null,
+      &quot;assessment_category&quot;: null,
+      &quot;applicable_tasks&quot;: [],
+      &quot;measurement_type&quot;: &quot;observed&quot;,
+      &quot;limitations&quot;: [],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1&quot;
+    },
+    &quot;preprocessing_leakage&quot;: {
+      &quot;metric_id&quot;: &quot;preprocessing_leakage&quot;,
+      &quot;dimension&quot;: &quot;leakage&quot;,
+      &quot;description&quot;: &quot;preprocessing_leakage&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;tabular&quot;,
+        &quot;image&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [],
+      &quot;required_context&quot;: [],
+      &quot;output_type&quot;: &quot;string&quot;,
+      &quot;unit&quot;: null,
+      &quot;applicability&quot;: &quot;See metric documentation&quot;,
+      &quot;evidence_requirements&quot;: &quot;Observed dataset records&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;Inspect explicitly supplied fit-scope metadata&quot;,
+      &quot;name&quot;: null,
+      &quot;assessment_category&quot;: null,
+      &quot;applicable_tasks&quot;: [],
+      &quot;measurement_type&quot;: &quot;observed&quot;,
+      &quot;limitations&quot;: [],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1&quot;
+    },
+    &quot;evidence_summary&quot;: {
+      &quot;metric_id&quot;: &quot;evidence_summary&quot;,
+      &quot;dimension&quot;: &quot;evidence_reliability&quot;,
+      &quot;description&quot;: &quot;evidence_summary&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;tabular&quot;,
+        &quot;image&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [],
+      &quot;required_context&quot;: [],
+      &quot;output_type&quot;: &quot;object&quot;,
+      &quot;unit&quot;: null,
+      &quot;applicability&quot;: &quot;See metric documentation&quot;,
+      &quot;evidence_requirements&quot;: &quot;Observed dataset records&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;Observed evidence availability; no invented confidence intervals for correlated samples&quot;,
+      &quot;name&quot;: null,
+      &quot;assessment_category&quot;: null,
+      &quot;applicable_tasks&quot;: [],
+      &quot;measurement_type&quot;: &quot;observed&quot;,
+      &quot;limitations&quot;: [],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1&quot;
+    },
+    &quot;UAV-01&quot;: {
+      &quot;metric_id&quot;: &quot;UAV-01&quot;,
+      &quot;dimension&quot;: &quot;coverage&quot;,
+      &quot;description&quot;: &quot;Lighting diversity. Luminance/contrast quantiles and declared category frequencies&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;image&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [
+        &quot;brightness, contrast&quot;,
+        &quot;optional lighting metadata&quot;
+      ],
+      &quot;required_context&quot;: [],
+      &quot;output_type&quot;: &quot;object&quot;,
+      &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+      &quot;applicability&quot;: &quot;Selected according to task, modality and available evidence; missing evidence is explicit&quot;,
+      &quot;evidence_requirements&quot;: &quot;brightness, contrast; optional lighting metadata&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;Luminance/contrast quantiles and declared category frequencies&quot;,
+      &quot;name&quot;: &quot;Lighting diversity&quot;,
+      &quot;assessment_category&quot;: &quot;UAV dataset property&quot;,
+      &quot;applicable_tasks&quot;: [
+        &quot;object_detection&quot;,
+        &quot;tracking&quot;,
+        &quot;telemetry&quot;,
+        &quot;classification&quot;
+      ],
+      &quot;measurement_type&quot;: &quot;mixed observed/declared/proxy/optional estimated&quot;,
+      &quot;limitations&quot;: [
+        &quot;Brightness does not establish day/night or weather.&quot;
+      ],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1.0&quot;
+    },
+    &quot;UAV-02&quot;: {
+      &quot;metric_id&quot;: &quot;UAV-02&quot;,
+      &quot;dimension&quot;: &quot;coverage&quot;,
+      &quot;description&quot;: &quot;Weather diversity. Observed category counts and missingness; optional classifier estimates&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;image&quot;,
+        &quot;tabular&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [
+        &quot;weather metadata or configured classifier&quot;
+      ],
+      &quot;required_context&quot;: [],
+      &quot;output_type&quot;: &quot;object&quot;,
+      &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+      &quot;applicability&quot;: &quot;Selected according to task, modality and available evidence; missing evidence is explicit&quot;,
+      &quot;evidence_requirements&quot;: &quot;weather metadata or configured classifier&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;Observed category counts and missingness; optional classifier estimates&quot;,
+      &quot;name&quot;: &quot;Weather diversity&quot;,
+      &quot;assessment_category&quot;: &quot;UAV dataset property&quot;,
+      &quot;applicable_tasks&quot;: [
+        &quot;object_detection&quot;,
+        &quot;tracking&quot;,
+        &quot;telemetry&quot;,
+        &quot;classification&quot;
+      ],
+      &quot;measurement_type&quot;: &quot;mixed observed/declared/proxy/optional estimated&quot;,
+      &quot;limitations&quot;: [
+        &quot;Declared metadata is not independently authenticated; visual predictions remain estimates.&quot;
+      ],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1.0&quot;
+    },
+    &quot;UAV-03&quot;: {
+      &quot;metric_id&quot;: &quot;UAV-03&quot;,
+      &quot;dimension&quot;: &quot;coverage&quot;,
+      &quot;description&quot;: &quot;Time-of-day coverage. UTC timestamp hour counts or declared time categories&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;image&quot;,
+        &quot;tabular&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [
+        &quot;timestamp or recorded time_of_day metadata&quot;
+      ],
+      &quot;required_context&quot;: [],
+      &quot;output_type&quot;: &quot;object&quot;,
+      &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+      &quot;applicability&quot;: &quot;Selected according to task, modality and available evidence; missing evidence is explicit&quot;,
+      &quot;evidence_requirements&quot;: &quot;timestamp or recorded time_of_day metadata&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;UTC timestamp hour counts or declared time categories&quot;,
+      &quot;name&quot;: &quot;Time-of-day coverage&quot;,
+      &quot;assessment_category&quot;: &quot;UAV dataset property&quot;,
+      &quot;applicable_tasks&quot;: [
+        &quot;object_detection&quot;,
+        &quot;tracking&quot;,
+        &quot;telemetry&quot;,
+        &quot;classification&quot;
+      ],
+      &quot;measurement_type&quot;: &quot;mixed observed/declared/proxy/optional estimated&quot;,
+      &quot;limitations&quot;: [
+        &quot;UTC hour is not solar/local time; appearance cannot establish capture time.&quot;
+      ],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1.0&quot;
+    },
+    &quot;UAV-04&quot;: {
+      &quot;metric_id&quot;: &quot;UAV-04&quot;,
+      &quot;dimension&quot;: &quot;coverage&quot;,
+      &quot;description&quot;: &quot;Seasonal variation. Declared season counts or explicitly configured meteorological month mapping&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;image&quot;,
+        &quot;tabular&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [
+        &quot;season metadata or timestamp plus hemisphere&quot;
+      ],
+      &quot;required_context&quot;: [],
+      &quot;output_type&quot;: &quot;object&quot;,
+      &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+      &quot;applicability&quot;: &quot;Selected according to task, modality and available evidence; missing evidence is explicit&quot;,
+      &quot;evidence_requirements&quot;: &quot;season metadata or timestamp plus hemisphere&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;Declared season counts or explicitly configured meteorological month mapping&quot;,
+      &quot;name&quot;: &quot;Seasonal variation&quot;,
+      &quot;assessment_category&quot;: &quot;UAV dataset property&quot;,
+      &quot;applicable_tasks&quot;: [
+        &quot;object_detection&quot;,
+        &quot;tracking&quot;,
+        &quot;telemetry&quot;,
+        &quot;classification&quot;
+      ],
+      &quot;measurement_type&quot;: &quot;mixed observed/declared/proxy/optional estimated&quot;,
+      &quot;limitations&quot;: [
+        &quot;Hemisphere/calendar assumptions may not describe local climate.&quot;
+      ],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1.0&quot;
+    },
+    &quot;UAV-05&quot;: {
+      &quot;metric_id&quot;: &quot;UAV-05&quot;,
+      &quot;dimension&quot;: &quot;coverage&quot;,
+      &quot;description&quot;: &quot;Scene/background diversity. Category counts; bounded normalized embedding centroid dispersion&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;image&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [
+        &quot;scene metadata or local scene classifier/encoder&quot;
+      ],
+      &quot;required_context&quot;: [],
+      &quot;output_type&quot;: &quot;object&quot;,
+      &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+      &quot;applicability&quot;: &quot;Selected according to task, modality and available evidence; missing evidence is explicit&quot;,
+      &quot;evidence_requirements&quot;: &quot;scene metadata or local scene classifier/encoder&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;Category counts; bounded normalized embedding centroid dispersion&quot;,
+      &quot;name&quot;: &quot;Scene/background diversity&quot;,
+      &quot;assessment_category&quot;: &quot;UAV dataset property&quot;,
+      &quot;applicable_tasks&quot;: [
+        &quot;object_detection&quot;,
+        &quot;tracking&quot;,
+        &quot;telemetry&quot;,
+        &quot;classification&quot;
+      ],
+      &quot;measurement_type&quot;: &quot;mixed observed/declared/proxy/optional estimated&quot;,
+      &quot;limitations&quot;: [
+        &quot;Image embeddings include objects and may encode irrelevant variation.&quot;
+      ],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1.0&quot;
+    },
+    &quot;UAV-06&quot;: {
+      &quot;metric_id&quot;: &quot;UAV-06&quot;,
+      &quot;dimension&quot;: &quot;coverage&quot;,
+      &quot;description&quot;: &quot;Camera viewpoint diversity. Category counts or angle quantiles with declared units&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;image&quot;,
+        &quot;tabular&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [
+        &quot;viewpoint or calibrated camera orientation metadata&quot;
+      ],
+      &quot;required_context&quot;: [],
+      &quot;output_type&quot;: &quot;object&quot;,
+      &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+      &quot;applicability&quot;: &quot;Selected according to task, modality and available evidence; missing evidence is explicit&quot;,
+      &quot;evidence_requirements&quot;: &quot;viewpoint or calibrated camera orientation metadata&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;Category counts or angle quantiles with declared units&quot;,
+      &quot;name&quot;: &quot;Camera viewpoint diversity&quot;,
+      &quot;assessment_category&quot;: &quot;UAV dataset property&quot;,
+      &quot;applicable_tasks&quot;: [
+        &quot;object_detection&quot;,
+        &quot;tracking&quot;,
+        &quot;telemetry&quot;,
+        &quot;classification&quot;
+      ],
+      &quot;measurement_type&quot;: &quot;mixed observed/declared/proxy/optional estimated&quot;,
+      &quot;limitations&quot;: [
+        &quot;No precise camera orientation inferred from uncalibrated appearance.&quot;
+      ],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1.0&quot;
+    },
+    &quot;UAV-07&quot;: {
+      &quot;metric_id&quot;: &quot;UAV-07&quot;,
+      &quot;dimension&quot;: &quot;coverage&quot;,
+      &quot;description&quot;: &quot;Flight altitude coverage. Finite altitude quantiles, missing/invalid counts, declared intervals&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;image&quot;,
+        &quot;tabular&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [
+        &quot;altitude metadata and units&quot;
+      ],
+      &quot;required_context&quot;: [],
+      &quot;output_type&quot;: &quot;object&quot;,
+      &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+      &quot;applicability&quot;: &quot;Selected according to task, modality and available evidence; missing evidence is explicit&quot;,
+      &quot;evidence_requirements&quot;: &quot;altitude metadata and units&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;Finite altitude quantiles, missing/invalid counts, declared intervals&quot;,
+      &quot;name&quot;: &quot;Flight altitude coverage&quot;,
+      &quot;assessment_category&quot;: &quot;UAV dataset property&quot;,
+      &quot;applicable_tasks&quot;: [
+        &quot;object_detection&quot;,
+        &quot;tracking&quot;,
+        &quot;telemetry&quot;,
+        &quot;classification&quot;
+      ],
+      &quot;measurement_type&quot;: &quot;mixed observed/declared/proxy/optional estimated&quot;,
+      &quot;limitations&quot;: [
+        &quot;Altitude datum and units must be declared; object size is not altitude.&quot;
+      ],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1.0&quot;
+    },
+    &quot;UAV-08&quot;: {
+      &quot;metric_id&quot;: &quot;UAV-08&quot;,
+      &quot;dimension&quot;: &quot;coverage&quot;,
+      &quot;description&quot;: &quot;Object-scale diversity. Per-class box width/height/area/aspect/occupancy quantiles and user bins&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;image&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [
+        &quot;valid normalized boxes and decoded dimensions&quot;
+      ],
+      &quot;required_context&quot;: [],
+      &quot;output_type&quot;: &quot;object&quot;,
+      &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+      &quot;applicability&quot;: &quot;Selected according to task, modality and available evidence; missing evidence is explicit&quot;,
+      &quot;evidence_requirements&quot;: &quot;valid normalized boxes and decoded dimensions&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;Per-class box width/height/area/aspect/occupancy quantiles and user bins&quot;,
+      &quot;name&quot;: &quot;Object-scale diversity&quot;,
+      &quot;assessment_category&quot;: &quot;UAV dataset property&quot;,
+      &quot;applicable_tasks&quot;: [
+        &quot;object_detection&quot;,
+        &quot;tracking&quot;
+      ],
+      &quot;measurement_type&quot;: &quot;mixed observed/declared/proxy/optional estimated&quot;,
+      &quot;limitations&quot;: [
+        &quot;Annotation-derived only; unannotated objects are excluded.&quot;
+      ],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1.0&quot;
+    },
+    &quot;UAV-09&quot;: {
+      &quot;metric_id&quot;: &quot;UAV-09&quot;,
+      &quot;dimension&quot;: &quot;coverage&quot;,
+      &quot;description&quot;: &quot;Object appearance diversity. Within-class mean cosine distance to normalized centroid&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;image&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [
+        &quot;annotated object crops and configured local encoder&quot;
+      ],
+      &quot;required_context&quot;: [],
+      &quot;output_type&quot;: &quot;object&quot;,
+      &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+      &quot;applicability&quot;: &quot;Selected according to task, modality and available evidence; missing evidence is explicit&quot;,
+      &quot;evidence_requirements&quot;: &quot;annotated object crops and configured local encoder&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;Within-class mean cosine distance to normalized centroid&quot;,
+      &quot;name&quot;: &quot;Object appearance diversity&quot;,
+      &quot;assessment_category&quot;: &quot;UAV dataset property&quot;,
+      &quot;applicable_tasks&quot;: [
+        &quot;object_detection&quot;,
+        &quot;tracking&quot;
+      ],
+      &quot;measurement_type&quot;: &quot;mixed observed/declared/proxy/optional estimated&quot;,
+      &quot;limitations&quot;: [
+        &quot;Encoder-dependent estimates; diversity does not prove usefulness.&quot;
+      ],
+      &quot;implementation_status&quot;: &quot;optional_local_model_adapter&quot;,
+      &quot;implementation_version&quot;: &quot;1.0&quot;
+    },
+    &quot;UAV-10&quot;: {
+      &quot;metric_id&quot;: &quot;UAV-10&quot;,
+      &quot;dimension&quot;: &quot;coverage&quot;,
+      &quot;description&quot;: &quot;Occlusion coverage. Per-class observed occlusion code counts and missingness&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;image&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [
+        &quot;object occlusion annotations&quot;
+      ],
+      &quot;required_context&quot;: [],
+      &quot;output_type&quot;: &quot;object&quot;,
+      &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+      &quot;applicability&quot;: &quot;Selected according to task, modality and available evidence; missing evidence is explicit&quot;,
+      &quot;evidence_requirements&quot;: &quot;object occlusion annotations&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;Per-class observed occlusion code counts and missingness&quot;,
+      &quot;name&quot;: &quot;Occlusion coverage&quot;,
+      &quot;assessment_category&quot;: &quot;UAV dataset property&quot;,
+      &quot;applicable_tasks&quot;: [
+        &quot;object_detection&quot;,
+        &quot;tracking&quot;
+      ],
+      &quot;measurement_type&quot;: &quot;mixed observed/declared/proxy/optional estimated&quot;,
+      &quot;limitations&quot;: [
+        &quot;Missing annotation is unknown, not zero occlusion.&quot;
+      ],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1.0&quot;
+    },
+    &quot;UAV-11&quot;: {
+      &quot;metric_id&quot;: &quot;UAV-11&quot;,
+      &quot;dimension&quot;: &quot;coverage&quot;,
+      &quot;description&quot;: &quot;Truncation coverage. Per-class truncation counts and border-contact fractions&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;image&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [
+        &quot;truncation annotations or valid boxes&quot;
+      ],
+      &quot;required_context&quot;: [],
+      &quot;output_type&quot;: &quot;object&quot;,
+      &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+      &quot;applicability&quot;: &quot;Selected according to task, modality and available evidence; missing evidence is explicit&quot;,
+      &quot;evidence_requirements&quot;: &quot;truncation annotations or valid boxes&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;Per-class truncation counts and border-contact fractions&quot;,
+      &quot;name&quot;: &quot;Truncation coverage&quot;,
+      &quot;assessment_category&quot;: &quot;UAV dataset property&quot;,
+      &quot;applicable_tasks&quot;: [
+        &quot;object_detection&quot;,
+        &quot;tracking&quot;
+      ],
+      &quot;measurement_type&quot;: &quot;mixed observed/declared/proxy/optional estimated&quot;,
+      &quot;limitations&quot;: [
+        &quot;Border contact is only a truncation proxy.&quot;
+      ],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1.0&quot;
+    },
+    &quot;UAV-12&quot;: {
+      &quot;metric_id&quot;: &quot;UAV-12&quot;,
+      &quot;dimension&quot;: &quot;coverage&quot;,
+      &quot;description&quot;: &quot;Background clutter. Thumbnail entropy and annotated object density summaries&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;image&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [
+        &quot;luminance entropy and valid annotations&quot;
+      ],
+      &quot;required_context&quot;: [],
+      &quot;output_type&quot;: &quot;object&quot;,
+      &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+      &quot;applicability&quot;: &quot;Selected according to task, modality and available evidence; missing evidence is explicit&quot;,
+      &quot;evidence_requirements&quot;: &quot;luminance entropy and valid annotations&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;Thumbnail entropy and annotated object density summaries&quot;,
+      &quot;name&quot;: &quot;Background clutter&quot;,
+      &quot;assessment_category&quot;: &quot;UAV dataset property&quot;,
+      &quot;applicable_tasks&quot;: [
+        &quot;object_detection&quot;,
+        &quot;tracking&quot;,
+        &quot;telemetry&quot;,
+        &quot;classification&quot;
+      ],
+      &quot;measurement_type&quot;: &quot;mixed observed/declared/proxy/optional estimated&quot;,
+      &quot;limitations&quot;: [
+        &quot;Entropy and object density are supporting proxies, not semantic background clutter.&quot;
+      ],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1.0&quot;
+    },
+    &quot;UAV-13&quot;: {
+      &quot;metric_id&quot;: &quot;UAV-13&quot;,
+      &quot;dimension&quot;: &quot;coverage&quot;,
+      &quot;description&quot;: &quot;Object density and crowding. Objects/image and megapixel; bounded pair IoU and center-distance quantiles&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;image&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [
+        &quot;boxes, decoded dimensions, annotation presence&quot;
+      ],
+      &quot;required_context&quot;: [],
+      &quot;output_type&quot;: &quot;object&quot;,
+      &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+      &quot;applicability&quot;: &quot;Selected according to task, modality and available evidence; missing evidence is explicit&quot;,
+      &quot;evidence_requirements&quot;: &quot;boxes, decoded dimensions, annotation presence&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;Objects/image and megapixel; bounded pair IoU and center-distance quantiles&quot;,
+      &quot;name&quot;: &quot;Object density and crowding&quot;,
+      &quot;assessment_category&quot;: &quot;UAV dataset property&quot;,
+      &quot;applicable_tasks&quot;: [
+        &quot;object_detection&quot;,
+        &quot;tracking&quot;
+      ],
+      &quot;measurement_type&quot;: &quot;mixed observed/declared/proxy/optional estimated&quot;,
+      &quot;limitations&quot;: [
+        &quot;Pair and image populations are explicit; no universal sparse/dense cutoffs.&quot;
+      ],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1.0&quot;
+    },
+    &quot;UAV-14&quot;: {
+      &quot;metric_id&quot;: &quot;UAV-14&quot;,
+      &quot;dimension&quot;: &quot;integrity&quot;,
+      &quot;description&quot;: &quot;Image clarity and visual information. Resolution, luminance, contrast, thumbnail Laplacian variance and bytes/pixel&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;image&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [
+        &quot;decoded pixels and encoded file sizes&quot;
+      ],
+      &quot;required_context&quot;: [],
+      &quot;output_type&quot;: &quot;object&quot;,
+      &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+      &quot;applicability&quot;: &quot;Selected according to task, modality and available evidence; missing evidence is explicit&quot;,
+      &quot;evidence_requirements&quot;: &quot;decoded pixels and encoded file sizes&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;Resolution, luminance, contrast, thumbnail Laplacian variance and bytes/pixel&quot;,
+      &quot;name&quot;: &quot;Image clarity and visual information&quot;,
+      &quot;assessment_category&quot;: &quot;UAV dataset property&quot;,
+      &quot;applicable_tasks&quot;: [
+        &quot;object_detection&quot;,
+        &quot;tracking&quot;,
+        &quot;telemetry&quot;,
+        &quot;classification&quot;
+      ],
+      &quot;measurement_type&quot;: &quot;mixed observed/declared/proxy/optional estimated&quot;,
+      &quot;limitations&quot;: [
+        &quot;No-reference proxies depend on content, sensor and thumbnail scale; bytes/pixel is not compression quality.&quot;
+      ],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1.0&quot;
+    },
+    &quot;UAV-15&quot;: {
+      &quot;metric_id&quot;: &quot;UAV-15&quot;,
+      &quot;dimension&quot;: &quot;label_quality&quot;,
+      &quot;description&quot;: &quot;Annotation correctness and completeness. Reuse syntax/presence/manifest diagnostics and independently reviewed audit counts&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;image&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [
+        &quot;annotation parser evidence&quot;,
+        &quot;optional independent audit&quot;
+      ],
+      &quot;required_context&quot;: [],
+      &quot;output_type&quot;: &quot;object&quot;,
+      &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+      &quot;applicability&quot;: &quot;Selected according to task, modality and available evidence; missing evidence is explicit&quot;,
+      &quot;evidence_requirements&quot;: &quot;annotation parser evidence; optional independent audit&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;Reuse syntax/presence/manifest diagnostics and independently reviewed audit counts&quot;,
+      &quot;name&quot;: &quot;Annotation correctness and completeness&quot;,
+      &quot;assessment_category&quot;: &quot;UAV dataset property&quot;,
+      &quot;applicable_tasks&quot;: [
+        &quot;object_detection&quot;,
+        &quot;tracking&quot;
+      ],
+      &quot;measurement_type&quot;: &quot;mixed observed/declared/proxy/optional estimated&quot;,
+      &quot;limitations&quot;: [
+        &quot;Syntax is not semantic correctness or exhaustive visible-object annotation.&quot;
+      ],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1.0&quot;
+    },
+    &quot;UAV-16&quot;: {
+      &quot;metric_id&quot;: &quot;UAV-16&quot;,
+      &quot;dimension&quot;: &quot;label_quality&quot;,
+      &quot;description&quot;: &quot;Discriminative and challenging examples. Sampled nearest cross-class cosine similarity and candidate review pairs&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;image&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [
+        &quot;label-aware crop embeddings&quot;
+      ],
+      &quot;required_context&quot;: [],
+      &quot;output_type&quot;: &quot;object&quot;,
+      &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+      &quot;applicability&quot;: &quot;Selected according to task, modality and available evidence; missing evidence is explicit&quot;,
+      &quot;evidence_requirements&quot;: &quot;label-aware crop embeddings&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;Sampled nearest cross-class cosine similarity and candidate review pairs&quot;,
+      &quot;name&quot;: &quot;Discriminative and challenging examples&quot;,
+      &quot;assessment_category&quot;: &quot;UAV dataset property&quot;,
+      &quot;applicable_tasks&quot;: [
+        &quot;object_detection&quot;,
+        &quot;tracking&quot;
+      ],
+      &quot;measurement_type&quot;: &quot;mixed observed/declared/proxy/optional estimated&quot;,
+      &quot;limitations&quot;: [
+        &quot;Similarity is model-dependent; difficult examples are not automatically wrong or useful.&quot;
+      ],
+      &quot;implementation_status&quot;: &quot;optional_local_model_adapter&quot;,
+      &quot;implementation_version&quot;: &quot;1.0&quot;
+    },
+    &quot;UAV-17&quot;: {
+      &quot;metric_id&quot;: &quot;UAV-17&quot;,
+      &quot;dimension&quot;: &quot;representativeness&quot;,
+      &quot;description&quot;: &quot;Deployment representativeness. Reuse Wasserstein/JS comparisons; JS divergence for declared categorical references&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;image&quot;,
+        &quot;tabular&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [
+        &quot;explicit corresponding reference columns or category distributions&quot;
+      ],
+      &quot;required_context&quot;: [],
+      &quot;output_type&quot;: &quot;object&quot;,
+      &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+      &quot;applicability&quot;: &quot;Selected according to task, modality and available evidence; missing evidence is explicit&quot;,
+      &quot;evidence_requirements&quot;: &quot;explicit corresponding reference columns or category distributions&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;Reuse Wasserstein/JS comparisons; JS divergence for declared categorical references&quot;,
+      &quot;name&quot;: &quot;Deployment representativeness&quot;,
+      &quot;assessment_category&quot;: &quot;UAV dataset property&quot;,
+      &quot;applicable_tasks&quot;: [
+        &quot;object_detection&quot;,
+        &quot;tracking&quot;,
+        &quot;telemetry&quot;,
+        &quot;classification&quot;
+      ],
+      &quot;measurement_type&quot;: &quot;mixed observed/declared/proxy/optional estimated&quot;,
+      &quot;limitations&quot;: [
+        &quot;Descriptive shift does not predict accuracy loss or prove deployment representativeness.&quot;
+      ],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1.0&quot;
+    },
+    &quot;UAV-18&quot;: {
+      &quot;metric_id&quot;: &quot;UAV-18&quot;,
+      &quot;dimension&quot;: &quot;duplication&quot;,
+      &quot;description&quot;: &quot;Sample sufficiency and independence. Reuse class/duplicate/split/group statistics; count known collection groups&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;image&quot;,
+        &quot;tabular&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [
+        &quot;class, hash, split and flight/session identifiers&quot;
+      ],
+      &quot;required_context&quot;: [],
+      &quot;output_type&quot;: &quot;object&quot;,
+      &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+      &quot;applicability&quot;: &quot;Selected according to task, modality and available evidence; missing evidence is explicit&quot;,
+      &quot;evidence_requirements&quot;: &quot;class, hash, split and flight/session identifiers&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;Reuse class/duplicate/split/group statistics; count known collection groups&quot;,
+      &quot;name&quot;: &quot;Sample sufficiency and independence&quot;,
+      &quot;assessment_category&quot;: &quot;UAV dataset property&quot;,
+      &quot;applicable_tasks&quot;: [
+        &quot;object_detection&quot;,
+        &quot;tracking&quot;,
+        &quot;telemetry&quot;,
+        &quot;classification&quot;
+      ],
+      &quot;measurement_type&quot;: &quot;mixed observed/declared/proxy/optional estimated&quot;,
+      &quot;limitations&quot;: [
+        &quot;Group IDs are declared; total frames are not independent observations; adequacy is unverified.&quot;
+      ],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1.0&quot;
+    },
+    &quot;UAV-19&quot;: {
+      &quot;metric_id&quot;: &quot;UAV-19&quot;,
+      &quot;dimension&quot;: &quot;integrity&quot;,
+      &quot;description&quot;: &quot;Sensor/modality integrity. Validate declared mapped fields and units; paired sensor timestamp deltas&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;image&quot;,
+        &quot;tabular&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [
+        &quot;sensor_types, units, calibration/alignment metadata&quot;
+      ],
+      &quot;required_context&quot;: [],
+      &quot;output_type&quot;: &quot;object&quot;,
+      &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+      &quot;applicability&quot;: &quot;Selected according to task, modality and available evidence; missing evidence is explicit&quot;,
+      &quot;evidence_requirements&quot;: &quot;sensor_types, units, calibration/alignment metadata&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;Validate declared mapped fields and units; paired sensor timestamp deltas&quot;,
+      &quot;name&quot;: &quot;Sensor/modality integrity&quot;,
+      &quot;assessment_category&quot;: &quot;UAV dataset property&quot;,
+      &quot;applicable_tasks&quot;: [
+        &quot;object_detection&quot;,
+        &quot;tracking&quot;,
+        &quot;telemetry&quot;,
+        &quot;classification&quot;
+      ],
+      &quot;measurement_type&quot;: &quot;mixed observed/declared/proxy/optional estimated&quot;,
+      &quot;limitations&quot;: [
+        &quot;Calibration presence is not calibration validity; synchronization needs timestamps and explicit tolerance.&quot;
+      ],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1.0&quot;
+    },
+    &quot;UAV-20&quot;: {
+      &quot;metric_id&quot;: &quot;UAV-20&quot;,
+      &quot;dimension&quot;: &quot;integrity&quot;,
+      &quot;description&quot;: &quot;Motion and temporal integrity. Within-sequence timestamp differences in recorded order, duplicates and frame gaps&quot;,
+      &quot;supported_modalities&quot;: [
+        &quot;image&quot;,
+        &quot;tabular&quot;
+      ],
+      &quot;required_dataset_fields&quot;: [
+        &quot;timestamp and sequence/frame/track identifiers&quot;
+      ],
+      &quot;required_context&quot;: [],
+      &quot;output_type&quot;: &quot;object&quot;,
+      &quot;unit&quot;: &quot;structured; component units reported in value&quot;,
+      &quot;applicability&quot;: &quot;Selected according to task, modality and available evidence; missing evidence is explicit&quot;,
+      &quot;evidence_requirements&quot;: &quot;timestamp and sequence/frame/track identifiers&quot;,
+      &quot;decision_relevant&quot;: false,
+      &quot;calculation_method&quot;: &quot;Within-sequence timestamp differences in recorded order, duplicates and frame gaps&quot;,
+      &quot;name&quot;: &quot;Motion and temporal integrity&quot;,
+      &quot;assessment_category&quot;: &quot;UAV dataset property&quot;,
+      &quot;applicable_tasks&quot;: [
+        &quot;object_detection&quot;,
+        &quot;tracking&quot;,
+        &quot;telemetry&quot;,
+        &quot;classification&quot;
+      ],
+      &quot;measurement_type&quot;: &quot;mixed observed/declared/proxy/optional estimated&quot;,
+      &quot;limitations&quot;: [
+        &quot;Static imagery is not video; tracking identity correctness and physical motion require additional evidence.&quot;
+      ],
+      &quot;implementation_status&quot;: &quot;implemented&quot;,
+      &quot;implementation_version&quot;: &quot;1.0&quot;
+    }
+  }
+}</pre></details></html>

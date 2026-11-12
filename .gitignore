@@ -1,0 +1,44 @@
+.packages/
+.npm-cache/
+.venv/
+__pycache__/
+.pytest_cache/
+.work/
+frontend/node_modules/
+frontend/dist/
+.env
+.runtime/
+*.pyc
+*.pt
+*.onnx
+*.engine
+*.ckpt
+*.log
+frontend/test-results/
+frontend/playwright-report/
+~$*.docx
+
+# Public datasets, generated variants, and retrainable detector artifacts.
+experiments/visdrone_model_validation/datasets/prepared/
+experiments/visdrone_model_validation/datasets/variants/
+experiments/visdrone_model_validation/datasets/pilot/
+experiments/visdrone_model_validation/resources/downloads/*.zip
+experiments/visdrone_model_validation/training_runs/
+experiments/visdrone_model_validation/.assessment/
+
+# Local PDF render/inspection intermediates (final PDFs live in docs/).
+tmp/pdfs/
+
+# Local research datasets and regenerable heavy artifacts
+experiments/visdrone_model_validation/resources/downloads/*.zip
+experiments/visdrone_model_validation/datasets/prepared/
+experiments/visdrone_model_validation/datasets/variants/
+experiments/visdrone_model_validation/datasets/pilot/
+experiments/visdrone_model_validation/training_runs/**/test-dev/predictions.json
+experiments/visdrone_model_validation/.assessment/
+
+# Generated operating-system/editor noise
+.DS_Store
+Thumbs.db
+*.tmp
+*.temp

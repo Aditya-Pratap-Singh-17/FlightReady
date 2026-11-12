@@ -1,0 +1,18 @@
+[
+  {
+    "model_architecture": "hist_gradient_boosting",
+    "n_variants": 18,
+    "pearson_r": null,
+    "pearson_p": null,
+    "spearman_rho": null,
+    "spearman_p": null
+  },
+  {
+    "model_architecture": "random_forest",
+    "n_variants": 18,
+    "pearson_r": null,
+    "pearson_p": null,
+    "spearman_rho": null,
+    "spearman_p": null
+  }
+]

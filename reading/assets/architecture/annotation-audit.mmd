@@ -1,0 +1,17 @@
+flowchart TD
+  A["declared human / trusted external references"] --> T{"Independent identity, protocol,<br/>complete references and valid scope?"}
+  T -->|"no"| U["semantic correctness unverified"]
+  T -->|"yes"| S["training subset: filter references;<br/>retain parent audit fingerprint"]
+  S --> B["validate normalized boxes + resource caps"]
+  B --> X["separate missing/invalid syntax<br/>and ignored/uncertain regions"]
+  X --> H["descending high-IoU one-to-one matching"]
+  H --> W["unmatched high-IoU class discrepancies"]
+  W --> L["lower-IoU same-class localization matching"]
+  L --> F["unmatched references: missing objects"]
+  L --> P["unmatched annotations:<br/>duplicates or spurious boxes"]
+  X --> N["explicit incorrect negatives / syntax categories"]
+  F --> R["separate reference-object, annotation<br/>and image denominators"]
+  P --> R
+  N --> R
+  R --> C["class/size strata + audited coverage<br/>and limitations; no subset extrapolation"]
+  C --> M["UAV-15 structured_audit / negative_coverage"]

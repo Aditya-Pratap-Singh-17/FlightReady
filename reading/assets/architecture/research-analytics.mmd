@@ -1,0 +1,13 @@
+flowchart TD
+  E[("evaluation records")] --> R["analytics.research"]
+  M[("model + readiness + dataset records")] --> R
+  R --> C["configuration/context/policy/test signature"]
+  C --> A["aggregate repeated seeds within image source"]
+  A --> D["exclude shared images/groups, artificial, combined, imported"]
+  D --> P["Pearson / Spearman on independent comparable sources"]
+  D --> L["predictive_comparison: at least 6 sources"]
+  R --> V["paired intervention outcomes on related data"]
+  P --> O["Research DTO: rows, aggregates, correlations, limitations"]
+  L --> O
+  V --> O
+  O --> UI["Analytics charts / scoped experiment report"]
