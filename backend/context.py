@@ -177,6 +177,7 @@ class Certificate(Model):
     experimental_score: dict[str, Any] | None = None
     quality_measurements: dict[str, Any] = Field(default_factory=dict)
     quality_profile: dict[str, Any] | None = None
+    quality_profile_v2: dict[str, Any] | None = None
     task_compatibility: dict[str, Any] | None = None
     final_report: dict[str, Any] | None = None
     disclaimer: str = 'Research dataset-readiness assessment only; not official aviation safety certification or a guarantee of model performance.'

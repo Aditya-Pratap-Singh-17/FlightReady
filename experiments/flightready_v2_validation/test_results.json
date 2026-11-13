@@ -1,0 +1,28 @@
+{
+  "backend": {
+    "command": ".venv/Scripts/python.exe -m pytest -q -p no:cacheprovider --basetemp=C:/DataReadiness/tmp/pytest-final",
+    "executed": 356,
+    "passed": 356,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "warnings": 2,
+    "duration_seconds": 159.68
+  },
+  "frontend": {
+    "command": "npm.cmd test -- --run",
+    "test_files_passed": 9,
+    "executed": 37,
+    "passed": 37,
+    "failed": 0,
+    "skipped": 0,
+    "duration_seconds": 14.58
+  },
+  "build_and_startup": {
+    "frontend_production_build": "passed",
+    "backend_health": "HTTP 200 at /api/health",
+    "frontend_dev_server": "HTTP 200",
+    "certificate_v2_regression_tests": "passed"
+  },
+  "environment_note": "The first baseline invocation used pytest's default user temp directory and produced 83 setup errors because that directory was inaccessible. Re-running the identical suite with an explicit workspace-local basetemp produced 356/356 passing tests; the baseline errors were environmental, not test assertion failures."
+}

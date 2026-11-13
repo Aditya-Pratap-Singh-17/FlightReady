@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-11-12T15:05:00-05:00",
+  "scope": "training runtime only; no FlightReady v2 metric, weight, threshold, aggregation, coverage, or decision change",
+  "observation": "The first clean seed-17 feasibility run at batch 8 used approximately 2.0 GiB of an 8 GiB GPU and required 2279.3 seconds.",
+  "change": {
+    "training.batch": {"from": 8, "to": 32}
+  },
+  "justification": "Reduce wall-clock cost while keeping one common batch size for all primary conditions. Ultralytics uses nominal batch-size scaling (nbs=64), so gradient accumulation changes consistently across all runs.",
+  "status_of_prior_run": "Preserved as a feasibility run and excluded from primary analysis. All primary runs, including clean seed 17, are rerun at batch 32.",
+  "timing": "Declared before any degraded-condition model was trained and before any FlightReady-versus-performance analysis.",
+  "frozen_methodology_unchanged": true
+}

@@ -130,17 +130,17 @@ export function App(){
   const running = !!job && ['queued','running'].includes(job.status);
   return <div className="app">
     <aside className="sidebar">
-      <a className="brand" href="/" aria-label="FlightReady home"><span className="brand-icon">↗</span> FlightReady<span className="version">v1</span></a>
+      <a className="brand" href="/" aria-label="FlightReady home"><span className="brand-icon">↗</span> FlightReady<span className="version">research</span></a>
       <div className="workspace-label">RESEARCH WORKSPACE</div>
       <div className="nav active"><span>◈</span> Dataset assessment</div>
       <a className="nav" href="http://127.0.0.1:8000/docs" target="_blank" rel="noreferrer"><span>⌘</span> API documentation</a>
       <div className="sidebar-note"><span className="dot"/> Offline dataset analysis<p>Evidence for your mission.<br/>Requirements before scores.</p></div>
-      <div className="sidebar-bottom">UAV DATA READINESS<br/><span>Research edition · Version 1</span></div>
+      <div className="sidebar-bottom">UAV DATA READINESS<br/><span>Evidence-aware research edition</span></div>
     </aside>
     <main>
       <header><span>Workspace <span className="slash">/</span> New assessment</span><span className="private">◉ Local session</span></header>
       <div className="content">
-        <div className="eyebrow">CONTEXT-AWARE CERTIFICATION</div>
+        <div className="eyebrow">CONTEXT-AWARE READINESS ASSESSMENT</div>
         <h1>Ready for <em>your</em> mission?</h1>
         <p className="intro">Tell us what you want to build. We’ll assess your dataset against the requirements that matter for your goal.</p>
         <div className="steps"><span className="current">01 <b>Define your goal</b></span><i/><span className={context?'current':''}>02 <b>Confirm requirements</b></span><i/><span className={certificate?'current':''}>03 <b>Review evidence</b></span></div>

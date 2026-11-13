@@ -226,6 +226,24 @@ def _assess(ds,context,initial=None,reference=None,progress=lambda stage:None):
         certificate.quality_profile = aggregate_quality(certificate.model_dump(mode='json'), **goal.quality_policy.model_dump())
         certificate.reproducibility['configuration']['adaptive_quality_profile_sha256'] = certificate.quality_profile['profile_sha256']
         certificate.reproducibility['assessment_fingerprint'] = hashlib.sha256((fingerprint+certificate.quality_profile['calculation_sha256']).encode()).hexdigest()
+        # Versioned v2 projection reuses the same measured components.  It does
+        # not replace the historical experimental score or v1 adaptive profile.
+        from metrics.readiness_v2 import V2Metric, build_scorecard
+        projected = []
+        for component in certificate.quality_profile['individual_metrics']:
+            status = component['status']
+            projected.append(V2Metric(
+                metric_id=component['id'], dimension=component['dimension'], label=component['label'],
+                weight=float(component['weight']) if component['weight'] > 0 else 1.0,
+                status='measured' if status == 'measured' else 'not_applicable' if status == 'not_applicable' else 'error' if status == 'failed' else 'unavailable',
+                score=component['score'] if status == 'measured' else None,
+                raw_value=component['raw_value'], normalization=component['normalization'],
+                evidence_type='observed_or_confirmed_requirement',
+                limitation=component['definition']['limitations'],
+                gate=component['definition'].get('gate'),
+                gate_passed=(component['score'] == 100) if component['definition'].get('gate') and status == 'measured' else None,
+            ))
+        certificate.quality_profile_v2 = build_scorecard(projected)
     from backend.compatibility import compatibility
     from backend.final_report import build_final_report
     certificate.task_compatibility = compatibility(ds, context)

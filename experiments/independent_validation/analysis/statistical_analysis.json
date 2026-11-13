@@ -1,0 +1,167 @@
+{
+  "protocol_version": "uavvaste-independent-1.0",
+  "final_protocol": {
+    "batch": 32,
+    "workers": 2
+  },
+  "planned_model_runs": 37,
+  "completed_primary_protocol_runs": 1,
+  "all_planned_runs_complete": false,
+  "correlations": {
+    "unit": "dataset-condition mean; model seeds are repeated measurements, not independent datasets",
+    "primary_conditions": [
+      "clean"
+    ],
+    "oracle_score_vs_map50_95": {
+      "pearson": {
+        "n": 1,
+        "coefficient": null,
+        "p_value": null,
+        "reason": "insufficient observations or zero variance"
+      },
+      "spearman": {
+        "n": 1,
+        "coefficient": null,
+        "p_value": null,
+        "reason": "insufficient observations or zero variance"
+      }
+    },
+    "sensitivity_excluding_repaired_duplicate_control": {
+      "pearson": {
+        "n": 1,
+        "coefficient": null,
+        "p_value": null,
+        "reason": "insufficient observations or zero variance"
+      },
+      "spearman": {
+        "n": 1,
+        "coefficient": null,
+        "p_value": null,
+        "reason": "insufficient observations or zero variance"
+      }
+    },
+    "reference_free_score_correlation": {
+      "coefficient": null,
+      "reason": "primary scores withheld for all conditions because evidence coverage is below 0.8"
+    }
+  },
+  "detection_analysis": {
+    "reference_free": {
+      "defects_total": 10,
+      "detected": [
+        "motion_blur_25"
+      ],
+      "sensitivity": 0.1,
+      "clean_false_positive": false,
+      "repaired_false_positive": false,
+      "definition": "score decrease >0.1 points or changed warning set relative to clean"
+    },
+    "full_oracle_assisted": {
+      "defects_total": 10,
+      "detected": [
+        "gaussian_10",
+        "gaussian_25",
+        "gaussian_40",
+        "motion_blur_25",
+        "missing_annotations_10",
+        "missing_annotations_25",
+        "missing_annotations_40",
+        "bbox_displacement_25",
+        "coverage_40",
+        "combined_40"
+      ],
+      "sensitivity": 1.0,
+      "clean_false_positive": false,
+      "repaired_false_positive": false,
+      "definition": "score decrease >0.1 points or changed warning set relative to clean"
+    },
+    "deterministic_10_percent_annotation_audit": {
+      "defects_total": 10,
+      "detected": [
+        "gaussian_10",
+        "gaussian_25",
+        "gaussian_40",
+        "motion_blur_25",
+        "missing_annotations_10",
+        "missing_annotations_25",
+        "missing_annotations_40",
+        "bbox_displacement_25",
+        "coverage_40",
+        "combined_40"
+      ],
+      "sensitivity": 1.0,
+      "clean_false_positive": false,
+      "repaired_false_positive": false,
+      "definition": "score decrease >0.1 points or changed warning set relative to clean"
+    }
+  },
+  "conventional_baseline_detection": [
+    {
+      "variant": "gaussian_10",
+      "detected": false,
+      "positive_checks": []
+    },
+    {
+      "variant": "gaussian_25",
+      "detected": false,
+      "positive_checks": []
+    },
+    {
+      "variant": "gaussian_40",
+      "detected": false,
+      "positive_checks": []
+    },
+    {
+      "variant": "motion_blur_25",
+      "detected": false,
+      "positive_checks": []
+    },
+    {
+      "variant": "missing_annotations_10",
+      "detected": true,
+      "positive_checks": [
+        "annotation_count_detected"
+      ]
+    },
+    {
+      "variant": "missing_annotations_25",
+      "detected": true,
+      "positive_checks": [
+        "annotation_count_detected"
+      ]
+    },
+    {
+      "variant": "missing_annotations_40",
+      "detected": true,
+      "positive_checks": [
+        "annotation_count_detected"
+      ]
+    },
+    {
+      "variant": "bbox_displacement_25",
+      "detected": false,
+      "positive_checks": []
+    },
+    {
+      "variant": "coverage_40",
+      "detected": true,
+      "positive_checks": [
+        "annotation_count_detected",
+        "file_coverage_detected"
+      ]
+    },
+    {
+      "variant": "combined_40",
+      "detected": true,
+      "positive_checks": [
+        "annotation_count_detected",
+        "center_distribution_detected"
+      ]
+    }
+  ],
+  "limitations": [
+    "Condition-level correlations are descriptive and use related controlled variants.",
+    "Three seeds quantify optimizer/training variability, not dataset-to-dataset generalization.",
+    "A 10% trusted audit is a deterministic sample and is not equivalent to a full oracle."
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "freeze_timestamp": "2026-11-12T12:00:00-05:00",
+  "base_git_commit": "510d24eead326d1565dd29ddaf19ac059fcc6347",
+  "working_tree_note": "FlightReady v2 was implemented in the uncommitted working tree produced by the preceding validation task. The file hashes below, rather than the base commit alone, define the frozen method.",
+  "methodology_version": "flightready-v2.0",
+  "frozen_files": {
+    "metrics/readiness_v2.py": "7fc1864711e2e9a7b14a2e8e08aacb54c590e4d9ab2f84ec50185c821e4d54fc",
+    "backend/readiness_engine.py": "f24fb6520329822fc7a9345e381bbcfeddbbf048763ad8f023c2d58edc8a28f",
+    "metrics/config/adaptive_quality.json": "e0f00149fbd11d1b907a58320780276150d1ba60608e2be25be1d961a041f7e5",
+    "metrics/quality_aggregation.py": "280848a97a18e991ceeddacc122221af70f8b9533e210fd56b44933b280179b2"
+  },
+  "v2_scorecard": {
+    "metric_score_domain": [0, 100],
+    "aggregation": "weighted geometric mean over measured applicable metrics; any measured zero with positive weight preserves a zero",
+    "primary_score_rule": "primary_quality_score is present only when weighted evidence coverage equals 1.0",
+    "measured_score_rule": "measured_quality_score summarizes measured evidence only and is always labeled as such",
+    "bounds": "unavailable applicable metrics are assigned 0 and 100 respectively for lower and upper geometric bounds",
+    "coverage": "sum of measured applicable metric weights divided by all applicable metric weights; not-applicable metrics are excluded",
+    "minimum_decision_coverage": 0.8,
+    "missing_evidence": "unavailable evidence is retained in coverage and is never treated as pass or zero quality",
+    "decision_order": [
+      "ASSESSMENT_ERROR when any applicable metric is error",
+      "NOT_READY when any measured blocking gate fails",
+      "INSUFFICIENT_EVIDENCE when a blocking gate is unknown or coverage is below 0.8",
+      "CONDITIONALLY_READY when any measured warning gate fails",
+      "READY otherwise"
+    ],
+    "interpretation": "quality-criteria summary, not predicted model accuracy"
+  },
+  "adaptive_profile": {
+    "profile_version": "adaptive-1.0",
+    "normalization_version": "criterion-1.0",
+    "aggregation_version": "geometric-gates-1.0",
+    "clarity_threshold": 100,
+    "warning_below": 70,
+    "object_detection_dimension_weights": {
+      "annotation_quality": 5,
+      "diversity": 3,
+      "signal_quality": 2,
+      "statistical_adequacy": 2,
+      "task_suitability": 4,
+      "integrity": 4
+    },
+    "object_detection_metric_weight_overrides": {
+      "annotation_validity": 2,
+      "label_availability": 2
+    },
+    "component_definitions_source": "metrics/config/adaptive_quality.json; frozen SHA-256 above",
+    "applicability": "component task and modality allowlists in the frozen adaptive profile",
+    "gates": "technical block/review gates and confirmed hard/preferred requirements are evaluated independently of scores"
+  },
+  "experimental_protocol_lock": {
+    "no_post_result_changes": [
+      "metric definitions",
+      "normalizations",
+      "thresholds",
+      "weights",
+      "aggregation formula",
+      "coverage rule",
+      "decision logic"
+    ],
+    "runtime_bug_policy": "Only the smallest compatibility correction may be applied; disclose it and preserve the primary frozen result.",
+    "reference_modes": {
+      "reference_free": "dataset-internal observations only; no clean labels, corruption manifest, expected counts, or test-set information",
+      "reference_assisted": "trusted clean annotations and acquisition manifest explicitly labeled oracle-assisted",
+      "limited_audit": "a deterministic trusted subset, reported separately from full-oracle assistance"
+    }
+  }
+}

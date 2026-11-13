@@ -1,0 +1,2 @@
+model,condition,schedule,n,seeds,precision_mean,precision_sd,precision_ci95_low,precision_ci95_high,recall_mean,recall_sd,recall_ci95_low,recall_ci95_high,map50_mean,map50_sd,map50_ci95_low,map50_ci95_high,map50_95_mean,map50_95_sd,map50_95_ci95_low,map50_95_ci95_high,elapsed_seconds_mean,elapsed_seconds_sd,elapsed_seconds_ci95_low,elapsed_seconds_ci95_high
+yolo11n,clean,fixed_epochs,1,[17],0.8590859506171845,,,,0.7214829506653936,,,,0.7822158500969947,,,,0.47237661831664973,,,,1067.871413230896,,,

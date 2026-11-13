@@ -1,0 +1,10 @@
+{
+  "timestamp": "2026-11-12T15:20:00-05:00",
+  "scope": "data-loader runtime only; no FlightReady v2 or dataset change",
+  "observation": "The workers=0 feasibility pilot increased training time to 133.6 seconds for one epoch versus 100.7 seconds with workers=2 at batch 32.",
+  "change": {"training.workers": {"from": 0, "to": 2}},
+  "justification": "The measured in-process loader was slower, so the final common protocol retains the faster preregistered worker count.",
+  "status_of_prior_runs": "workers=0 pilot excluded; all primary runs use workers=2.",
+  "timing": "Declared before any degraded-condition training.",
+  "frozen_methodology_unchanged": true
+}

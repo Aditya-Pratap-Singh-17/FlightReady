@@ -1,0 +1,10 @@
+{
+  "timestamp": "2026-11-12T15:15:00-05:00",
+  "scope": "data-loader runtime only; no FlightReady v2 or dataset change",
+  "observation": "The batch-32 feasibility pilot showed repeated Windows worker-process startup dominating validation latency.",
+  "change": {"training.workers": {"from": 2, "to": 0}},
+  "justification": "In-process loading removes Windows spawn overhead. It does not alter sample ordering, augmentation settings, labels, image bytes, test policy, model, optimizer, or random seed.",
+  "status_of_prior_runs": "All workers=2 runs are retained as feasibility evidence and excluded from primary statistics; primary conditions are executed consistently with workers=0.",
+  "timing": "Declared before any degraded-condition training.",
+  "frozen_methodology_unchanged": true
+}

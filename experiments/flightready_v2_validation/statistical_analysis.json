@@ -1,0 +1,31 @@
+{
+  "tabular_v1": {
+    "n": 18,
+    "pearson_r": null,
+    "pearson_p": null,
+    "spearman_rho": null,
+    "spearman_p": null
+  },
+  "tabular_v2": {
+    "n": 18,
+    "pearson_r": 0.7900565711552741,
+    "pearson_p": 9.585498003095923e-05,
+    "spearman_rho": 0.8099173553719009,
+    "spearman_p": 4.629600634122791e-05
+  },
+  "visdrone_v1": {
+    "n": 7,
+    "pearson_r": -0.37670938057180986,
+    "pearson_p": 0.4048725836659444,
+    "spearman_rho": -0.5609681940050744,
+    "spearman_p": 0.19014684492175052
+  },
+  "visdrone_v2": {
+    "n": 7,
+    "pearson_r": 0.870285495744346,
+    "pearson_p": 0.010840736511042946,
+    "spearman_rho": 0.8909090909090909,
+    "spearman_p": 0.007113125834016518
+  },
+  "interpretation": "Descriptive only; variants are related interventions and the VisDrone sample is n=7."
+}

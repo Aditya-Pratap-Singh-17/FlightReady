@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-11-12T16:25:00-05:00",
+  "scope": "number of model repetitions only; no FlightReady v2, dataset, corruption, model hyperparameter, split, or test-policy change",
+  "observation": "Three final-protocol clean runs plus concurrent resource auditing established that the 37-run extension required approximately 10-12 additional GPU hours.",
+  "executed_plan": {
+    "three_seed_conditions": ["clean", "combined_40"],
+    "single_seed_primary_conditions": ["gaussian_25", "motion_blur_25", "missing_annotations_25", "bbox_displacement_25", "coverage_40", "repaired"],
+    "single_seed_severity_conditions": ["gaussian_10", "gaussian_40", "missing_annotations_10", "missing_annotations_40"],
+    "single_seed_fixed_update_condition": "coverage_40",
+    "single_seed_secondary_conditions": ["clean", "combined_40"],
+    "total_runs": 19
+  },
+  "unexecuted": "Seeds 42 and 93 for non-core primary conditions, fixed-update coverage, and YOLOv8n transfer checks.",
+  "statistical_consequence": "Confidence intervals are reported only for clean and combined_40. All other condition results are descriptive single runs; condition-level correlation remains descriptive.",
+  "timing": "Declared after clean repetitions and while the first degraded seed-17 run was in progress, before any degraded result was observed.",
+  "frozen_methodology_unchanged": true
+}

@@ -1,0 +1,70 @@
+{
+  "protocol_version": "uavvaste-independent-1.0",
+  "dataset": {
+    "name": "UAVVaste",
+    "doi": "10.5281/zenodo.8214061",
+    "license": "CC BY 4.0",
+    "archive_md5": "1575c32c04bdf944047563e4a1786c2a",
+    "images": 772,
+    "annotations": 3718,
+    "official_split": {"train": 540, "val": 116, "test": 116},
+    "task": "single-class rubbish object detection",
+    "test_policy": "official test images and labels remain byte-identical across all conditions and are used only for final evaluation"
+  },
+  "variant_seed": 20261112,
+  "variants": {
+    "clean": {"family": "reference", "prevalence": 0},
+    "gaussian_10": {"family": "gaussian_noise", "prevalence": 10, "sigma_rgb": 25},
+    "gaussian_25": {"family": "gaussian_noise", "prevalence": 25, "sigma_rgb": 25},
+    "gaussian_40": {"family": "gaussian_noise", "prevalence": 40, "sigma_rgb": 25},
+    "motion_blur_25": {"family": "motion_blur", "prevalence": 25, "horizontal_kernel_pixels": 9},
+    "missing_annotations_10": {"family": "missing_annotations", "prevalence": 10, "box_removal_fraction_in_affected_images": 0.5},
+    "missing_annotations_25": {"family": "missing_annotations", "prevalence": 25, "box_removal_fraction_in_affected_images": 0.5},
+    "missing_annotations_40": {"family": "missing_annotations", "prevalence": 40, "box_removal_fraction_in_affected_images": 0.5},
+    "bbox_displacement_25": {"family": "bbox_displacement", "prevalence": 25, "normalized_center_shift": 0.08},
+    "coverage_40": {"family": "reduced_coverage", "prevalence": 40, "training_images_removed": 0.4},
+    "combined_40": {"family": "combined", "prevalence": 40, "sigma_rgb": 25, "box_removal_fraction_in_affected_images": 0.5, "normalized_center_shift": 0.08},
+    "repaired": {"family": "oracle_repair", "prevalence": 0, "source": "clean"}
+  },
+  "not_applicable_variant": {
+    "wrong_class_labels": "UAVVaste has one category. Changing a valid class to a different valid class is impossible; adding an undeclared class would test schema validity rather than semantic class corruption."
+  },
+  "training": {
+    "primary_model": "yolo11n.pt",
+    "secondary_model": "yolov8n.pt",
+    "pretrained": true,
+    "image_size": 832,
+    "batch": 32,
+    "epochs_fixed": 40,
+    "patience": 10,
+    "optimizer": "auto",
+    "deterministic": true,
+    "workers": 2,
+    "device": 0,
+    "primary_seeds": [17, 42, 93],
+    "primary_conditions": ["clean", "gaussian_25", "motion_blur_25", "missing_annotations_25", "bbox_displacement_25", "coverage_40", "combined_40", "repaired"],
+    "severity_conditions_seed_17": ["gaussian_10", "gaussian_40", "missing_annotations_10", "missing_annotations_40"],
+    "fixed_update_condition": "coverage_40",
+    "fixed_update_epochs": 67,
+    "fixed_update_seeds": [17, 42, 93],
+    "secondary_conditions": ["clean", "combined_40"],
+    "secondary_seeds": [17, 42, 93],
+    "checkpoint_selection": "best validation mAP50-95 only; test split is never used for selection"
+  },
+  "analysis": {
+    "unit_of_analysis": "dataset condition mean across seeds",
+    "confidence_interval": "t interval across three model seeds when n=3",
+    "correlation_policy": "descriptive correlations across condition means; related controlled variants are not independent samples",
+    "reference_modes": ["reference_free", "full_oracle_assisted", "deterministic_10_percent_annotation_audit"]
+  },
+  "executed_resource_plan": {
+    "repeat_seed_conditions": ["clean", "combined_40"],
+    "repeat_seeds": [17, 42, 93],
+    "other_primary_seed": 17,
+    "severity_seed": 17,
+    "fixed_update_seeds": [17],
+    "secondary_seeds": [17],
+    "planned_run_count": 19,
+    "reason": "Measured final-protocol runtime made the 37-run extension exceed the practical session budget. Core clean-versus-combined inference retains three seeds; breadth, severity, fixed-update, and secondary-family checks are executed once and labeled descriptive."
+  }
+}

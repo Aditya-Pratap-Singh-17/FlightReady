@@ -95,7 +95,7 @@ def markdown_story(path: Path, *, summary=False):
             story.append(Paragraph(inline(line[2:]), s["TitleFlight"]));
             if not summary: story.append(Paragraph("Final research report | 12 November 2026", s["SubTitle"]))
         elif line.startswith("## "):
-            if line.startswith("## 11. Conclusion"):
+            if line.startswith("## 12. Statistical analysis"):
                 story.append(PageBreak())
             story.append(Paragraph(inline(line[3:]), s["H1Flight"]))
         elif line.startswith("### "):
@@ -136,5 +136,5 @@ def build(source: str, output: str, *, summary=False):
 
 
 if __name__ == "__main__":
-    build("FlightReady_Final_Research_Report.md", "FlightReady_Final_Research_Report.pdf")
-    build("Professor_Project_Summary.md", "Professor_Project_Summary.pdf", summary=True)
+    build("FlightReady_Improved_Research_Report.md", "FlightReady_Improved_Research_Report.pdf")
+    build("FlightReady_Improved_Professor_Summary.md", "FlightReady_Improved_Professor_Summary.pdf", summary=True)

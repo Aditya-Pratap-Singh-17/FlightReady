@@ -1,0 +1,160 @@
+{
+  "dataset": "UAVVaste",
+  "doi": "10.5281/zenodo.8214061",
+  "license": "CC BY 4.0",
+  "archive_md5": "1575c32c04bdf944047563e4a1786c2a",
+  "annotation_sha256": "2779d40ea98db05d9fb0ea6b0cdbf181a441ce663cf7b81653c81f2f0ef8b403",
+  "image_count": 772,
+  "annotation_count": 3718,
+  "categories": [
+    {
+      "supercategory": "",
+      "id": 0,
+      "name": "rubbish"
+    }
+  ],
+  "split_counts": {
+    "train": 540,
+    "val": 116,
+    "test": 116
+  },
+  "exact_filename_overlap": {
+    "train_val": 0,
+    "train_test": 0,
+    "val_test": 0
+  },
+  "filename_source_groups": {
+    "train": [
+      "batch_01_frame",
+      "batch_02",
+      "batch_03",
+      "batch_04",
+      "batch_05",
+      "batch_d06",
+      "batch_d07",
+      "batch_d08",
+      "batch_s01",
+      "batch_s02",
+      "batch_s03",
+      "batch_s04",
+      "batch_s05",
+      "camera",
+      "dji",
+      "gopr",
+      "photo_2020-10-23_14-02-"
+    ],
+    "val": [
+      "batch_01_frame",
+      "batch_02",
+      "batch_03",
+      "batch_04",
+      "batch_05",
+      "batch_d06",
+      "batch_d07",
+      "batch_d08",
+      "batch_s01",
+      "batch_s02",
+      "batch_s03",
+      "batch_s04",
+      "batch_s05",
+      "camera",
+      "gopr",
+      "photo_2020-10-23_14-02-"
+    ],
+    "test": [
+      "batch_01_frame",
+      "batch_02",
+      "batch_03",
+      "batch_04",
+      "batch_05",
+      "batch_d06",
+      "batch_d07",
+      "batch_d08",
+      "batch_s01",
+      "batch_s02",
+      "batch_s03",
+      "batch_s04",
+      "batch_s05",
+      "camera",
+      "gopr",
+      "photo_2020-10-23_14-02-"
+    ]
+  },
+  "source_group_overlap": {
+    "train_val": [
+      "batch_01_frame",
+      "batch_02",
+      "batch_03",
+      "batch_04",
+      "batch_05",
+      "batch_d06",
+      "batch_d07",
+      "batch_d08",
+      "batch_s01",
+      "batch_s02",
+      "batch_s03",
+      "batch_s04",
+      "batch_s05",
+      "camera",
+      "gopr",
+      "photo_2020-10-23_14-02-"
+    ],
+    "train_test": [
+      "batch_01_frame",
+      "batch_02",
+      "batch_03",
+      "batch_04",
+      "batch_05",
+      "batch_d06",
+      "batch_d07",
+      "batch_d08",
+      "batch_s01",
+      "batch_s02",
+      "batch_s03",
+      "batch_s04",
+      "batch_s05",
+      "camera",
+      "gopr",
+      "photo_2020-10-23_14-02-"
+    ],
+    "val_test": [
+      "batch_01_frame",
+      "batch_02",
+      "batch_03",
+      "batch_04",
+      "batch_05",
+      "batch_d06",
+      "batch_d07",
+      "batch_d08",
+      "batch_s01",
+      "batch_s02",
+      "batch_s03",
+      "batch_s04",
+      "batch_s05",
+      "camera",
+      "gopr",
+      "photo_2020-10-23_14-02-"
+    ]
+  },
+  "leakage_threat": "Official image-level splits share inferred filename source groups; temporally or spatially adjacent frames may cross partitions. No stronger group identifiers were provided, so the official test is retained and this is reported as a threat to validity.",
+  "prepared_variants": [
+    "bbox_displacement_25",
+    "clean",
+    "combined_40",
+    "coverage_40",
+    "gaussian_10",
+    "gaussian_25",
+    "gaussian_40",
+    "missing_annotations_10",
+    "missing_annotations_25",
+    "missing_annotations_40",
+    "motion_blur_25",
+    "repaired"
+  ],
+  "test_byte_immutability_issue_count": 0,
+  "test_byte_immutability_issues": [],
+  "weights_sha256": {
+    "yolo11n.pt": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+    "yolov8n.pt": "f59b3d833e2ff32e194b5bb8e08d211dc7c5bdf144b90d2c8412c47ccfc83b36"
+  }
+}

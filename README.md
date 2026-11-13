@@ -146,6 +146,8 @@ Future work should include multiple independently sourced UAV datasets, flight/g
 ## Documentation
 
 - `docs/FlightReady_Final_Research_Report.md`: academic research report.
+- `docs/EXPERIMENTS.md`: completed studies, reproducibility entry points, and interpretation limits.
+- `docs/FlightReady_Improved_Research_Report.md`: v2 evidence-aware reassessment and root-cause analysis.
 - `docs/Professor_Project_Summary.md`: one-page faculty summary.
 - `reading/README.md`: detailed technical documentation index.
 - `reading/CODEBASE_VISUAL_GUIDE.pdf`: generated visual codebase guide.

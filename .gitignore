@@ -26,6 +26,19 @@ experiments/visdrone_model_validation/resources/downloads/*.zip
 experiments/visdrone_model_validation/training_runs/
 experiments/visdrone_model_validation/.assessment/
 
+# Independent UAVVaste validation: retain compact scripts, manifests, and results;
+# never publish downloaded data, generated variants, checkpoints, or review bundles.
+experiments/independent_validation/downloads/
+experiments/independent_validation/dataset/source/
+experiments/independent_validation/dataset/prepared/
+experiments/independent_validation/training_runs/
+experiments/independent_validation/test_evaluations/
+experiments/independent_validation/review_package/
+experiments/independent_validation/*.zip
+experiments/independent_validation/*.tar
+experiments/independent_validation/*.tar.gz
+experiments/independent_validation/.assessment/
+
 # Local PDF render/inspection intermediates (final PDFs live in docs/).
 tmp/pdfs/
 

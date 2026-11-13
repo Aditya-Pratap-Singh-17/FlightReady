@@ -1,0 +1,2 @@
+tag,model,condition,seed,schedule,planned_epochs,batch,workers,elapsed_seconds,precision,recall,map50,map50_95,per_class_map50_95,result_file,map50_95_absolute_change,map50_95_relative_change_percent
+yolo11n__clean__seed17__fixed_epochs__batch32__workers2,yolo11n,clean,17,fixed_epochs,40,32,2,1067.871413230896,0.8590859506171845,0.7214829506653936,0.7822158500969947,0.47237661831664973,[0.47237661831664973],C:\DataReadiness\experiments\independent_validation\model_results\yolo11n__clean__seed17__fixed_epochs__batch32__workers2.json,0.0,0.0
