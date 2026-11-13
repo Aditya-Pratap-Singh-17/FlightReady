@@ -141,7 +141,7 @@ Review `docs/Storage_Audit.md` before removing local artifacts. Large research a
 
 FlightReady successfully executes assessments and produces evidence-bearing reports. The experiments also demonstrate important blind spots: structurally valid wrong labels, missing in-image objects, and missing acquisition coverage cannot be established from internal consistency alone. The aggregate experimental score must not be interpreted as a validated probability of readiness or expected model accuracy.
 
-Future work should include multiple independently sourced UAV datasets, flight/group-aware evaluation, repeated dataset resampling, blinded annotation audits, prospective score calibration, richer image-corruption measures, and external validation.
+Future work could include multiple independently sourced UAV datasets, flight/group-aware evaluation, repeated dataset resampling, blinded annotation audits, prospective score calibration, richer image-corruption measures, and external validation.
 
 ## Documentation
 
