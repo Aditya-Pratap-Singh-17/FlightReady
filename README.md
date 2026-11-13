@@ -151,7 +151,3 @@ Future work should include multiple independently sourced UAV datasets, flight/g
 - `docs/Professor_Project_Summary.md`: one-page faculty summary.
 - `reading/README.md`: detailed technical documentation index.
 - `reading/CODEBASE_VISUAL_GUIDE.pdf`: generated visual codebase guide.
-
-## License and data rights
-
-No repository-level license was found during finalization. Add an explicit software license before public distribution. Dataset and model licenses remain separate: verify rights before redistributing local datasets, archives, or checkpoints. The official VisDrone resources used in the experiment did not provide an explicit dataset license in the consulted repository/catalog, so the raw data is intentionally excluded from version control.
