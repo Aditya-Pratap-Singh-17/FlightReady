@@ -1,0 +1,6 @@
+# Reproducible backend test and CI environment.
+# Keep optional packages here when tests exercise their integration paths.
+-r requirements.txt
+huggingface-hub==0.36.0
+pypdf==6.21.4
+pymupdf==1.26.7

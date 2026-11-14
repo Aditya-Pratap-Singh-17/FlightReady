@@ -3,21 +3,5 @@
   "terminal.integrated.env.windows": {
     "PYTHONPATH": "${workspaceFolder}\\.packages;${env:PYTHONPATH}"
   },
-  "python.terminal.useEnvFile": true,
-  "codearchy.includedLanguages": ["python"],
-  "codearchy.aiModel": "gemma-e2b",
-  "codearchy.maxFileSize": 100000,
-  "codearchy.excludePatterns": [
-    "**/.venv/**",
-    "**/venv/**",
-    "**/site-packages/**",
-    "**/.runtime/**",
-    "**/__pycache__/**",
-    "**/.pytest_cache/**",
-    "**/.git/**",
-    "**/node_modules/**",
-    "**/datasets/**",
-    "**/uploads/**"
-  ],
-  "codearchy.aiProcessing": "indepth"
+  "python.terminal.useEnvFile": true
 }

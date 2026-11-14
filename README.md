@@ -98,7 +98,10 @@ No current-application screenshot is committed as a verified demonstration artif
 
 ## Tests and verification
 
+Install the pinned backend test environment before running the complete suite. It includes the PDF-export and connected-repository integrations exercised by CI.
+
 ```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements\requirements-test.txt
 .\.venv\Scripts\python.exe -m pytest -q --basetemp=.runtime\pytest-submission -o cache_dir=.runtime\pytest-cache
 .\.venv\Scripts\python.exe scripts\verify_final_manuscript_results.py
 Set-Location frontend

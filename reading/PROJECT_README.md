@@ -67,7 +67,7 @@ Python 3.12 and Node 22.12+ are recommended for the declared dependencies. From 
 
 ```powershell
 python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements/requirements.txt
+.\.venv\Scripts\python.exe -m pip install -r requirements/requirements-test.txt
 Copy-Item .env.example .env
 cd frontend
 npm.cmd ci
