@@ -12,7 +12,7 @@ from reportlab.lib.units import inch
 from reportlab.platypus import BaseDocTemplate, Frame, Image, KeepTogether, PageTemplate, Paragraph, PageBreak, Spacer, Table, TableStyle
 
 ROOT = Path(__file__).resolve().parents[1]
-REPORTS = ROOT / "experiments" / "independent_validation" / "reports"
+REPORTS = ROOT / "experiments" / "independent_validation" / "final_reports"
 NAVY = colors.HexColor("#17324D")
 BLUE = colors.HexColor("#246B8E")
 PALE = colors.HexColor("#EAF2F7")
@@ -93,6 +93,6 @@ def build(source, output, ieee=False):
 
 
 if __name__ == "__main__":
-    build("FlightReady_Independent_Validation_Report.md","FlightReady_Independent_Validation_Report.pdf")
-    build("IEEE_Publication_Readiness_Assessment.md","IEEE_Publication_Readiness_Assessment.pdf")
+    build("FlightReady_Final_Independent_Validation_Report.md","FlightReady_Final_Independent_Validation_Report.pdf")
+    build("IEEE_Publication_Readiness_Review.md","IEEE_Publication_Readiness_Review.pdf")
     build("FlightReady_IEEE_Conference_Paper_Draft.md","FlightReady_IEEE_Conference_Paper_Draft.pdf",ieee=True)

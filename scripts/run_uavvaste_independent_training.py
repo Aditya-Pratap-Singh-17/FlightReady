@@ -50,6 +50,11 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def repository_path(path: Path) -> str:
+    """Return a portable repository-relative artifact path for public records."""
+    return path.resolve().relative_to(ROOT.resolve()).as_posix()
+
+
 def plans():
     train = CONFIG["training"]
     reduced = CONFIG.get("executed_resource_plan")
@@ -107,10 +112,10 @@ def run_one(model_name: str, condition: str, seed: int, epochs: int, schedule: s
     box = test_results.box
     result = {
         "tag": tag, "pilot": pilot, "protocol_version": CONFIG["protocol_version"],
-        "model": model_name, "initial_weights": str(weight_path), "initial_weights_sha256": sha256(weight_path),
+        "model": model_name, "initial_weights": repository_path(weight_path), "initial_weights_sha256": sha256(weight_path),
         "condition": condition, "seed": seed, "schedule": schedule, "batch": batch, "workers": workers,
-        "planned_epochs": 1 if pilot else epochs, "best_checkpoint": str(best),
-        "best_checkpoint_sha256": sha256(best), "dataset_yaml": str(data_path),
+        "planned_epochs": 1 if pilot else epochs, "best_checkpoint": repository_path(best),
+        "best_checkpoint_sha256": sha256(best), "dataset_yaml": repository_path(data_path),
         "test_split_policy": CONFIG["dataset"]["test_policy"],
         "test_metrics": {
             "precision": scalar(box.mp), "recall": scalar(box.mr),

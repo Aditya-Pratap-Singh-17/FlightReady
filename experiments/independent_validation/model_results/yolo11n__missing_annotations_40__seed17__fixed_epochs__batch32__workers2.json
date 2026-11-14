@@ -1,0 +1,35 @@
+{
+  "tag": "yolo11n__missing_annotations_40__seed17__fixed_epochs__batch32__workers2",
+  "pilot": false,
+  "protocol_version": "uavvaste-independent-1.0",
+  "model": "yolo11n",
+  "initial_weights": "experiments/independent_validation/weights/yolo11n.pt",
+  "initial_weights_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+  "condition": "missing_annotations_40",
+  "seed": 17,
+  "schedule": "fixed_epochs",
+  "batch": 32,
+  "workers": 2,
+  "planned_epochs": 40,
+  "best_checkpoint": "experiments/independent_validation/training_runs/yolo11n__missing_annotations_40__seed17__fixed_epochs__batch32__workers2/weights/best.pt",
+  "best_checkpoint_sha256": "f1d58c766b6ea58af7543298c21556522e7157e3ce58200bd30b8d45499642bb",
+  "dataset_yaml": "experiments/independent_validation/dataset/prepared/missing_annotations_40/dataset.yaml",
+  "test_split_policy": "official test images and labels remain byte-identical across all conditions and are used only for final evaluation",
+  "test_metrics": {
+    "precision": 0.8720716103632163,
+    "recall": 0.6722761287687127,
+    "map50": 0.7613632135798978,
+    "map50_95": 0.4466982330719794,
+    "per_class_map50_95": [
+      0.4466982330719794
+    ]
+  },
+  "elapsed_seconds": 938.0859460830688,
+  "runtime": {
+    "python": "3.13.5",
+    "torch": "2.14.1+cu130",
+    "ultralytics": "8.4.197",
+    "cuda": "13.0",
+    "gpu": "NVIDIA GeForce RTX 4070 Laptop GPU"
+  }
+}

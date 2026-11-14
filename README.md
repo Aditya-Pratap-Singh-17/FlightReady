@@ -100,6 +100,7 @@ No current-application screenshot is committed as a verified demonstration artif
 
 ```powershell
 .\.venv\Scripts\python.exe -m pytest -q --basetemp=.runtime\pytest-submission -o cache_dir=.runtime\pytest-cache
+.\.venv\Scripts\python.exe scripts\verify_final_manuscript_results.py
 Set-Location frontend
 npm.cmd test
 npm.cmd run build
@@ -127,11 +128,29 @@ See `experiments/visdrone_model_validation/research_report.md`.
 
 These are resource-bounded, preliminary experiments. They do not establish universal validity or state-of-the-art model performance.
 
+### Frozen v2 independent UAVVaste validation
+
+FlightReady v2 was frozen before independent result inspection and evaluated on UAVVaste, an independently sourced single-class UAV litter-detection dataset. The resource-amended protocol contains **19 completed planned runs**. Two valid YOLO11n Gaussian-25 observations at seeds 42 and 93 are retained and labeled separately as supplemental; they are not counted as planned-run completion.
+
+Reference-free primary scores were withheld for every condition at 55.6% evidence coverage. Under the prespecified controlled-defect rule, FlightReady detected 1/10 defects reference-free, 10/10 with a deterministic 10% trusted annotation audit, and 10/10 with a full oracle; conventional checks detected 5/10. Across eight related YOLO11n condition means, full-oracle score and test mAP50-95 had Pearson `r=0.7672` (`p=0.0263`) and Spearman `rho=0.8383` (`p=0.0093`). These correlations are descriptive condition-level associations, not independently validated accuracy prediction.
+
+Primary review artifacts:
+
+- [`experiments/independent_validation/REPRODUCIBILITY.md`](experiments/independent_validation/REPRODUCIBILITY.md): provenance, run ledger, commands, and exclusions.
+- [`experiments/independent_validation/final_reports/FlightReady_Final_Independent_Validation_Report.pdf`](experiments/independent_validation/final_reports/FlightReady_Final_Independent_Validation_Report.pdf): complete validation report.
+- [`submission/FlightReady_IEEE_IV_2027_FINAL.pdf`](submission/FlightReady_IEEE_IV_2027_FINAL.pdf): anonymous professor-review manuscript draft.
+- [`submission/FlightReady_IEEE_IV_2027_FINAL.tex`](submission/FlightReady_IEEE_IV_2027_FINAL.tex): editable IEEEtran source.
+- [`submission/Frozen_Methodology_Integrity_Audit.md`](submission/Frozen_Methodology_Integrity_Audit.md): resolution of the historical 63-character manifest hash entry without changing the manifest.
+- [`submission/Final_Manuscript_Verification.md`](submission/Final_Manuscript_Verification.md): claim, equation, citation, and layout audit.
+
+The manuscript has not been submitted. Its verification report records the remaining conference-policy, authorship, external-validity, and compilation checks.
+
 ## Reproducibility and storage
 
 - Tabular experiment: `scripts/quality_impact_experiment.py`.
 - VisDrone experiment: `scripts/visdrone_validation.py`.
 - Exact condition manifests, hashes, result JSON/CSV files, certificates, and plots are retained under `experiments/`.
+- Independent validation records distinguish the 19-run amended plan from two supplemental observations; pilot and feasibility records are explicitly excluded from the final ledger.
 - Large public dataset archives, extracted VisDrone data, generated variants, local environments, model weights, and runtime state are ignored by Git.
 - VisDrone download hashes and URLs are recorded in `experiments/visdrone_model_validation/provenance.json`.
 
@@ -149,5 +168,7 @@ Future work could include multiple independently sourced UAV datasets, flight/gr
 - `docs/EXPERIMENTS.md`: completed studies, reproducibility entry points, and interpretation limits.
 - `docs/FlightReady_Improved_Research_Report.md`: v2 evidence-aware reassessment and root-cause analysis.
 - `docs/Professor_Project_Summary.md`: one-page faculty summary.
+- `experiments/independent_validation/final_reports/FlightReady_Final_Independent_Validation_Report.md`: completed independent-validation report.
+- `submission/FlightReady_IEEE_IV_2027_FINAL.pdf`: latest anonymous IEEE IV professor-review draft.
 - `reading/README.md`: detailed technical documentation index.
 - `reading/CODEBASE_VISUAL_GUIDE.pdf`: generated visual codebase guide.

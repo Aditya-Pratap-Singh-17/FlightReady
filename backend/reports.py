@@ -2,6 +2,18 @@
 from html import escape
 import json
 
+
+def v2_score_html(scorecard):
+    if not scorecard:
+        return ''
+    from metrics.readiness_v2_reporting import geometric_influence
+    explanation = geometric_influence(scorecard)
+    return ('<h2>FlightReady v2 score explanation</h2><p>V2 uses a weighted geometric mean over measured applicable metrics. '
+            'The categorical readiness decision is determined separately by evidence coverage and gates.</p><p>'+
+            escape(explanation['message'])+'</p><details><summary>Geometric aggregation diagnostics</summary><pre>'+
+            escape(json.dumps(explanation, indent=2))+'</pre></details><details><summary>Frozen v2 scorecard</summary><pre>'+
+            escape(json.dumps(scorecard, indent=2))+'</pre></details>')
+
 def html_report(certificate):
     c = certificate
     score = c.experimental_score
@@ -20,7 +32,7 @@ def html_report(certificate):
     findings = ''.join('<tr><td>'+escape(f.requirement.description)+'</td><td>'+f.requirement.severity+'</td><td>'+f.state+'</td><td>'+escape(f.reason)+'</td></tr>' for f in c.findings)
     metrics = ''.join('<details><summary>'+escape(m.dimension+' / '+m.metric_id+' — '+(m.assessment_status or m.state))+'</summary><pre>'+escape(m.model_dump_json(indent=2))+'</pre></details>' for m in c.metrics)
     views='<h2>Learning-potential diagnostics</h2><pre>'+escape(json.dumps(c.learning_views,indent=2))+'</pre>' if c.learning_views else ''
-    metrics+=views+score_html
+    metrics+=views+v2_score_html(c.quality_profile_v2)+score_html
     inventory={status:[m.metric_id for m in c.metrics if m.assessment_status==status] for status in
         ('measured','estimated','insufficient_evidence','not_applicable','unsupported','error')}
     metrics+='<h2>Measurement availability</h2><pre>'+escape(json.dumps(inventory,indent=2))+'</pre>'

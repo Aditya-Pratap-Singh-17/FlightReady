@@ -1,10 +1,10 @@
 {
   "settings_version": "0.0.6",
-  "datasets_dir": "C:\\DataReadiness\\datasets",
+  "datasets_dir": "datasets",
   "weights_dir": "weights",
   "runs_dir": "runs",
-  "uuid": "4cb36525b28cba53849207da244b8b7b98d9da9d7ac638e63ed333f8e3979e30",
-  "sync": true,
+  "uuid": "",
+  "sync": false,
   "api_key": "",
   "openai_api_key": "",
   "clearml": true,

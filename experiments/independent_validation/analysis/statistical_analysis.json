@@ -4,40 +4,88 @@
     "batch": 32,
     "workers": 2
   },
-  "planned_model_runs": 37,
-  "completed_primary_protocol_runs": 1,
-  "all_planned_runs_complete": false,
+  "planned_model_runs": 19,
+  "completed_final_protocol_runs": 19,
+  "observed_final_protocol_runs": 21,
+  "completed_primary_protocol_runs": 21,
+  "planned_tags": [
+    "yolo11n__clean__seed17__fixed_epochs__batch32__workers2",
+    "yolo11n__clean__seed42__fixed_epochs__batch32__workers2",
+    "yolo11n__clean__seed93__fixed_epochs__batch32__workers2",
+    "yolo11n__gaussian_25__seed17__fixed_epochs__batch32__workers2",
+    "yolo11n__motion_blur_25__seed17__fixed_epochs__batch32__workers2",
+    "yolo11n__missing_annotations_25__seed17__fixed_epochs__batch32__workers2",
+    "yolo11n__bbox_displacement_25__seed17__fixed_epochs__batch32__workers2",
+    "yolo11n__coverage_40__seed17__fixed_epochs__batch32__workers2",
+    "yolo11n__combined_40__seed17__fixed_epochs__batch32__workers2",
+    "yolo11n__combined_40__seed42__fixed_epochs__batch32__workers2",
+    "yolo11n__combined_40__seed93__fixed_epochs__batch32__workers2",
+    "yolo11n__repaired__seed17__fixed_epochs__batch32__workers2",
+    "yolo11n__gaussian_10__seed17__fixed_epochs__batch32__workers2",
+    "yolo11n__gaussian_40__seed17__fixed_epochs__batch32__workers2",
+    "yolo11n__missing_annotations_10__seed17__fixed_epochs__batch32__workers2",
+    "yolo11n__missing_annotations_40__seed17__fixed_epochs__batch32__workers2",
+    "yolo11n__coverage_40__seed17__fixed_updates__batch32__workers2",
+    "yolov8n__clean__seed17__fixed_epochs__batch32__workers2",
+    "yolov8n__combined_40__seed17__fixed_epochs__batch32__workers2"
+  ],
+  "completed_tags": [
+    "yolo11n__bbox_displacement_25__seed17__fixed_epochs__batch32__workers2",
+    "yolo11n__clean__seed17__fixed_epochs__batch32__workers2",
+    "yolo11n__clean__seed42__fixed_epochs__batch32__workers2",
+    "yolo11n__clean__seed93__fixed_epochs__batch32__workers2",
+    "yolo11n__combined_40__seed17__fixed_epochs__batch32__workers2",
+    "yolo11n__combined_40__seed42__fixed_epochs__batch32__workers2",
+    "yolo11n__combined_40__seed93__fixed_epochs__batch32__workers2",
+    "yolo11n__coverage_40__seed17__fixed_epochs__batch32__workers2",
+    "yolo11n__coverage_40__seed17__fixed_updates__batch32__workers2",
+    "yolo11n__gaussian_10__seed17__fixed_epochs__batch32__workers2",
+    "yolo11n__gaussian_25__seed17__fixed_epochs__batch32__workers2",
+    "yolo11n__gaussian_40__seed17__fixed_epochs__batch32__workers2",
+    "yolo11n__missing_annotations_10__seed17__fixed_epochs__batch32__workers2",
+    "yolo11n__missing_annotations_25__seed17__fixed_epochs__batch32__workers2",
+    "yolo11n__missing_annotations_40__seed17__fixed_epochs__batch32__workers2",
+    "yolo11n__motion_blur_25__seed17__fixed_epochs__batch32__workers2",
+    "yolo11n__repaired__seed17__fixed_epochs__batch32__workers2",
+    "yolov8n__clean__seed17__fixed_epochs__batch32__workers2",
+    "yolov8n__combined_40__seed17__fixed_epochs__batch32__workers2"
+  ],
+  "missing_tags": [],
+  "all_planned_runs_complete": true,
   "correlations": {
     "unit": "dataset-condition mean; model seeds are repeated measurements, not independent datasets",
     "primary_conditions": [
-      "clean"
+      "clean",
+      "gaussian_25",
+      "motion_blur_25",
+      "missing_annotations_25",
+      "bbox_displacement_25",
+      "coverage_40",
+      "combined_40",
+      "repaired"
     ],
     "oracle_score_vs_map50_95": {
       "pearson": {
-        "n": 1,
-        "coefficient": null,
-        "p_value": null,
-        "reason": "insufficient observations or zero variance"
+        "n": 8,
+        "coefficient": 0.7672039748373733,
+        "p_value": 0.026289904577342184
       },
       "spearman": {
-        "n": 1,
-        "coefficient": null,
-        "p_value": null,
-        "reason": "insufficient observations or zero variance"
+        "n": 8,
+        "coefficient": 0.8383383833392812,
+        "p_value": 0.009323115735056061
       }
     },
     "sensitivity_excluding_repaired_duplicate_control": {
       "pearson": {
-        "n": 1,
-        "coefficient": null,
-        "p_value": null,
-        "reason": "insufficient observations or zero variance"
+        "n": 7,
+        "coefficient": 0.7398707323835696,
+        "p_value": 0.05728732480354803
       },
       "spearman": {
-        "n": 1,
-        "coefficient": null,
-        "p_value": null,
-        "reason": "insufficient observations or zero variance"
+        "n": 7,
+        "coefficient": 0.8571428571428573,
+        "p_value": 0.01369732661532562
       }
     },
     "reference_free_score_correlation": {

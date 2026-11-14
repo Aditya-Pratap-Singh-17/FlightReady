@@ -139,7 +139,7 @@ def main():
                     "removed_training_images": len(removed), "image_counts": actual,
                     "official_split_counts": {k: len(v) for k, v in splits.items()}, "test_filename_sha256": test_fingerprint,
                     "test_unchanged": actual["test"] == len(splits["test"]), "modification_counts": modification_counts,
-                    "rules": spec, "dataset_yaml": str(root / "dataset.yaml")}
+                    "rules": spec, "dataset_yaml": (root / "dataset.yaml").relative_to(ROOT).as_posix()}
         (root / "variant_manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
         manifests.append(manifest)
         print(name, actual, modification_counts, flush=True)

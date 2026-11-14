@@ -39,8 +39,24 @@ experiments/independent_validation/*.tar
 experiments/independent_validation/*.tar.gz
 experiments/independent_validation/.assessment/
 
-# Local PDF render/inspection intermediates (final PDFs live in docs/).
-tmp/pdfs/
+# Local render/inspection intermediates.
+tmp/
+
+# Superseded local manuscript drafts. The audited FINAL manuscript is retained.
+submission/*Interim*
+submission/*Professor_Review*
+submission/FlightReady_IEEE_IV_Final_Draft*
+submission/README.txt
+submission/figures/uavvaste_*
+submission/figures/weighted_geometric_mean_equation.png
+
+# Superseded/generated review outputs retained locally but not published.
+docs/FlightReady_Improved_Professor_Summary.pdf
+docs/FlightReady_Improved_Research_Report.pdf
+experiments/independent_validation/final_reports/FlightReady_IEEE_Conference_Paper_Draft.*
+experiments/independent_validation/final_reports/IEEE_Publication_Readiness_Review.*
+experiments/independent_validation/final_reports/Results_For_ChatGPT_Review.md
+scripts/build_ieee_iv_interim_paper.py
 
 # Local research datasets and regenerable heavy artifacts
 experiments/visdrone_model_validation/resources/downloads/*.zip

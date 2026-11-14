@@ -35,6 +35,28 @@ def correlation(x, y, kind):
     return {"n": len(x), "coefficient": float(result.statistic), "p_value": float(result.pvalue)}
 
 
+def planned_tags():
+    """Return the declared final-protocol tags without importing the trainer."""
+    training = CONFIG["training"]
+    reduced = CONFIG.get("executed_resource_plan")
+    plans = []
+    for condition in training["primary_conditions"]:
+        seeds = (reduced["repeat_seeds"] if reduced and condition in reduced["repeat_seed_conditions"]
+                 else [reduced["other_primary_seed"]] if reduced else training["primary_seeds"])
+        plans.extend(("yolo11n", condition, seed, training["epochs_fixed"], "fixed_epochs") for seed in seeds)
+    plans.extend(("yolo11n", condition, 17, training["epochs_fixed"], "fixed_epochs")
+                 for condition in training["severity_conditions_seed_17"])
+    update_seeds = reduced["fixed_update_seeds"] if reduced else training["fixed_update_seeds"]
+    plans.extend(("yolo11n", training["fixed_update_condition"], seed, training["fixed_update_epochs"], "fixed_updates")
+                 for seed in update_seeds)
+    secondary_seeds = reduced["secondary_seeds"] if reduced else training["secondary_seeds"]
+    plans.extend(("yolov8n", condition, seed, training["epochs_fixed"], "fixed_epochs")
+                 for condition in training["secondary_conditions"] for seed in secondary_seeds)
+    batch, workers = training["batch"], training["workers"]
+    return [f"{model}__{condition}__seed{seed}__{schedule}__batch{batch}__workers{workers}"
+            for model, condition, seed, _, schedule in plans]
+
+
 def main():
     batch = CONFIG["training"]["batch"]
     workers = CONFIG["training"]["workers"]
@@ -45,8 +67,17 @@ def main():
             continue
         flat = {k: row[k] for k in ("tag", "model", "condition", "seed", "schedule", "planned_epochs", "batch", "workers", "elapsed_seconds")}
         flat.update(row["test_metrics"])
-        flat["result_file"] = str(path)
+        flat["result_file"] = path.relative_to(ROOT).as_posix()
         runs.append(flat)
+    runs.sort(key=lambda r: (r["model"], r["condition"], r["schedule"], r["seed"], r["tag"]))
+    clean_by_model_seed = {(r["model"], r["seed"]): r for r in runs
+                           if r["condition"] == "clean" and r["schedule"] == "fixed_epochs"}
+    for row in runs:
+        clean = clean_by_model_seed.get((row["model"], row["seed"]))
+        row["map50_95_absolute_change"] = row["map50_95"] - clean["map50_95"] if clean else None
+        row["map50_95_relative_change_percent"] = (
+            100 * (row["map50_95"] / clean["map50_95"] - 1) if clean and clean["map50_95"] else None
+        )
     groups = defaultdict(list)
     for row in runs:
         groups[(row["model"], row["condition"], row["schedule"])].append(row)
@@ -60,12 +91,16 @@ def main():
             record[f"{metric}_sd"] = float(np.std(values, ddof=1)) if len(values) > 1 else None
             record[f"{metric}_ci95_low"] = low
             record[f"{metric}_ci95_high"] = high
+        paired = [m["map50_95_absolute_change"] for m in members if m["map50_95_absolute_change"] is not None]
+        paired_relative = [m["map50_95_relative_change_percent"] for m in members if m["map50_95_relative_change_percent"] is not None]
+        low, high = interval(paired)
+        record["paired_clean_n"] = len(paired)
+        record["paired_map50_95_difference_mean"] = float(np.mean(paired)) if paired else None
+        record["paired_map50_95_difference_sd"] = float(np.std(paired, ddof=1)) if len(paired) > 1 else None
+        record["paired_map50_95_difference_ci95_low"] = low
+        record["paired_map50_95_difference_ci95_high"] = high
+        record["paired_map50_95_relative_change_percent_mean"] = float(np.mean(paired_relative)) if paired_relative else None
         summary.append(record)
-    clean_by_model_seed = {(r["model"], r["seed"]): r for r in runs if r["condition"] == "clean" and r["schedule"] == "fixed_epochs"}
-    for row in runs:
-        clean = clean_by_model_seed.get((row["model"], row["seed"]))
-        row["map50_95_absolute_change"] = row["map50_95"] - clean["map50_95"] if clean else None
-        row["map50_95_relative_change_percent"] = 100 * (row["map50_95"] / clean["map50_95"] - 1) if clean and clean["map50_95"] else None
 
     primary = CONFIG["training"]["primary_conditions"]
     primary_means = {r["condition"]: r for r in summary if r["model"] == "yolo11n" and r["schedule"] == "fixed_epochs" and r["condition"] in primary}
@@ -109,10 +144,20 @@ def main():
         flags = QUALITY[variant]["conventional_baselines"]
         conventional.append({"variant": variant, "detected": any(flags.values()), "positive_checks": [k for k, v in flags.items() if v]})
 
-    planned = CONFIG.get("executed_resource_plan", {}).get("planned_run_count", 24 + 4 + 3 + 6)
+    expected_tags = planned_tags()
+    observed_tags = {row["tag"] for row in runs}
+    completed_tags = sorted(observed_tags.intersection(expected_tags))
+    missing_tags = sorted(set(expected_tags) - observed_tags)
     result = {
         "protocol_version": CONFIG["protocol_version"], "final_protocol": {"batch": batch, "workers": workers},
-        "planned_model_runs": planned, "completed_primary_protocol_runs": len(runs), "all_planned_runs_complete": len(runs) == planned,
+        "planned_model_runs": len(expected_tags),
+        "completed_final_protocol_runs": len(completed_tags),
+        "observed_final_protocol_runs": len(runs),
+        "completed_primary_protocol_runs": len(runs),
+        "planned_tags": expected_tags,
+        "completed_tags": completed_tags,
+        "missing_tags": missing_tags,
+        "all_planned_runs_complete": not missing_tags,
         "correlations": correlation_results, "detection_analysis": detection,
         "conventional_baseline_detection": conventional,
         "limitations": ["Condition-level correlations are descriptive and use related controlled variants.", "Three seeds quantify optimizer/training variability, not dataset-to-dataset generalization.", "A 10% trusted audit is a deterministic sample and is not equivalent to a full oracle."],
@@ -124,7 +169,7 @@ def main():
             with (OUT / name).open("w", newline="", encoding="utf-8") as stream:
                 writer = csv.DictWriter(stream, fieldnames=list(rows[0]))
                 writer.writeheader(); writer.writerows(rows)
-    print(json.dumps({"completed": len(runs), "planned": planned, "groups": len(summary), "output": str(OUT)}, indent=2))
+    print(json.dumps({"completed": len(runs), "planned": len(expected_tags), "groups": len(summary), "output": str(OUT)}, indent=2))
 
 
 if __name__ == "__main__":

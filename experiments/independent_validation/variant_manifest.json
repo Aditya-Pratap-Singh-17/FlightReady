@@ -37,7 +37,7 @@
         "family": "reference",
         "prevalence": 0
       },
-      "dataset_yaml": "C:\\DataReadiness\\experiments\\independent_validation\\dataset\\prepared\\clean\\dataset.yaml"
+      "dataset_yaml": "experiments/independent_validation/dataset/prepared/clean/dataset.yaml"
     },
     {
       "variant": "gaussian_10",
@@ -72,7 +72,7 @@
         "prevalence": 10,
         "sigma_rgb": 25
       },
-      "dataset_yaml": "C:\\DataReadiness\\experiments\\independent_validation\\dataset\\prepared\\gaussian_10\\dataset.yaml"
+      "dataset_yaml": "experiments/independent_validation/dataset/prepared/gaussian_10/dataset.yaml"
     },
     {
       "variant": "gaussian_25",
@@ -107,7 +107,7 @@
         "prevalence": 25,
         "sigma_rgb": 25
       },
-      "dataset_yaml": "C:\\DataReadiness\\experiments\\independent_validation\\dataset\\prepared\\gaussian_25\\dataset.yaml"
+      "dataset_yaml": "experiments/independent_validation/dataset/prepared/gaussian_25/dataset.yaml"
     },
     {
       "variant": "gaussian_40",
@@ -142,7 +142,7 @@
         "prevalence": 40,
         "sigma_rgb": 25
       },
-      "dataset_yaml": "C:\\DataReadiness\\experiments\\independent_validation\\dataset\\prepared\\gaussian_40\\dataset.yaml"
+      "dataset_yaml": "experiments/independent_validation/dataset/prepared/gaussian_40/dataset.yaml"
     },
     {
       "variant": "motion_blur_25",
@@ -177,7 +177,7 @@
         "prevalence": 25,
         "horizontal_kernel_pixels": 9
       },
-      "dataset_yaml": "C:\\DataReadiness\\experiments\\independent_validation\\dataset\\prepared\\motion_blur_25\\dataset.yaml"
+      "dataset_yaml": "experiments/independent_validation/dataset/prepared/motion_blur_25/dataset.yaml"
     },
     {
       "variant": "missing_annotations_10",
@@ -212,7 +212,7 @@
         "prevalence": 10,
         "box_removal_fraction_in_affected_images": 0.5
       },
-      "dataset_yaml": "C:\\DataReadiness\\experiments\\independent_validation\\dataset\\prepared\\missing_annotations_10\\dataset.yaml"
+      "dataset_yaml": "experiments/independent_validation/dataset/prepared/missing_annotations_10/dataset.yaml"
     },
     {
       "variant": "missing_annotations_25",
@@ -247,7 +247,7 @@
         "prevalence": 25,
         "box_removal_fraction_in_affected_images": 0.5
       },
-      "dataset_yaml": "C:\\DataReadiness\\experiments\\independent_validation\\dataset\\prepared\\missing_annotations_25\\dataset.yaml"
+      "dataset_yaml": "experiments/independent_validation/dataset/prepared/missing_annotations_25/dataset.yaml"
     },
     {
       "variant": "missing_annotations_40",
@@ -282,7 +282,7 @@
         "prevalence": 40,
         "box_removal_fraction_in_affected_images": 0.5
       },
-      "dataset_yaml": "C:\\DataReadiness\\experiments\\independent_validation\\dataset\\prepared\\missing_annotations_40\\dataset.yaml"
+      "dataset_yaml": "experiments/independent_validation/dataset/prepared/missing_annotations_40/dataset.yaml"
     },
     {
       "variant": "bbox_displacement_25",
@@ -317,7 +317,7 @@
         "prevalence": 25,
         "normalized_center_shift": 0.08
       },
-      "dataset_yaml": "C:\\DataReadiness\\experiments\\independent_validation\\dataset\\prepared\\bbox_displacement_25\\dataset.yaml"
+      "dataset_yaml": "experiments/independent_validation/dataset/prepared/bbox_displacement_25/dataset.yaml"
     },
     {
       "variant": "coverage_40",
@@ -352,7 +352,7 @@
         "prevalence": 40,
         "training_images_removed": 0.4
       },
-      "dataset_yaml": "C:\\DataReadiness\\experiments\\independent_validation\\dataset\\prepared\\coverage_40\\dataset.yaml"
+      "dataset_yaml": "experiments/independent_validation/dataset/prepared/coverage_40/dataset.yaml"
     },
     {
       "variant": "combined_40",
@@ -389,7 +389,7 @@
         "box_removal_fraction_in_affected_images": 0.5,
         "normalized_center_shift": 0.08
       },
-      "dataset_yaml": "C:\\DataReadiness\\experiments\\independent_validation\\dataset\\prepared\\combined_40\\dataset.yaml"
+      "dataset_yaml": "experiments/independent_validation/dataset/prepared/combined_40/dataset.yaml"
     },
     {
       "variant": "repaired",
@@ -424,7 +424,7 @@
         "prevalence": 0,
         "source": "clean"
       },
-      "dataset_yaml": "C:\\DataReadiness\\experiments\\independent_validation\\dataset\\prepared\\repaired\\dataset.yaml"
+      "dataset_yaml": "experiments/independent_validation/dataset/prepared/repaired/dataset.yaml"
     }
   ],
   "wrong_class_status": "not_applicable_single_class"

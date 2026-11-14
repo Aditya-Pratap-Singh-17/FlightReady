@@ -7,7 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 EXP = ROOT / "experiments" / "independent_validation"
-REPORTS = EXP / "reports"
+REPORTS = EXP / "final_reports"
 
 
 def rows(name):
@@ -61,6 +61,21 @@ def references():
 [10] Ultralytics, “Ultralytics YOLO documentation and model assets,” software artifact, accessed 12 Nov. 2026."""
 
 
+def protocol_execution_text(stats, runs):
+    """Describe the actual ledger without treating extra valid observations as planned runs."""
+    planned = stats["planned_model_runs"]
+    completed = stats["completed_final_protocol_runs"]
+    observed = len(runs)
+    extras = max(0, observed - completed)
+    text = (
+        f"The resource-amended protocol planned {planned} final-protocol runs. "
+        f"The archived result ledger contains {completed} completed planned runs"
+    )
+    if extras:
+        text += f" plus {extras} valid final-protocol observation(s) reported separately because they were not in that final plan"
+    return text + "."
+
+
 def main():
     REPORTS.mkdir(parents=True, exist_ok=True)
     config = json.loads((EXP / "experiment_config.json").read_text(encoding="utf-8"))
@@ -79,13 +94,14 @@ def main():
     for r in runs:
         run_lines.append(f"| {r['model']} | {r['condition']} | {r['seed']} | {r['schedule']} | {f(r['map50_95'])} | {f(r['map50_95_absolute_change'])} | {f(r['map50_95_relative_change_percent'],2)}% | {f(r['precision'])} | {f(r['recall'])} | {f(r['elapsed_seconds'],1)} |")
     run_table = "\n".join(run_lines)
-    common_findings = f"""The final protocol completed {stats['completed_primary_protocol_runs']} real fine-tuning runs. Full-oracle FlightReady score versus YOLO11n condition-mean test mAP@0.5:0.95 gave Pearson r={f(pearson['coefficient'],3)} (p={f(pearson['p_value'],4)}, n={pearson['n']}) and Spearman rho={f(spearman['coefficient'],3)} (p={f(spearman['p_value'],4)}). These are descriptive condition-level associations, not independent-dataset predictive validation. Reference-free primary scores were withheld for every condition at 55.6% evidence coverage. Controlled-defect sensitivity was {free_det['sensitivity']:.1%} reference-free, {audit_det['sensitivity']:.1%} with the deterministic 10% audit, and {oracle_det['sensitivity']:.1%} with the full oracle under the prespecified >0.1-point-or-warning-change rule."""
+    execution = protocol_execution_text(stats, runs)
+    common_findings = f"""{execution} At report generation, the condition-level score/performance correlation is Pearson r={f(pearson['coefficient'],3)} (p={f(pearson['p_value'],4)}, n={pearson['n']}) and Spearman rho={f(spearman['coefficient'],3)} (p={f(spearman['p_value'],4)}); these are descriptive condition-level associations, not independent-dataset predictive validation. Reference-free primary scores were withheld for every condition at 55.6% evidence coverage. Across the prespecified controlled-defect variants, sensitivity was {free_det['sensitivity']:.1%} reference-free, {audit_det['sensitivity']:.1%} with the deterministic 10% audit, and {oracle_det['sensitivity']:.1%} with the full oracle under the prespecified >0.1-point-or-warning-change rule."""
 
     full_report = f"""# FlightReady v2: Full Independent Validation Report
 
 ## Abstract
 
-This study independently evaluates the frozen FlightReady v2 evidence-aware UAV dataset-readiness method on UAVVaste, a public aerial litter-detection dataset not used in FlightReady development. The method was frozen by source hashes before results. We generated reproducible training-only Gaussian noise, motion blur, missing annotations, bounding-box displacement, reduced coverage, combined degradation, and restored controls; the one-class dataset made wrong-class corruption inapplicable. YOLO11n was trained with three seeds for eight primary conditions, with severity, fixed-update, and YOLOv8n transfer checks. {common_findings} The evidence supports interpretability and defect sensitivity when trusted references exist, while reference-free semantic coverage remains insufficient. The work does not establish a universal readiness-to-accuracy predictor.
+I independently evaluate the frozen FlightReady v2 evidence-aware UAV dataset-readiness method on UAVVaste, a public aerial litter-detection dataset not used in FlightReady development. I froze the method by source hashes before examining results. I generated reproducible training-only Gaussian noise, motion blur, missing annotations, bounding-box displacement, reduced coverage, combined degradation, and restored controls; the one-class dataset made wrong-class corruption inapplicable. The resource-amended protocol specifies repeated clean and combined comparisons, single-seed primary defect conditions, severity checks, a fixed-update control, and a YOLOv8n transfer check. {common_findings} The evidence supports interpretability and defect sensitivity when trusted references exist, while reference-free semantic coverage remains insufficient. This study does not establish a universal readiness-to-accuracy predictor.
 
 ## 1. Research questions
 
@@ -113,7 +129,7 @@ UAVVaste differs materially from VisDrone: it is single-class, application-speci
 
 Training-only variants used a fixed seed `{config['variant_seed']}`. Gaussian noise used sigma 25 RGB at 10/25/40% prevalence; motion blur used a horizontal 9-pixel kernel at 25%; missing annotations removed 50% of boxes inside affected images at 10/25/40%; displacement shifted normalized centers by +0.08 at 25%; coverage removed 40% of training images; combined degradation applied noise, omission, and displacement to 40%; repaired was byte/label equivalent to clean. Wrong-class corruption was excluded because no second valid class exists.
 
-The final common model protocol used pretrained YOLO11n and YOLOv8n, 832-pixel input, batch 32, AdamW selected by Ultralytics `optimizer=auto`, deterministic execution, patience 10, and seeds 17/42/93. Validation selected the best checkpoint; test data were used only for final evaluation. Coverage was evaluated both at 40 epochs and 67 epochs to approximate matched optimizer updates. Resource-only amendments and excluded feasibility runs are disclosed in `protocol_amendment_*.json`.
+The final common model protocol uses pretrained YOLO11n and YOLOv8n, 832-pixel input, batch 32, AdamW selected by Ultralytics `optimizer=auto`, deterministic execution, patience 10, and the planned seeds recorded per condition in `experiment_config.json`. Validation selects the best checkpoint; test data are used only for final evaluation. Coverage is evaluated at 40 epochs and 67 epochs to approximate matched optimizer updates. Resource-only amendments and excluded feasibility runs are disclosed in `protocol_amendment_*.json`.
 
 ## 6. FlightReady results
 
@@ -125,7 +141,7 @@ Reference-free assessment correctly withheld all primary scores. Its measured su
 
 {table_models}
 
-All numbers above come from final checkpoint evaluation on the same untouched official test set. Confidence intervals are t intervals across three seeds where n=3; single-seed severity conditions have no inferential interval.
+All numbers above come from final checkpoint evaluation on the same untouched official test set. Confidence intervals are t intervals only for rows with n=3; single-seed rows have no inferential interval. The protocol ledger distinguishes planned runs from supplemental valid observations.
 
 ## 8. Statistical analysis
 
@@ -166,7 +182,7 @@ The strongest supported claim is not that one score predicts detector accuracy. 
 - The deterministic 10% audit is one sample, not a replicated sampling study.
 - Absolute Laplacian variance is content- and scale-sensitive; Gaussian noise can misleadingly increase apparent sharpness.
 - Condition correlations use related interventions and cannot establish causal prediction or calibrated accuracy forecasts.
-- Weights remain engineering judgments rather than empirically learned utilities.
+- Metric weights remain engineering judgments rather than empirically learned utilities.
 
 ## 13. Conclusions
 
@@ -295,13 +311,13 @@ The independent experiment supports FlightReady v2 as a transparent, practically
 
 ## Abstract
 
-Dataset-quality tools commonly return summaries even when semantic correctness or acquisition completeness cannot be observed. We present FlightReady v2, an evidence-aware UAV dataset scorecard that retains unavailable evidence, exposes bounds and contributions, separates gates from quality aggregation, and withholds complete scores when required evidence is absent. We freeze the implementation and independently evaluate it on UAVVaste using {len(runs)} real YOLO fine-tuning runs, controlled training-only corruptions, three primary seeds, a fixed-update control, a restored condition, and a second model transfer check. {common_findings} Results support the framework's interpretability and trusted-reference sensitivity but not a universal claim that readiness score predicts detector accuracy. We identify reference availability, one-dataset scope, and official-split leakage risk as principal limitations.
+Dataset-quality tools commonly return summaries even when semantic correctness or acquisition completeness cannot be observed. I present FlightReady v2, an evidence-aware UAV dataset scorecard that retains unavailable evidence, exposes bounds and diagnostic influences, separates gates from quality aggregation, and withholds complete scores when required evidence is absent. I freeze the implementation and independently evaluate it on UAVVaste using the archived real YOLO fine-tuning ledger, controlled training-only corruptions, repeated clean/combined seeds, a fixed-update control, a restored condition, and a second-model transfer check. {common_findings} Results support the framework's interpretability and trusted-reference sensitivity but not a universal claim that readiness score predicts detector accuracy. I identify reference availability, one-dataset scope, and official-split leakage risk as principal limitations.
 
 ## I. Introduction
 
 UAV perception depends on data whose quality is task-specific: valid files may still contain omitted objects, displaced boxes, inadequate scenario coverage, or low signal quality. Classical schema checks are necessary but cannot establish semantic truth without evidence. FlightReady v1 exposed this problem empirically: its partial-evidence score was insensitive or negatively aligned with model results. V2 treats missing evidence as a first-class state.
 
-Our contributions are: (1) a frozen evidence-aware scorecard with explicit coverage and withheld-score semantics; (2) an independent real-UAV validation with controlled defects and repeated detector training; (3) a separation of reference-free, 10% trusted-audit, and full-oracle conclusions; and (4) an honest analysis of when quality assessment corresponds—or fails to correspond—to downstream performance.
+I contribute: (1) a frozen evidence-aware scorecard with explicit coverage and withheld-score semantics; (2) an independent real-UAV validation with controlled defects and repeated detector training; (3) a separation of reference-free, 10% trusted-audit, and full-oracle conclusions; and (4) an honest analysis of when quality assessment corresponds—or fails to correspond—to downstream performance.
 
 ## II. Related work
 
@@ -311,11 +327,11 @@ Dataset-quality surveys organize completeness, accuracy, validity, representativ
 
 For applicable metrics, measured scores lie in [0,100] and use a weighted geometric mean. Unavailable applicable metric weights remain in evidence coverage and form lower/upper score bounds. A primary score is published only at complete coverage. Gate order is assessment error, blocking failure, unknown blocking evidence or coverage below 0.8, warning failure, then ready. Reference evidence is labeled by type and identifier.
 
-We freeze method version `{frozen['methodology_version']}` using source SHA-256 hashes. Reference-free evaluation sees only supplied training files. Full-oracle evaluation uses clean annotations and acquisition expectations. A deterministic 10% audit provides a limited trusted sample.
+I froze method version `{frozen['methodology_version']}` using source SHA-256 hashes. Reference-free evaluation sees only supplied training files. Full-oracle evaluation uses clean annotations and acquisition expectations. A deterministic 10% audit provides a limited trusted sample.
 
 ## IV. Experimental setup
 
-UAVVaste has 772 images, 3718 annotations, one class, and official 540/116/116 splits. Corruptions affect training only. Primary YOLO11n conditions are clean, Gaussian-25, blur-25, missing-25, displacement-25, coverage-40, combined-40, and repaired, each at seeds 17/42/93. Additional 10/40% severity runs, 67-epoch fixed-update coverage runs, and YOLOv8n clean/combined runs test secondary questions. Input resolution is 832. Validation selects checkpoints; test is evaluated once per final checkpoint.
+UAVVaste has 772 images, 3718 annotations, one class, and official 540/116/116 splits. Corruptions affect training only. YOLO11n conditions are clean, Gaussian-25, blur-25, missing-25, displacement-25, coverage-40, combined-40, and repaired. The resource plan repeats clean and combined at seeds 17/42/93 and uses seed 17 for other primary conditions; it also schedules 10/40% severity runs, a 67-epoch fixed-update coverage run, and YOLOv8n clean/combined transfer checks. Input resolution is 832. Validation selects checkpoints; test is evaluated once per final checkpoint.
 
 ## V. Results
 
@@ -347,9 +363,9 @@ FlightReady v2 provides reliable and interpretable evidence accounting on this i
 """
 
     outputs = {
-        "FlightReady_Independent_Validation_Report.md": full_report,
-        "IEEE_Publication_Readiness_Assessment.md": review,
-        "Results_For_Independent_Review.md": independent,
+        "FlightReady_Final_Independent_Validation_Report.md": full_report,
+        "IEEE_Publication_Readiness_Review.md": review,
+        "Results_For_ChatGPT_Review.md": independent,
         "FlightReady_IEEE_Conference_Paper_Draft.md": manuscript,
     }
     for name, content in outputs.items():
